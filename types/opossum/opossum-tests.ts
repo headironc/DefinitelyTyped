@@ -47,13 +47,15 @@ breaker.close(); // $ExpectType void
 breaker.disable(); // $ExpectType void
 breaker.enable(); // $ExpectType void
 breaker.shutdown(); // $ExpectType void
+breaker.toJSON(); // $ExpectType { state: State; status: Stats; }
 
 // Check the generic types pass down correctly from constructor to `fire` and events.
 const action = async (foo: string, bar: number) => {
     return foo ? bar : bar * 2;
 };
 const typedBreaker = new CircuitBreaker(action);
-typedBreaker.fire(5, 'hello'); // $ExpectError
+// @ts-expect-error
+typedBreaker.fire(5, 'hello');
 typedBreaker.fire('hello world', 42); // $ExpectType Promise<number>
 typedBreaker.on('success', (result, latencyMs) => {
     result; // $ExpectType number

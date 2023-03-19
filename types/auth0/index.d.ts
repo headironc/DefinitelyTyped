@@ -1,8 +1,6 @@
 // Type definitions for auth0 2.35
 // Project: https://github.com/auth0/node-auth0
 // Definitions by: Ian Howe <https://github.com/ianhowe76>
-//                 Dan Rumney <https://github.com/dancrumb>
-//                 Peter <https://github.com/pwrnrd>
 //                 Anthony Messerschmidt <https://github.com/CatGuardian>
 //                 Meng Bernie Sung <https://github.com/MengRS>
 //                 Léo Haddad Carneiro <https://github.com/Scoup>
@@ -12,6 +10,7 @@
 //                 Dan Ursin <https://github.com/danursin>
 //                 Nathan Hardy <https://github.com/nhardy>
 //                 Nicholas Molen <https://github.com/robotastronaut>
+//                 Chris Frewin <https://github.com/princefishthrower>
 // Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
 
 export interface ManagementClientOptions {
@@ -23,6 +22,7 @@ export interface ManagementClientOptions {
     scope?: string | undefined;
     tokenProvider?: TokenProvider | undefined;
     retry?: RetryOptions | undefined;
+    telemetry?: boolean | undefined;
 }
 
 export interface TokenProvider {
@@ -463,6 +463,8 @@ export type Strategy =
     | 'oauth1'
     | 'oauth2'
     | 'office365'
+    | 'oidc'
+    | 'okta'
     | 'paypal'
     | 'paypal-sandbox'
     | 'pingfederate'
@@ -537,6 +539,23 @@ export interface CreateConnection extends UpdateConnection {
      * The identity provider identifier for the connection.
      */
     strategy: Strategy;
+}
+
+export interface GetConnectionsOptions extends PagingOptions {
+    /** List of fields to include or exclude */
+    fields?: string | string[] | undefined;
+
+    /** true if the fields specified are to be included in the result, false otherwise. Default true */
+    include_fields?: boolean | undefined;
+
+    /** true if a query summary must be included in the result, false otherwise. Default false */
+    include_totals?: boolean | undefined;
+
+    /** Provide strategies to only retrieve connections with such strategies */
+    strategy?: Strategy | undefined;
+
+    /** Provide the name of the connection to retrieve */
+    name?: string | undefined;
 }
 
 export interface User<A = AppMetadata, U = UserMetadata> {
@@ -616,6 +635,7 @@ export interface AuthenticationClientOptions {
     clientId?: string | undefined;
     clientSecret?: string | undefined;
     domain: string;
+    telemetry?: boolean | undefined;
 }
 
 interface Environment {
@@ -996,6 +1016,7 @@ export interface SignInOptions {
     otp: string;
     realm?: 'email' | 'sms';
     audience?: string | undefined;
+    scope?: string | undefined;
     /**
      * @deprecated
      */
@@ -1195,10 +1216,10 @@ export interface Organization {
     branding?:
         | {
               logo_url?: string | undefined;
-              colors: {
+              colors?: {
                   primary: string;
                   page_background: string;
-              };
+              } | undefined;
           }
         | undefined;
     metadata?: any;
@@ -1214,10 +1235,10 @@ export interface CreateOrganization {
     branding?:
         | {
               logo_url?: string | undefined;
-              colors: {
+              colors?: {
                   primary: string;
                   page_background: string;
-              };
+              } | undefined;
           }
         | undefined;
     metadata?: any;
@@ -1229,7 +1250,7 @@ export interface UpdateOrganization {
     branding?:
         | {
               logo_url?: string | undefined;
-              colors: {
+              colors?: {
                   primary: string;
                   page_background: string;
               };
@@ -1523,6 +1544,14 @@ export interface LogsQuery {
     take?: number;
 }
 
+export interface UsersLogsQuery {
+    id: string;
+    per_page?: number;
+    page?: number;
+    sort?: string;
+    include_totals?: boolean;
+}
+
 export interface GetDeviceCredentialsParams {
     user_id: string;
     page?: number;
@@ -1706,13 +1735,14 @@ export class OrganizationsManager {
 
 export class ManagementClient<A = AppMetadata, U = UserMetadata> {
     organizations: OrganizationsManager;
+    users: UsersManager;
 
     constructor(options: ManagementClientOptions);
 
     getClientInfo(): ClientInfo;
 
     // Connections
-    getConnections(params: PagingOptions): Promise<Connection[]>;
+    getConnections(params?: GetConnectionsOptions): Promise<Connection[]>;
     getConnections(): Promise<Connection[]>;
     getConnections(cb: (err: Error, connections: Connection[]) => void): void;
 
@@ -1891,6 +1921,10 @@ export class ManagementClient<A = AppMetadata, U = UserMetadata> {
     linkUsers(userId: string, params: LinkAccountsParams): Promise<any>;
     linkUsers(userId: string, params: LinkAccountsParams, cb: (err: Error, data: any) => void): void;
 
+    // User Logs
+    getUserLogs(params: UsersLogsQuery): Promise<Array<LogEvent>>;
+    getUserLogs(params: UsersLogsQuery, cb: (err: Error, data: Array<LogEvent>) => void): void;
+
     // User roles
     getUserRoles(params: ObjectWithId): Promise<Role[]>;
     getUserRoles(params: ObjectWithId, cb: (err: Error, roles: Role[]) => void): void;
@@ -2054,6 +2088,9 @@ export class ManagementClient<A = AppMetadata, U = UserMetadata> {
     deleteCustomDomain(params: ObjectWithId, cb: (err: Error) => void): void;
 
     // User enrollment
+    getGuardianEnrollment(params: ObjectWithId): Promise<Enrollment>;
+    getGuardianEnrollment(params: ObjectWithId, cb: (err: Error, response: Enrollment) => void): void;
+
     getGuardianEnrollments(params: ObjectWithId): Promise<Enrollment[]>;
     getGuardianEnrollments(params: ObjectWithId, cb: (err: Error, response: Enrollment[]) => void): void;
 
@@ -2167,4 +2204,7 @@ export class UsersManager<A = AppMetadata, U = UserMetadata> {
 
     impersonate(userId: string, settings: ImpersonateSettingOptions): Promise<any>;
     impersonate(userId: string, settings: ImpersonateSettingOptions, cb: (err: Error, data: any) => void): void;
+
+    getUserOrganizations(data: ObjectWithId): Promise<Organization[]>;
+    getUserOrganizations(data: ObjectWithId, cb: (err: Error, orgs: Organization[]) => void): void;
 }

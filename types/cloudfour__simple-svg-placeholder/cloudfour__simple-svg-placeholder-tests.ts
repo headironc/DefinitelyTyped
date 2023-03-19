@@ -1,4 +1,5 @@
 import placeholder = require('@cloudfour/simple-svg-placeholder');
+import * as placeholderByImportFrom from '@cloudfour/simple-svg-placeholder';
 
 // $ExpectType string
 placeholder();
@@ -21,19 +22,22 @@ placeholder({
 });
 
 placeholder({
-    // $ExpectError
+    // @ts-expect-error
     width: '300px',
-    // $ExpectError
+    // @ts-expect-error
     height: '150px',
-    // $ExpectError
+    // @ts-expect-error
     text: 300,
-    // $ExpectError
+    // @ts-expect-error
     fontSize: '50px',
-    // $ExpectError
+    // @ts-expect-error
     dy: '40px',
-    // $ExpectError
+    // @ts-expect-error
     dataUri: 'true',
 });
 
-// $ExpectError
+// @ts-expect-error
 placeholder(300, 150);
+
+// $ExpectType string
+placeholderByImportFrom();

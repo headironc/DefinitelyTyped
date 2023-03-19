@@ -14,7 +14,7 @@ import * as R from 'ramda';
     // tslint:enable:max-line-length
 
     // $ExpectType { (a: string, b: string): (list: readonly unknown[]) => boolean; (a: string): (b: string) => (list: readonly unknown[]) => boolean; }
-    const containsInsensitive = R.on(R.contains, R.toLower);
+    const containsInsensitive = R.on(R.includes, R.toLower);
     // $ExpectType (list: readonly unknown[]) => boolean
     containsInsensitive('o', 'FOO'); // => true
 
@@ -36,9 +36,9 @@ import * as R from 'ramda';
     R.on((a: number, b: number) => a + b)(Number)('1')('2');
     // Using literals is a mistake
 
-    // $ExpectError
+    // @ts-expect-error
     R.on((a, b) => a + b, Number, '1')('2');
-    // $ExpectError
+    // @ts-expect-error
     R.on((a: number, b: number) => a + b)(Number, '1')('2');
 
     // $ExpectType string

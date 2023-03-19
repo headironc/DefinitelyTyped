@@ -1,9 +1,9 @@
-// For Library Version: 1.102.0
+// For Library Version: 1.111.0
 
 declare module "sap/ui/ux3/library" {
   /**
    * @deprecated (since 1.38)
-   * @EXPERIMENTAL (since 1.2)
+   * @EXPERIMENTAL (since 1.2) - API is not yet finished and might change completely
    *
    * Enumeration of available standard actions for 'sap.ui.ux3.ActionBar'. To be used as parameters for function
    * 'sap.ui.ux3.ActionBar.getSocialAction'.
@@ -57,7 +57,9 @@ declare module "sap/ui/ux3/library" {
   }
   /**
    * @deprecated (since 1.38)
-   * @EXPERIMENTAL (since 1.2)
+   * @EXPERIMENTAL (since 1.2) - The whole Feed/Feeder API is still under discussion, significant changes
+   * are likely. Especially text presentation (e.g. @-references and formatted text) is not final. Also the
+   * Feed model topic is still open.
    *
    * Type of a Feeder.
    */
@@ -194,6 +196,25 @@ declare module "sap/ui/ux3/library" {
      */
     Fixed = "Fixed",
   }
+}
+
+declare module "sap/ui/ux3/ShellPersonalization" {
+  /**
+   * @deprecated (since 1.36) - This class was never released for productive use and will never be.
+   * @EXPERIMENTAL (since 1.0) - The Shell-features Personalization, Color Picker and “Inspect”-Tool are only
+   * experimental work and might change or disappear in future versions.
+   *
+   * Experimental implementation of visual Ux3 Shell personalization / branding.
+   *
+   * DO NOT USE PRODUCTIVELY!!!
+   *
+   * Being completely non-generic as of now, this is supposed to facilitate discussions with Ux about the
+   * personalization capabilities. Once that concept is more final, we can go for a cleaner implementation,
+   * considering the number of configurable properties etc.
+   */
+  const ShellPersonalization: undefined;
+
+  export default ShellPersonalization;
 }
 
 declare module "sap/ui/ux3/ActionBar" {
@@ -1257,17 +1278,17 @@ declare module "sap/ui/ux3/Collection" {
        * The item to remove or its index or id
        */
       vItem: int | string | Item
-    ): Item;
+    ): Item | null;
     /**
      *
-     * @returns the id of the removed selectedItem or null
+     * @returns the ID of the removed selected item or `null`
      */
     removeSelectedItem(
       /**
-       * the selectedItem to remove or its index or id
+       * the selected item to remove or its index or ID
        */
       vSelectedItem: int | string | Item
-    ): string;
+    ): string | null | undefined;
     /**
      * Sets a new value for property {@link #getEditable editable}.
      *
@@ -1826,25 +1847,25 @@ declare module "sap/ui/ux3/CollectionInspector" {
     /**
      * Removes a collection from the aggregation named `collections`.
      *
-     * @returns the removed collection or null
+     * @returns the removed collection or `null`
      */
     removeCollection(
       /**
-       * the collection to remove or its index or id
+       * the collection to remove or its index or ID
        */
       vCollection: int | string | Collection
-    ): Collection;
+    ): Collection | null;
     /**
      * Removes a content from the aggregation named `content`.
      *
-     * @returns the removed content or null
+     * @returns the removed content or `null`
      */
     removeContent(
       /**
-       * the content to remove or its index or id
+       * the content to remove or its index or ID
        */
       vContent: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Sets a new value for property {@link #getFitParent fitParent}.
      *
@@ -2195,12 +2216,12 @@ declare module "sap/ui/ux3/DataSet" {
       /**
        * View
        */
-      oView: object,
+      oView: /* was: sap.m.Element */ any,
       /**
        * Index of view
        */
       iIndex: int
-    ): object;
+    ): /* was: sap.m.Button */ any;
     /**
      * Destroys all the filter in the aggregation {@link #getFilter filter}.
      *
@@ -2510,7 +2531,7 @@ declare module "sap/ui/ux3/DataSet" {
        * The filter to remove or its index or id
        */
       vFilter: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Removes a item from the aggregation {@link #getItems items}.
      *
@@ -2521,7 +2542,7 @@ declare module "sap/ui/ux3/DataSet" {
        * The item to remove or its index or id
        */
       vItem: int | string | DataSetItem
-    ): DataSetItem;
+    ): DataSetItem | null;
     /**
      * remove a toolbarItem to the toolbar
      */
@@ -2536,7 +2557,7 @@ declare module "sap/ui/ux3/DataSet" {
        * The view to remove or its index or id
        */
       vView: int | string | DataSetView
-    ): DataSetView;
+    ): DataSetView | null;
     /**
      * Set the LeadSelection index
      */
@@ -3530,7 +3551,7 @@ declare module "sap/ui/ux3/Exact" {
 
   /**
    * @deprecated (since 1.38)
-   * @EXPERIMENTAL (since 1.2)
+   * @EXPERIMENTAL (since 1.2) - API is not yet finished and might change completely
    *
    * A comprehensive UI design approach with graphical and functional elements for searching data, exploring
    * data, and acting on the data ("Explore and Act (Exact) Pattern").
@@ -3858,7 +3879,7 @@ declare module "sap/ui/ux3/Exact" {
        * The attribute to remove or its index or id
        */
       vAttribute: int | string | ExactAttribute
-    ): ExactAttribute;
+    ): ExactAttribute | null;
     /**
      * Sets a new value for property {@link #getResultText resultText}.
      *
@@ -3933,7 +3954,7 @@ declare module "sap/ui/ux3/ExactArea" {
 
   /**
    * @deprecated (since 1.38)
-   * @EXPERIMENTAL (since 1.6)
+   * @EXPERIMENTAL (since 1.6) - API is not yet finished and might change completely
    *
    * Consists of two sections: A tool bar and a content area where arbitrary controls can be added. The ExactArea
    * is intended to be used for the Exact design approach but alternatively also in a stand alone version.
@@ -4139,7 +4160,7 @@ declare module "sap/ui/ux3/ExactArea" {
        * The content to remove or its index or id
        */
       vContent: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Removes a toolbarItem from the aggregation {@link #getToolbarItems toolbarItems}.
      *
@@ -4150,7 +4171,7 @@ declare module "sap/ui/ux3/ExactArea" {
        * The toolbarItem to remove or its index or id
        */
       vToolbarItem: int | string | ToolbarItem
-    ): ToolbarItem;
+    ): ToolbarItem | null;
     /**
      * Sets a new value for property {@link #getToolbarVisible toolbarVisible}.
      *
@@ -4520,7 +4541,7 @@ declare module "sap/ui/ux3/ExactAttribute" {
        * The attribute to remove or its index or id
        */
       vAttribute: int | string | ExactAttribute
-    ): ExactAttribute;
+    ): ExactAttribute | null;
     /**
      * Scrolls the corresponding list of this attribute until the given direct child attribute is visible. If
      * the corresponding list is not yet visible the call is buffered until the list is available.
@@ -5212,7 +5233,7 @@ declare module "sap/ui/ux3/ExactBrowser" {
        * The attribute to remove or its index or id
        */
       vAttribute: int | string | ExactAttribute
-    ): ExactAttribute;
+    ): ExactAttribute | null;
     /**
      * Deselects all currently selected attributes and closes all attribute lists.
      */
@@ -5785,7 +5806,7 @@ declare module "sap/ui/ux3/ExactList" {
        * The subList to remove or its index or id
        */
       vSubList: int | string | ExactList
-    ): ExactList;
+    ): ExactList | null;
     /**
      * Sets the associated {@link #getData data}.
      *
@@ -6046,7 +6067,7 @@ declare module "sap/ui/ux3/FacetFilter" {
        * The list to remove or its index or id
        */
       vList: int | string | FacetFilterList
-    ): FacetFilterList;
+    ): FacetFilterList | null;
     /**
      * Sets a new value for property {@link #getVisibleItemCountMode visibleItemCountMode}.
      *
@@ -6380,7 +6401,7 @@ declare module "sap/ui/ux3/FacetFilterList" {
        * The item to remove or its index or id
        */
       vItem: int | string | ListItem
-    ): ListItem;
+    ): ListItem | null;
     /**
      * @SINCE 1.9.0
      *
@@ -6532,7 +6553,9 @@ declare module "sap/ui/ux3/Feed" {
 
   /**
    * @deprecated (since 1.38) - Instead, use **any** `sap.ui.layout` container control.
-   * @EXPERIMENTAL (since 1.2)
+   * @EXPERIMENTAL (since 1.2) - The whole Feed/Feeder API is still under discussion, significant changes
+   * are likely. Especially text presentation (e.g. @-references and formatted text) is not final. Also the
+   * Feed model topic is still open.
    *
    * A container control representing a full feed page, including feeder and updates.
    */
@@ -7260,7 +7283,7 @@ declare module "sap/ui/ux3/Feed" {
        * The chunk to remove or its index or id
        */
       vChunk: int | string | FeedChunk
-    ): FeedChunk;
+    ): FeedChunk | null;
     /**
      * Removes a filterItem from the aggregation {@link #getFilterItems filterItems}.
      *
@@ -7271,7 +7294,7 @@ declare module "sap/ui/ux3/Feed" {
        * The filterItem to remove or its index or id
        */
       vFilterItem: int | string | ListItem
-    ): ListItem;
+    ): ListItem | null;
     /**
      * Removes a toolsMenuItem from the aggregation {@link #getToolsMenuItems toolsMenuItems}.
      *
@@ -7282,7 +7305,7 @@ declare module "sap/ui/ux3/Feed" {
        * The toolsMenuItem to remove or its index or id
        */
       vToolsMenuItem: int | string | MenuItem
-    ): MenuItem;
+    ): MenuItem | null;
     /**
      * Sets a new value for property {@link #getFeederSender feederSender}.
      *
@@ -7456,7 +7479,9 @@ declare module "sap/ui/ux3/FeedChunk" {
 
   /**
    * @deprecated (since 1.38) - Instead, use the `sap.m.FeedListItem` control.
-   * @EXPERIMENTAL (since 1.2)
+   * @EXPERIMENTAL (since 1.2) - The whole Feed/Feeder API is still under discussion, significant changes
+   * are likely. Especially text presentation (e.g. @-references and formatted text) is not final. Also the
+   * Feed model topic is still open.
    *
    * The unit that is embedded - single-wise or in a multiple way - into a Feed control. The control provides
    * a set of properties for text, sender information, time stamp, comments, and functions such as flagging
@@ -8524,7 +8549,7 @@ declare module "sap/ui/ux3/FeedChunk" {
        * The actionMenuItem to remove or its index or id
        */
       vActionMenuItem: int | string | MenuItem
-    ): MenuItem;
+    ): MenuItem | null;
     /**
      * Removes all the controls from the aggregation {@link #getActionMenuItems actionMenuItems}.
      *
@@ -8551,7 +8576,7 @@ declare module "sap/ui/ux3/FeedChunk" {
        * The comment to remove or its index or id
        */
       vComment: int | string | FeedChunk
-    ): FeedChunk;
+    ): FeedChunk | null;
     /**
      * @deprecated (since 1.4.0) - Not longer used. If a chunk is a comment is determined from hierarchy. If
      * the parent is a chunk it's automatically a comment.
@@ -9000,7 +9025,9 @@ declare module "sap/ui/ux3/Feeder" {
 
   /**
    * @deprecated (since 1.38) - Instead, use the `sap.m.FeedInput` control.
-   * @EXPERIMENTAL (since 1.2)
+   * @EXPERIMENTAL (since 1.2) - The whole Feed/Feeder API is still under discussion, significant changes
+   * are likely. Especially text presentation (e.g. @-references and formatted text) is not final. Also the
+   * Feed model topic is still open.
    *
    * This feed control flavor represents a lean common feed, or a comment feed, with a text commit function.
    * The control can be used stand alone or in a multiple way, and generally would be integrated directly
@@ -9578,7 +9605,7 @@ declare module "sap/ui/ux3/NavigationBar" {
        * The associatedItem to be removed or its index or ID
        */
       vAssociatedItem: int | ID | NavigationItem
-    ): ID;
+    ): ID | null;
     /**
      * Removes a item from the aggregation {@link #getItems items}.
      *
@@ -9589,7 +9616,7 @@ declare module "sap/ui/ux3/NavigationBar" {
        * The item to remove or its index or id
        */
       vItem: int | string | NavigationItem
-    ): NavigationItem;
+    ): NavigationItem | null;
     /**
      * Replaces the currently associated items with the ones in the given array
      */
@@ -9867,7 +9894,7 @@ declare module "sap/ui/ux3/NavigationItem" {
        * The subItem to remove or its index or id
        */
       vSubItem: int | string | NavigationItem
-    ): NavigationItem;
+    ): NavigationItem | null;
     /**
      * Sets a new value for property {@link #getHref href}.
      *
@@ -10224,6 +10251,8 @@ declare module "sap/ui/ux3/NotificationBar" {
       }
     ): this;
     /**
+     * @SINCE 1.24.5
+     *
      * Gets current value of property {@link #getAlwaysShowToggler alwaysShowToggler}.
      *
      * This property defines if the toggler should be displayed the whole time when the NotificationBar is shown.
@@ -10319,7 +10348,7 @@ declare module "sap/ui/ux3/NotificationBar" {
        * The notifier to remove or its index or id
        */
       vNotifier: int | string | UI5Element
-    ): UI5Element;
+    ): UI5Element | null;
     /**
      * @SINCE 1.22.11
      */
@@ -10393,6 +10422,8 @@ declare module "sap/ui/ux3/NotificationBar" {
     resizeEnabled?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
+     * @SINCE 1.24.5
+     *
      * This property defines if the toggler should be displayed the whole time when the NotificationBar is shown.
      */
     alwaysShowToggler?: boolean | PropertyBindingInfo | `{${string}}`;
@@ -10685,7 +10716,7 @@ declare module "sap/ui/ux3/Notifier" {
        * The message to remove or its index or id
        */
       vMessage: int | string | Message
-    ): Message;
+    ): Message | null;
     /**
      * Sets a new value for property {@link #getIcon icon}.
      *
@@ -11388,7 +11419,7 @@ declare module "sap/ui/ux3/OverlayContainer" {
        * The content to remove or its index or id
        */
       vContent: int | string | Control
-    ): Control;
+    ): Control | null;
   }
 
   export interface $OverlayContainerSettings extends $OverlaySettings {
@@ -11572,7 +11603,7 @@ declare module "sap/ui/ux3/OverlayDialog" {
        * The content to remove or its index or id
        */
       vContent: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * The height for the OverlayDialog.
      */
@@ -12219,7 +12250,7 @@ declare module "sap/ui/ux3/QuickView" {
        * The action to remove or its index or id
        */
       vAction: int | string | ThingAction
-    ): ThingAction;
+    ): ThingAction | null;
     /**
      * Removes all the controls from the aggregation {@link #getActions actions}.
      *
@@ -12246,7 +12277,7 @@ declare module "sap/ui/ux3/QuickView" {
        * The content to remove or its index or id
        */
       vContent: int | string | UI5Element
-    ): UI5Element;
+    ): UI5Element | null;
     /**
      * Sets the aggregated {@link #getActionBar actionBar}.
      *
@@ -13835,7 +13866,7 @@ declare module "sap/ui/ux3/Shell" {
        * The content to remove or its index or id
        */
       vContent: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Removes a headerItem from the aggregation {@link #getHeaderItems headerItems}.
      *
@@ -13846,7 +13877,7 @@ declare module "sap/ui/ux3/Shell" {
        * The headerItem to remove or its index or id
        */
       vHeaderItem: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Removes a paneBarItem from the aggregation {@link #getPaneBarItems paneBarItems}.
      *
@@ -13857,7 +13888,7 @@ declare module "sap/ui/ux3/Shell" {
        * The paneBarItem to remove or its index or id
        */
       vPaneBarItem: int | string | Item
-    ): Item;
+    ): Item | null;
     /**
      * Removes a paneContent from the aggregation {@link #getPaneContent paneContent}.
      *
@@ -13868,7 +13899,7 @@ declare module "sap/ui/ux3/Shell" {
        * The paneContent to remove or its index or id
        */
       vPaneContent: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Removes a toolPopup from the aggregation {@link #getToolPopups toolPopups}.
      *
@@ -13879,7 +13910,7 @@ declare module "sap/ui/ux3/Shell" {
        * The toolPopup to remove or its index or id
        */
       vToolPopup: int | string | ToolPopup
-    ): ToolPopup;
+    ): ToolPopup | null;
     /**
      * Removes a worksetItem from the aggregation {@link #getWorksetItems worksetItems}.
      *
@@ -13890,7 +13921,7 @@ declare module "sap/ui/ux3/Shell" {
        * The worksetItem to remove or its index or id
        */
       vWorksetItem: int | string | NavigationItem
-    ): NavigationItem;
+    ): NavigationItem | null;
     /**
      * @SINCE 1.14.0
      *
@@ -14904,7 +14935,7 @@ declare module "sap/ui/ux3/ThingGroup" {
        * The action to remove or its index or id
        */
       vAction: int | string | ThingGroup
-    ): ThingGroup;
+    ): ThingGroup | null;
     /**
      * Removes all the controls from the aggregation {@link #getActions actions}.
      *
@@ -14931,7 +14962,7 @@ declare module "sap/ui/ux3/ThingGroup" {
        * The content to remove or its index or id
        */
       vContent: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Sets a new value for property {@link #getColspan colspan}.
      *
@@ -15691,7 +15722,7 @@ declare module "sap/ui/ux3/ThingInspector" {
        * The action to remove or its index or id
        */
       vAction: int | string | ThingAction
-    ): ThingAction;
+    ): ThingAction | null;
     /**
      * Removes all the controls from the aggregation {@link #getActions actions}.
      *
@@ -15734,7 +15765,7 @@ declare module "sap/ui/ux3/ThingInspector" {
        * The facet to remove or its index or id
        */
       vFacet: int | string | NavigationItem
-    ): NavigationItem;
+    ): NavigationItem | null;
     /**
      * Removes a facetContent from the aggregation {@link #getFacetContent facetContent}.
      *
@@ -15745,7 +15776,7 @@ declare module "sap/ui/ux3/ThingInspector" {
        * The facetContent to remove or its index or id
        */
       vFacetContent: int | string | ThingGroup
-    ): ThingGroup;
+    ): ThingGroup | null;
     /**
      * Removes a headerContent from the aggregation {@link #getHeaderContent headerContent}.
      *
@@ -15756,7 +15787,7 @@ declare module "sap/ui/ux3/ThingInspector" {
        * The headerContent to remove or its index or id
        */
       vHeaderContent: int | string | ThingGroup
-    ): ThingGroup;
+    ): ThingGroup | null;
     /**
      * Sets the aggregated {@link #getActionBar actionBar}.
      *
@@ -16567,7 +16598,7 @@ declare module "sap/ui/ux3/ThingViewer" {
        * The facet to remove or its index or id
        */
       vFacet: int | string | NavigationItem
-    ): NavigationItem;
+    ): NavigationItem | null;
     /**
      * Removes a facetContent from the aggregation {@link #getFacetContent facetContent}.
      *
@@ -16578,7 +16609,7 @@ declare module "sap/ui/ux3/ThingViewer" {
        * The facetContent to remove or its index or id
        */
       vFacetContent: int | string | ThingGroup
-    ): ThingGroup;
+    ): ThingGroup | null;
     /**
      * Removes a headerContent from the aggregation {@link #getHeaderContent headerContent}.
      *
@@ -16589,7 +16620,7 @@ declare module "sap/ui/ux3/ThingViewer" {
        * The headerContent to remove or its index or id
        */
       vHeaderContent: int | string | ThingGroup
-    ): ThingGroup;
+    ): ThingGroup | null;
     /**
      * Sets the aggregated {@link #getActionBar actionBar}.
      *
@@ -17690,7 +17721,7 @@ declare module "sap/ui/ux3/ToolPopup" {
        * The button to remove or its index or id
        */
       vButton: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * Removes a content from the aggregation {@link #getContent content}.
      *
@@ -17701,7 +17732,7 @@ declare module "sap/ui/ux3/ToolPopup" {
        * The content to remove or its index or id
        */
       vContent: int | string | Control
-    ): Control;
+    ): Control | null;
     /**
      * @SINCE 1.19.0
      *
@@ -18045,30 +18076,6 @@ declare module "sap/ui/ux3/ToolPopup" {
 }
 
 declare namespace sap {
-  namespace ui {
-    /**
-     * @SINCE 0.13
-     * @deprecated (since 1.38)
-     *
-     * Controls that implement the SAP User Experience (UX) Guidelines 3.0
-     */
-    namespace ux3 {
-      /**
-       * @deprecated (since 1.36) - This class was never released for productive use and will never be.
-       * @EXPERIMENTAL (since 1.0)
-       *
-       * Experimental implementation of visual Ux3 Shell personalization / branding.
-       *
-       * DO NOT USE PRODUCTIVELY!!!
-       *
-       * Being completely non-generic as of now, this is supposed to facilitate discussions with Ux about the
-       * personalization capabilities. Once that concept is more final, we can go for a cleaner implementation,
-       * considering the number of configurable properties etc.
-       */
-      export const ShellPersonalization: undefined;
-    }
-  }
-
   interface IUI5DefineDependencyNames {
     "sap/ui/ux3/ActionBar": undefined;
 

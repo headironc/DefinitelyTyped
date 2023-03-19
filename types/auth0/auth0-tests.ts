@@ -144,6 +144,20 @@ management
             });
     });
 
+// Fetch a user's organizations
+management.users.getUserOrganizations({ id: 'my_id' }).then((organizations: auth0.Organization[]) => {
+    console.log(organizations);
+});
+
+// Fetch a user's organizations using cb style
+management.users.getUserOrganizations({ id: 'my_id' }, (err, orgs) => {
+    if (err) {
+        throw err;
+    }
+
+    console.log(orgs);
+});
+
 auth.requestChangePasswordEmail({
     client_id: 'client_id',
     connection: 'My-Connection',
@@ -294,6 +308,13 @@ management.getUsersByEmail('email@address.com').then(users => {
     console.log(users);
 });
 
+management.getUserLogs({ id: 'user_id' }).then(roles => console.log(roles));
+management.getUserLogs({ id: 'user_id' }, (err, data) => console.log(data));
+management.getUserLogs({ id: 'user_id', per_page: 3 }).then(roles => console.log(roles));
+management.getUserLogs({ id: 'user_id', per_page: 3 }, (err, data) => console.log(data));
+management.getUserLogs({ id: 'user_id', include_totals: true }).then(rolePage => console.log(rolePage));
+management.getUserLogs({ id: 'user_id', include_totals: true }, (err, data) => console.log(data));
+
 management.getUserRoles({ id: 'user_id' }).then(roles => console.log(roles));
 management.getUserRoles({ id: 'user_id' }, (err, data) => console.log(data));
 management.getUserRoles({ id: 'user_id', per_page: 3 }).then(roles => console.log(roles));
@@ -380,6 +401,17 @@ management.assignPermissionsToUser(
     },
 );
 
+// Without telemetry
+new auth0.ManagementClient({
+    domain: 'xxx.auth0.com',
+    telemetry: false,
+});
+
+new auth0.AuthenticationClient({
+    domain: 'xxx.auth0.com',
+    telemetry: false,
+});
+
 // Using different client settings.
 const retryableManagementClient = new auth0.ManagementClient({
     clientId: '',
@@ -451,6 +483,16 @@ management.getConnections((err: Error, connections: auth0.Connection[]) => {});
 // Get all Connections with promise and pagination
 management
     .getConnections({ per_page: 25, page: 0 })
+    .then((connections: auth0.Connection[]) => {
+        console.log(connections);
+    })
+    .catch(err => {
+        // error handler
+    });
+
+// Get all Connections with params (with promise)
+management
+    .getConnections({ name: 'connectionName', strategy: 'auth0', include_fields: true, fields: ['id', 'name'] })
     .then((connections: auth0.Connection[]) => {
         console.log(connections);
     })
@@ -905,6 +947,9 @@ management.deleteCustomDomain({ id: 'cd_0000000000000001' }).then(() => console.
 management.deleteCustomDomain({ id: 'cd_0000000000000001' }, err => console.log('deleted'));
 
 // User enrollment
+management.getGuardianEnrollment({ id: 'cd_0000000000000001' }).then(enrollment => console.log(enrollment));
+management.getGuardianEnrollment({ id: 'cd_0000000000000001' }, (err, enrollment) => console.log(enrollment));
+
 management.getGuardianEnrollments({ id: 'cd_0000000000000001' }).then(enrollments => console.log(enrollments));
 management.getGuardianEnrollments({ id: 'cd_0000000000000001' }, (err, enrollments) => console.log(enrollments));
 
@@ -1029,6 +1074,8 @@ async () => {
     };
     signInUserData.realm = 'email';
     signInUserData.realm = 'sms';
+
+    signInUserData.scope = 'openid profile email';
     const emailUserData: auth0.RequestEmailCodeOrLinkOptions = {
         email: '{YOUR_EMAIL}',
         send: 'code',
