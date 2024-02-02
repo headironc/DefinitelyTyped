@@ -1,11 +1,11 @@
-// For Library Version: 1.110.0
+// For Library Version: 1.120.0
 
 declare module "sap/ui/webc/fiori/library" {
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
-   * Different types of Bar.
+   * Different types of Bar design
    */
   export enum BarDesign {
     /**
@@ -26,22 +26,22 @@ declare module "sap/ui/webc/fiori/library" {
     Subheader = "Subheader",
   }
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
-   * undefined
+   * Different types of FCLLayout.
    */
   export enum FCLLayout {
     /**
-     * Desktop: -/-/100 only the End column is displayed Tablet: -/-/100 only the End column is displayed Phone:
-     * -/-/100 only the End column is displayed
+     * Desktop: -- -- 100 only the End column is displayed Tablet: -- -- 100 only the End column is displayed
+     * Phone: -- -- 100 only the End column is displayed
      *
      * Use to display a detail-detail page only, when the user should focus entirely on it.
      */
     EndColumnFullScreen = "EndColumnFullScreen",
     /**
-     * Desktop: -/100/- only the Mid column is displayed Tablet: -/100/- only the Mid column is displayed Phone:
-     * -/100/- only the Mid column is displayed
+     * Desktop: -- 100 -- only the Mid column is displayed Tablet: -- 100 -- only the Mid column is displayed
+     * Phone: -- 100 -- only the Mid column is displayed
      *
      * Use to display a detail page only, when the user should focus entirely on it.
      */
@@ -51,56 +51,57 @@ declare module "sap/ui/webc/fiori/library" {
      */
     OneColumn = "OneColumn",
     /**
-     * Desktop: 25/25/50 Start, Mid and End (expanded) columns are displayed Tablet: 0/33/67 Mid and End (expanded)
-     * columns are displayed, Start is accessible by layout arrows Phone: -/-/100 (only the End column is displayed)
+     * Desktop: 25 - 25 - 50 Start, Mid and End (expanded) columns are displayed Tablet: 0 - 33 - 67 Mid and
+     * End (expanded) columns are displayed, Start is accessible by layout arrows Phone: -- -- 100 (only the
+     * End column is displayed)
      *
      * Use to display all three pages (list, detail, detail-detail) when the user should focus on the detail-detail.
      */
     ThreeColumnsEndExpanded = "ThreeColumnsEndExpanded",
     /**
-     * Desktop: 25/50/25 Start, Mid (expanded) and End columns are displayed Tablet: 0/67/33 Mid (expanded)
-     * and End columns are displayed, Start is accessible by a layout arrow Phone: -/-/100 only the End column
+     * Desktop: 25 - 50 - 25 Start, Mid (expanded) and End columns are displayed Tablet: 0 - 67 - 33 Mid (expanded)
+     * and End columns are displayed, Start is accessible by a layout arrow Phone: -- -- 100 only the End column
      * is displayed
      *
      * Use to display all three pages (list, detail, detail-detail) when the user should focus on the detail.
      */
     ThreeColumnsMidExpanded = "ThreeColumnsMidExpanded",
     /**
-     * Desktop: 33/67/0 Start and Mid (expanded) columns are displayed, End is accessible by a layout arrow
-     * Tablet: 33/67/0 Start and Mid (expanded) columns are displayed, End is accessible by a layout arrow Phone:
-     * -/-/100 only the End column is displayed
+     * Desktop: 33 - 67 - 0 Start and Mid (expanded) columns are displayed, End is accessible by a layout arrow
+     * Tablet: 33 - 67 - 0 Start and Mid (expanded) columns are displayed, End is accessible by a layout arrow
+     * Phone: -- -- 100 only the End column is displayed
      *
      * Use to display the list and detail pages when the user should focus on the detail. The detail-detail
      * is still loaded and easily accessible with a layout arrow.
      */
     ThreeColumnsMidExpandedEndHidden = "ThreeColumnsMidExpandedEndHidden",
     /**
-     * Desktop: 67/33/0 Start (expanded) and Mid columns are displayed, End is accessible by layout arrows Tablet:
-     * 67/33/0 Start (expanded) and Mid columns are displayed, End is accessible by layout arrows Phone: -/-/100
-     * only the End column is displayed
+     * Desktop: 67 - 33 - 0 Start (expanded) and Mid columns are displayed, End is accessible by layout arrows
+     * Tablet: 67 - 33 - 0 Start (expanded) and Mid columns are displayed, End is accessible by layout arrows
+     * Phone: -- -- 100 only the End column is displayed
      *
      * Use to display the list and detail pages when the user should focus on the list. The detail-detail is
      * still loaded and easily accessible with layout arrows.
      */
     ThreeColumnsStartExpandedEndHidden = "ThreeColumnsStartExpandedEndHidden",
     /**
-     * Desktop: 33/67/- Start and Mid (expanded) columns are displayed Tablet: 33/67/- Start and Mid (expanded)
-     * columns are displayed Phone: -/100/- only the Mid column is displayed
+     * Desktop: 33 - 67 - -- Start and Mid (expanded) columns are displayed Tablet: 33 - 67 - -- Start and Mid
+     * (expanded) columns are displayed Phone: -- 100 -- only the Mid column is displayed
      *
      * Use to display both a list and a detail page when the user should focus on the detail page.
      */
     TwoColumnsMidExpanded = "TwoColumnsMidExpanded",
     /**
-     * Desktop: 67/33/- Start (expanded) and Mid columns are displayed Tablet: 67/33/- Start (expanded) and
-     * Mid columns are displayed Phone: -/100/- only the Mid column is displayed
+     * Desktop: 67 - 33 - -- Start (expanded) and Mid columns are displayed Tablet: 67 - 33 - -- Start (expanded)
+     * and Mid columns are displayed Phone: -- 100 -- only the Mid column is displayed
      *
      * Use to display both a list and a detail page when the user should focus on the list page.
      */
     TwoColumnsStartExpanded = "TwoColumnsStartExpanded",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-page` as header and footer.
    */
@@ -109,8 +110,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.97.0
-   * @EXPERIMENTAL (since 1.97.0) - This API is experimental and might change significantly.
+   * @since 1.97.0
+   * @experimental (since 1.97.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-view-settings-dialog` as filter items
    */
@@ -119,8 +120,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.97.0
-   * @EXPERIMENTAL (since 1.97.0) - This API is experimental and might change significantly.
+   * @since 1.97.0
+   * @experimental (since 1.97.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-filter-item` as values
    */
@@ -129,8 +130,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.106.0
-   * @EXPERIMENTAL (since 1.106.0) - This API is experimental and might change significantly.
+   * @since 1.106.0
+   * @experimental (since 1.106.0) - This API is experimental and might change significantly.
    *
    * Different types of IllustrationMessageSize.
    */
@@ -164,8 +165,8 @@ declare module "sap/ui/webc/fiori/library" {
     Spot = "Spot",
   }
   /**
-   * @SINCE 1.95.0
-   * @EXPERIMENTAL (since 1.95.0) - This API is experimental and might change significantly.
+   * @since 1.95.0
+   * @experimental (since 1.95.0) - This API is experimental and might change significantly.
    *
    * Different illustration types of Illustrated Message.
    */
@@ -174,6 +175,10 @@ declare module "sap/ui/webc/fiori/library" {
      * "Add Column" illustration type.
      */
     AddColumn = "AddColumn",
+    /**
+     * "Add Dimensions" illustration type.
+     */
+    AddDimensions = "AddDimensions",
     /**
      * "Add People" illustration type.
      */
@@ -219,9 +224,17 @@ declare module "sap/ui/webc/fiori/library" {
      */
     NoActivities = "NoActivities",
     /**
+     * "No Columns Set" illustration type.
+     */
+    NoColumnsSet = "NoColumnsSet",
+    /**
      * "No Data" illustration type.
      */
     NoData = "NoData",
+    /**
+     * "No Dimensions Set" illustration type.
+     */
+    NoDimensionsSet = "NoDimensionsSet",
     /**
      * "No Entries" illustration type.
      */
@@ -362,6 +375,10 @@ declare module "sap/ui/webc/fiori/library" {
      * "Success Screen" illustration type.
      */
     SuccessScreen = "SuccessScreen",
+    /**
+     * "Survey" illustration type.
+     */
+    Survey = "Survey",
     /**
      * "Tent" illustration type.
      */
@@ -522,10 +539,14 @@ declare module "sap/ui/webc/fiori/library" {
      * "Upload Collection" illustration type.
      */
     UploadCollection = "UploadCollection",
+    /**
+     * "Upload To Cloud" illustration type.
+     */
+    UploadToCloud = "UploadToCloud",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Interface for components that can be slotted inside `ui5-media-gallery` as items.
    */
@@ -534,8 +555,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted as an action inside `ui5-li-notification` and `ui5-li-notification-group`
    */
@@ -544,8 +565,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside a notification list
    */
@@ -554,8 +575,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-product-switch` as items
    */
@@ -564,8 +585,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-shellbar` as items
    */
@@ -574,8 +595,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-side-navigation` as items
    */
@@ -584,8 +605,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-side-navigation-item` as sub-items
    */
@@ -594,8 +615,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.97.0
-   * @EXPERIMENTAL (since 1.97.0) - This API is experimental and might change significantly.
+   * @since 1.97.0
+   * @experimental (since 1.97.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-view-settings-dialog` as sort items
    */
@@ -604,8 +625,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-timeline` as items
    */
@@ -614,8 +635,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-upload-collection` as items
    */
@@ -624,8 +645,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
    * Interface for components that may be slotted inside `ui5-wizard` as wizard steps
    */
@@ -634,8 +655,8 @@ declare module "sap/ui/webc/fiori/library" {
   }
 
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Defines the layout of the content displayed in the `ui5-media-gallery-item`.
    */
@@ -654,8 +675,8 @@ declare module "sap/ui/webc/fiori/library" {
     Wide = "Wide",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Defines the layout type of the thumbnails list of the `ui5-media-gallery` component.
    */
@@ -674,8 +695,8 @@ declare module "sap/ui/webc/fiori/library" {
     Vertical = "Vertical",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Defines the horizontal alignment of the thumbnails menu of the `ui5-media-gallery` component.
    */
@@ -690,8 +711,8 @@ declare module "sap/ui/webc/fiori/library" {
     Right = "Right",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Types for the vertical alignment of the thumbnails menu of the `ui5-media-gallery` component.
    */
@@ -706,10 +727,10 @@ declare module "sap/ui/webc/fiori/library" {
     Top = "Top",
   }
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
-   * undefined
+   * Available Page Background Design.
    */
   export enum PageBackgroundDesign {
     /**
@@ -726,8 +747,8 @@ declare module "sap/ui/webc/fiori/library" {
     Transparent = "Transparent",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * SideContent FallDown options.
    */
@@ -750,8 +771,8 @@ declare module "sap/ui/webc/fiori/library" {
     OnMinimumWidth = "OnMinimumWidth",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Side Content position options.
    */
@@ -768,8 +789,8 @@ declare module "sap/ui/webc/fiori/library" {
     Start = "Start",
   }
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This API is experimental and might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This API is experimental and might change significantly.
    *
    * Side Content visibility options.
    */
@@ -796,10 +817,10 @@ declare module "sap/ui/webc/fiori/library" {
     ShowAboveS = "ShowAboveS",
   }
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
-   * Different types of Timeline.
+   * Available Timeline layout orientation
    */
   export enum TimelineLayout {
     /**
@@ -812,10 +833,10 @@ declare module "sap/ui/webc/fiori/library" {
     Vertical = "Vertical",
   }
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This API is experimental and might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
    *
-   * undefined
+   * Different types of UploadState.
    */
   export enum UploadState {
     /**
@@ -835,19 +856,51 @@ declare module "sap/ui/webc/fiori/library" {
      */
     Uploading = "Uploading",
   }
+  /**
+   * @since 1.115.0
+   * @experimental (since 1.115.0) - This API is experimental and might change significantly.
+   *
+   * Different types of Bar.
+   */
+  export enum ViewSettingsDialogMode {
+    /**
+     * Filter type
+     */
+    Filter = "Filter",
+    /**
+     * Default type
+     */
+    Sort = "Sort",
+  }
+  /**
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This API is experimental and might change significantly.
+   *
+   * Enumeration for different content layouts of the `ui5-wizard`.
+   */
+  export enum WizardContentLayout {
+    /**
+     * Display the content of the `ui5-wizard` as multiple steps in a scroll section.
+     */
+    MultipleSteps = "MultipleSteps",
+    /**
+     * Display the content of the `ui5-wizard` as single step.
+     */
+    SingleStep = "SingleStep",
+  }
 }
 
 declare module "sap/ui/webc/fiori/Bar" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IBar, BarDesign } from "sap/ui/webc/fiori/library";
 
   import Control from "sap/ui/core/Control";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { CSSSize } from "sap/ui/core/library";
 
@@ -857,8 +910,8 @@ declare module "sap/ui/webc/fiori/Bar" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview: The Bar is a container which is primarily used to hold titles, buttons and input elements and
    * its design and functionality is the basis for page headers and footers. The component consists of three
@@ -919,7 +972,7 @@ declare module "sap/ui/webc/fiori/Bar" {
      * Creates a new subclass of class sap.ui.webc.fiori.Bar with name `sClassName` and enriches it with the
      * information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -1000,14 +1053,6 @@ declare module "sap/ui/webc/fiori/Bar" {
      *
      * Defines the component's design.
      *
-     *
-     *
-     *  **Note:** Available options are:
-     * 	 - `Header`
-     * 	 - `Subheader`
-     * 	 - `Footer`
-     * 	 - `FloatingFooter`
-     *
      * Default value is `Header`.
      *
      * @returns Value of property `design`
@@ -1016,19 +1061,19 @@ declare module "sap/ui/webc/fiori/Bar" {
     /**
      * Gets content of aggregation {@link #getEndContent endContent}.
      *
-     * Defines the content at the end of the bar
+     * Defines the content at the end of the bar.
      */
     getEndContent(): Control[];
     /**
      * Gets content of aggregation {@link #getMiddleContent middleContent}.
      *
-     * Defines the content in the middle of the bar
+     * Defines the content in the middle of the bar.
      */
     getMiddleContent(): Control[];
     /**
      * Gets content of aggregation {@link #getStartContent startContent}.
      *
-     * Defines the content at the start of the bar
+     * Defines the content at the start of the bar.
      */
     getStartContent(): Control[];
     /**
@@ -1188,14 +1233,6 @@ declare module "sap/ui/webc/fiori/Bar" {
      *
      * Defines the component's design.
      *
-     *
-     *
-     *  **Note:** Available options are:
-     * 	 - `Header`
-     * 	 - `Subheader`
-     * 	 - `Footer`
-     * 	 - `FloatingFooter`
-     *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
      * Default value is `Header`.
@@ -1228,14 +1265,6 @@ declare module "sap/ui/webc/fiori/Bar" {
   export interface $BarSettings extends $WebComponentSettings {
     /**
      * Defines the component's design.
-     *
-     *
-     *
-     *  **Note:** Available options are:
-     * 	 - `Header`
-     * 	 - `Subheader`
-     * 	 - `Footer`
-     * 	 - `FloatingFooter`
      */
     design?:
       | (BarDesign | keyof typeof BarDesign)
@@ -1248,12 +1277,12 @@ declare module "sap/ui/webc/fiori/Bar" {
     width?: CSSSize | PropertyBindingInfo | `{${string}}`;
 
     /**
-     * Defines the content at the end of the bar
+     * Defines the content at the end of the bar.
      */
     endContent?: Control[] | Control | AggregationBindingInfo | `{${string}}`;
 
     /**
-     * Defines the content in the middle of the bar
+     * Defines the content in the middle of the bar.
      */
     middleContent?:
       | Control[]
@@ -1262,7 +1291,7 @@ declare module "sap/ui/webc/fiori/Bar" {
       | `{${string}}`;
 
     /**
-     * Defines the content at the start of the bar
+     * Defines the content at the start of the bar.
      */
     startContent?: Control[] | Control | AggregationBindingInfo | `{${string}}`;
   }
@@ -1272,15 +1301,15 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
+
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import Event from "sap/ui/base/Event";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
-
   /**
-   * @SINCE 1.95.0
-   * @EXPERIMENTAL (since 1.95.0) - This control is experimental and its API might change significantly.
+   * @since 1.95.0
+   * @experimental (since 1.95.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -1293,7 +1322,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
    *
    *  Internally, the component uses the zxing-js/library third party OSS.
    *
-   * For a list of supported barcode formats, see the {@link https://github.com/zxing-js/library zxing-js/library}
+   * For a list of supported barcode formats, see the {@link https://github.com/zxing-js/library zxing-js/library }
    * documentation.
    */
   export default class BarcodeScannerDialog extends WebComponent {
@@ -1332,7 +1361,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
      * Creates a new subclass of class sap.ui.webc.fiori.BarcodeScannerDialog with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -1376,7 +1405,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: BarcodeScannerDialog$ScanErrorEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.BarcodeScannerDialog`
        * itself
@@ -1397,7 +1426,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: BarcodeScannerDialog$ScanErrorEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.BarcodeScannerDialog`
        * itself
@@ -1423,7 +1452,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: BarcodeScannerDialog$ScanSuccessEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.BarcodeScannerDialog`
        * itself
@@ -1444,7 +1473,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: BarcodeScannerDialog$ScanSuccessEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.BarcodeScannerDialog`
        * itself
@@ -1466,7 +1495,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: BarcodeScannerDialog$ScanErrorEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -1483,13 +1512,15 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: BarcodeScannerDialog$ScanSuccessEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:scanError scanError} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -1498,14 +1529,11 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * the error message
-         */
-        message?: string;
-      }
+      mParameters?: BarcodeScannerDialog$ScanErrorEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:scanSuccess scanSuccess} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -1514,16 +1542,7 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * the scan result as string
-         */
-        text?: string;
-        /**
-         * the scan result as a Uint8Array
-         */
-        rawBytes?: object;
-      }
+      mParameters?: BarcodeScannerDialog$ScanSuccessEventParameters
     ): this;
     /**
      * Shows a dialog with the camera videostream. Starts a scan session.
@@ -1535,26 +1554,53 @@ declare module "sap/ui/webc/fiori/BarcodeScannerDialog" {
     /**
      * Fires when the scan fails with error.
      */
-    scanError?: (oEvent: Event) => void;
+    scanError?: (oEvent: BarcodeScannerDialog$ScanErrorEvent) => void;
 
     /**
      * Fires when the scan is completed successfuuly.
      */
-    scanSuccess?: (oEvent: Event) => void;
+    scanSuccess?: (oEvent: BarcodeScannerDialog$ScanSuccessEvent) => void;
   }
+
+  export interface BarcodeScannerDialog$ScanErrorEventParameters {
+    /**
+     * the error message
+     */
+    message?: string;
+  }
+
+  export type BarcodeScannerDialog$ScanErrorEvent = Event<
+    BarcodeScannerDialog$ScanErrorEventParameters,
+    BarcodeScannerDialog
+  >;
+
+  export interface BarcodeScannerDialog$ScanSuccessEventParameters {
+    /**
+     * the scan result as string
+     */
+    text?: string;
+
+    /**
+     * the scan result as a Uint8Array
+     */
+    rawBytes?: object;
+  }
+
+  export type BarcodeScannerDialog$ScanSuccessEvent = Event<
+    BarcodeScannerDialog$ScanSuccessEventParameters,
+    BarcodeScannerDialog
+  >;
 }
 
 declare module "sap/ui/webc/fiori/DynamicSideContent" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import Control from "sap/ui/core/Control";
 
-  import Event from "sap/ui/base/Event";
-
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     SideContentFallDown,
@@ -1567,9 +1613,11 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
     AggregationBindingInfo,
   } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This control is experimental and its API might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -1605,22 +1653,22 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
    *
    *
    * 	 - Main vs. side content ratio is 66.666 vs. 33.333 percent (with a minimum of 320px each). If the side
-   * 			content width falls below 320 px, it automatically slides under the main content, unless the app development
-   * 			team specifies that it should disappear.
+   *     content width falls below 320 px, it automatically slides under the main content, unless the app development
+   *     team specifies that it should disappear.
    *
    * Screen width <= 1024px and> 720px
    *
    *
    * 	 - The side content ratio is fixed to 340px, and the main content takes the rest of the width. Only
-   * 			if the `sideContentFallDown` is set to `OnMinimumWidth` and screen width is <= 960px and> 720px the side
-   * 			content falls below the main content.
+   *     if the `sideContentFallDown` is set to `OnMinimumWidth` and screen width is <= 960px and> 720px the side
+   *     content falls below the main content.
    *
    * Screen width <= 720px (for example on a mobile device)
    * 	 - In this case, the side content automatically disappears from the screen (unless specified to stay
-   * 			under the content by setting of `sideContentVisibility` property to `AlwaysShow`) and can be triggered
-   * 			from a pre-set trigger (specified within the app). When the side content is triggered, it replaces the
-   * 			main content. We recommend that you always place the trigger for the side content in the same location,
-   * 			such as in the app footer.
+   *     under the content by setting of `sideContentVisibility` property to `AlwaysShow`) and can be triggered
+   *     from a pre-set trigger (specified within the app). When the side content is triggered, it replaces the
+   *     main content. We recommend that you always place the trigger for the side content in the same location,
+   *     such as in the app footer.
    *
    * A special case allows switching the comparison mode between the main and side content. In this case,
    * the screen is split into 50:50 percent for main vs. side content. The responsive behavior of the equal
@@ -1663,7 +1711,7 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
      * Creates a new subclass of class sap.ui.webc.fiori.DynamicSideContent with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -1729,7 +1777,7 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: DynamicSideContent$LayoutChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.DynamicSideContent`
        * itself
@@ -1750,7 +1798,7 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: DynamicSideContent$LayoutChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.DynamicSideContent`
        * itself
@@ -1780,13 +1828,15 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: DynamicSideContent$LayoutChangeEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:layoutChange layoutChange} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -1795,24 +1845,7 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * the current breakpoint.
-         */
-        currentBreakpoint?: string;
-        /**
-         * the breakpoint that was active before change to current breakpoint.
-         */
-        previousBreakpoint?: string;
-        /**
-         * visibility of the main content.
-         */
-        mainContentVisible?: boolean;
-        /**
-         * visibility of the side content.
-         */
-        sideContentVisible?: boolean;
-      }
+      mParameters?: DynamicSideContent$LayoutChangeEventParameters
     ): this;
     /**
      * Gets content of aggregation {@link #getContent content}.
@@ -2251,19 +2284,46 @@ declare module "sap/ui/webc/fiori/DynamicSideContent" {
     /**
      * Fires when the current breakpoint has been changed.
      */
-    layoutChange?: (oEvent: Event) => void;
+    layoutChange?: (oEvent: DynamicSideContent$LayoutChangeEvent) => void;
   }
+
+  export interface DynamicSideContent$LayoutChangeEventParameters {
+    /**
+     * the current breakpoint.
+     */
+    currentBreakpoint?: string;
+
+    /**
+     * the breakpoint that was active before change to current breakpoint.
+     */
+    previousBreakpoint?: string;
+
+    /**
+     * visibility of the main content.
+     */
+    mainContentVisible?: boolean;
+
+    /**
+     * visibility of the side content.
+     */
+    sideContentVisible?: boolean;
+  }
+
+  export type DynamicSideContent$LayoutChangeEvent = Event<
+    DynamicSideContent$LayoutChangeEventParameters,
+    DynamicSideContent
+  >;
 }
 
 declare module "sap/ui/webc/fiori/FilterItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IFilterItem, IFilterItemOption } from "sap/ui/webc/fiori/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -2271,8 +2331,8 @@ declare module "sap/ui/webc/fiori/FilterItem" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.97.0
-   * @EXPERIMENTAL (since 1.97.0) - This control is experimental and its API might change significantly.
+   * @since 1.97.0
+   * @experimental (since 1.97.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -2315,7 +2375,7 @@ declare module "sap/ui/webc/fiori/FilterItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.FilterItem with name `sClassName` and enriches it with
      * the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -2357,6 +2417,16 @@ declare module "sap/ui/webc/fiori/FilterItem" {
      * @returns Reference to `this` in order to allow method chaining
      */
     destroyValues(): this;
+    /**
+     * Gets current value of property {@link #getAdditionalText additionalText}.
+     *
+     * Defines the additional text of the component.
+     *
+     * Default value is `empty string`.
+     *
+     * @returns Value of property `additionalText`
+     */
+    getAdditionalText(): string;
     /**
      * Gets current value of property {@link #getText text}.
      *
@@ -2422,6 +2492,23 @@ declare module "sap/ui/webc/fiori/FilterItem" {
       vValue: int | string | IFilterItemOption
     ): IFilterItemOption | null;
     /**
+     * Sets a new value for property {@link #getAdditionalText additionalText}.
+     *
+     * Defines the additional text of the component.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `empty string`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setAdditionalText(
+      /**
+       * New value for property `additionalText`
+       */
+      sAdditionalText?: string
+    ): this;
+    /**
      * Sets a new value for property {@link #getText text}.
      *
      * Defines the text of the component.
@@ -2442,6 +2529,11 @@ declare module "sap/ui/webc/fiori/FilterItem" {
 
   export interface $FilterItemSettings extends $WebComponentSettings {
     /**
+     * Defines the additional text of the component.
+     */
+    additionalText?: string | PropertyBindingInfo;
+
+    /**
      * Defines the text of the component.
      */
     text?: string | PropertyBindingInfo;
@@ -2461,17 +2553,17 @@ declare module "sap/ui/webc/fiori/FilterItemOption" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IFilterItemOption } from "sap/ui/webc/fiori/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.97.0
-   * @EXPERIMENTAL (since 1.97.0) - This control is experimental and its API might change significantly.
+   * @since 1.97.0
+   * @experimental (since 1.97.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -2516,7 +2608,7 @@ declare module "sap/ui/webc/fiori/FilterItemOption" {
      * Creates a new subclass of class sap.ui.webc.fiori.FilterItemOption with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -2544,7 +2636,7 @@ declare module "sap/ui/webc/fiori/FilterItemOption" {
     /**
      * Gets current value of property {@link #getSelected selected}.
      *
-     * Defines whether the option is selected
+     * Defines if the component is selected.
      *
      * Default value is `false`.
      *
@@ -2564,7 +2656,7 @@ declare module "sap/ui/webc/fiori/FilterItemOption" {
     /**
      * Sets a new value for property {@link #getSelected selected}.
      *
-     * Defines whether the option is selected
+     * Defines if the component is selected.
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -2599,7 +2691,7 @@ declare module "sap/ui/webc/fiori/FilterItemOption" {
 
   export interface $FilterItemOptionSettings extends $WebComponentSettings {
     /**
-     * Defines whether the option is selected
+     * Defines if the component is selected.
      */
     selected?: boolean | PropertyBindingInfo | `{${string}}`;
 
@@ -2614,9 +2706,7 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
-
-  import Event from "sap/ui/base/Event";
+  } from "sap/ui/core/webc/WebComponent";
 
   import Control from "sap/ui/core/Control";
 
@@ -2624,13 +2714,15 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
 
   import { FCLLayout } from "sap/ui/webc/fiori/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -2690,7 +2782,7 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
      * Creates a new subclass of class sap.ui.webc.fiori.FlexibleColumnLayout with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -2735,7 +2827,7 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: FlexibleColumnLayout$LayoutChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.FlexibleColumnLayout`
        * itself
@@ -2757,7 +2849,7 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: FlexibleColumnLayout$LayoutChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.FlexibleColumnLayout`
        * itself
@@ -2793,13 +2885,15 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: FlexibleColumnLayout$LayoutChangeEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:layoutChange layoutChange} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -2808,36 +2902,7 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * The current layout
-         */
-        layout?: FCLLayout;
-        /**
-         * The effective column layout, f.e [67%, 33%, 0]
-         */
-        columnLayout?: any[];
-        /**
-         * Indicates if the start column is currently visible
-         */
-        startColumnVisible?: boolean;
-        /**
-         * Indicates if the middle column is currently visible
-         */
-        midColumnVisible?: boolean;
-        /**
-         * Indicates if the end column is currently visible
-         */
-        endColumnVisible?: boolean;
-        /**
-         * Indicates if the layout is changed via the arrows
-         */
-        arrowsUsed?: boolean;
-        /**
-         * Indicates if the layout is changed via resizing
-         */
-        resize?: boolean;
-      }
+      mParameters?: FlexibleColumnLayout$LayoutChangeEventParameters
     ): this;
     /**
      * Gets current value of property {@link #getAccessibilityRoles accessibilityRoles}.
@@ -3224,26 +3289,70 @@ declare module "sap/ui/webc/fiori/FlexibleColumnLayout" {
      * Fired when the layout changes via user interaction by clicking the arrows or by changing the component
      * size due to resizing.
      */
-    layoutChange?: (oEvent: Event) => void;
+    layoutChange?: (oEvent: FlexibleColumnLayout$LayoutChangeEvent) => void;
   }
+
+  export interface FlexibleColumnLayout$LayoutChangeEventParameters {
+    /**
+     * The current layout
+     */
+    layout?: FCLLayout | keyof typeof FCLLayout;
+
+    /**
+     * The effective column layout, f.e [67%, 33%, 0]
+     */
+    columnLayout?: any[];
+
+    /**
+     * Indicates if the start column is currently visible
+     */
+    startColumnVisible?: boolean;
+
+    /**
+     * Indicates if the middle column is currently visible
+     */
+    midColumnVisible?: boolean;
+
+    /**
+     * Indicates if the end column is currently visible
+     */
+    endColumnVisible?: boolean;
+
+    /**
+     * Indicates if the layout is changed via the arrows
+     */
+    arrowsUsed?: boolean;
+
+    /**
+     * Indicates if the layout is changed via resizing
+     */
+    resize?: boolean;
+  }
+
+  export type FlexibleColumnLayout$LayoutChangeEvent = Event<
+    FlexibleColumnLayout$LayoutChangeEventParameters,
+    FlexibleColumnLayout
+  >;
 }
 
 declare module "sap/ui/webc/fiori/IllustratedMessage" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IButton } from "sap/ui/webc/main/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import { ID } from "sap/ui/core/library";
+
+  import Control from "sap/ui/core/Control";
+
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     IllustrationMessageType,
     IllustrationMessageSize,
   } from "sap/ui/webc/fiori/library";
-
-  import Control from "sap/ui/core/Control";
 
   import {
     PropertyBindingInfo,
@@ -3251,8 +3360,8 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.95.0
-   * @EXPERIMENTAL (since 1.95.0) - This control is experimental and its API might change significantly.
+   * @since 1.95.0
+   * @experimental (since 1.95.0) - This control is experimental and its API might change significantly.
    *
    * Overview: An IllustratedMessage is a recommended combination of a solution-oriented message, an engaging
    * illustration, and conversational tone to better communicate an empty or a success state than just show
@@ -3310,7 +3419,7 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
      * Creates a new subclass of class sap.ui.webc.fiori.IllustratedMessage with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -3347,6 +3456,17 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
       oAction: IButton
     ): this;
     /**
+     * Adds some ariaLabelledBy into the association {@link #getAriaLabelledBy ariaLabelledBy}.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    addAriaLabelledBy(
+      /**
+       * The ariaLabelledBy to add; if empty, nothing is inserted
+       */
+      vAriaLabelledBy: ID | Control
+    ): this;
+    /**
      * Destroys all the actions in the aggregation {@link #getActions actions}.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -3359,11 +3479,21 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
      */
     destroySubtitle(): this;
     /**
+     * Destroys the title in the aggregation {@link #getTitle title}.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    destroyTitle(): this;
+    /**
      * Gets content of aggregation {@link #getActions actions}.
      *
      * Defines the component actions.
      */
     getActions(): IButton[];
+    /**
+     * Returns array of IDs of the elements which are the current targets of the association {@link #getAriaLabelledBy ariaLabelledBy}.
+     */
+    getAriaLabelledBy(): ID[];
     /**
      * Gets current value of property {@link #getName name}.
      *
@@ -3415,6 +3545,15 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
      * @returns Value of property `subtitleText`
      */
     getSubtitleText(): string;
+    /**
+     * Gets content of aggregation {@link #getTitle title}.
+     *
+     * Defines the title of the component.
+     *
+     *  **Note:** Using this slot, the default title text of illustration and the value of `title` property
+     * will be overwritten.
+     */
+    getTitle(): Control;
     /**
      * Gets current value of property {@link #getTitleText titleText}.
      *
@@ -3475,6 +3614,23 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
      * @returns An array of the removed elements (might be empty)
      */
     removeAllActions(): IButton[];
+    /**
+     * Removes all the controls in the association named {@link #getAriaLabelledBy ariaLabelledBy}.
+     *
+     * @returns An array of the removed elements (might be empty)
+     */
+    removeAllAriaLabelledBy(): ID[];
+    /**
+     * Removes an ariaLabelledBy from the association named {@link #getAriaLabelledBy ariaLabelledBy}.
+     *
+     * @returns The removed ariaLabelledBy or `null`
+     */
+    removeAriaLabelledBy(
+      /**
+       * The ariaLabelledBy to be removed or its index or ID
+       */
+      vAriaLabelledBy: int | ID | Control
+    ): ID | null;
     /**
      * Sets a new value for property {@link #getName name}.
      *
@@ -3550,6 +3706,17 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
       sSubtitleText?: string
     ): this;
     /**
+     * Sets the aggregated {@link #getTitle title}.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setTitle(
+      /**
+       * The title to set
+       */
+      oTitle: Control
+    ): this;
+    /**
      * Sets a new value for property {@link #getTitleText titleText}.
      *
      * Defines the title of the component.
@@ -3622,6 +3789,19 @@ declare module "sap/ui/webc/fiori/IllustratedMessage" {
      * property will be overwritten.
      */
     subtitle?: Control;
+
+    /**
+     * Defines the title of the component.
+     *
+     *  **Note:** Using this slot, the default title text of illustration and the value of `title` property
+     * will be overwritten.
+     */
+    title?: Control;
+
+    /**
+     * Receives id(or many ids) of the controls that label this control.
+     */
+    ariaLabelledBy?: Array<Control | string>;
   }
 }
 
@@ -3629,7 +3809,7 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import {
     IMediaGalleryItem,
@@ -3640,7 +3820,7 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
 
   import Event from "sap/ui/base/Event";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -3648,8 +3828,8 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This control is experimental and its API might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -3670,7 +3850,8 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
    *
    * 	 - [UP/DOWN] - Navigates up and down the items
    * 	 - [HOME] - Navigates to first item
-   * 	 - [END] - Navigates to the last item [SPACE/ENTER] - Select an item
+   * 	 - [END] - Navigates to the last item
+   * 	 - [SPACE/ENTER] - Select an item
    */
   export default class MediaGallery extends WebComponent {
     /**
@@ -3708,7 +3889,7 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
      * Creates a new subclass of class sap.ui.webc.fiori.MediaGallery with name `sClassName` and enriches it
      * with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -3858,7 +4039,7 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: MediaGallery$SelectionChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.MediaGallery` itself
        */
@@ -3879,7 +4060,7 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: MediaGallery$SelectionChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.MediaGallery` itself
        */
@@ -3939,13 +4120,15 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: MediaGallery$SelectionChangeEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:displayAreaClick displayAreaClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -3957,6 +4140,8 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
       mParameters?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:overflowClick overflowClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -3968,6 +4153,8 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
       mParameters?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:selectionChange selectionChange} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -3976,12 +4163,7 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * the selected item.
-         */
-        item?: HTMLElement;
-      }
+      mParameters?: MediaGallery$SelectionChangeEventParameters
     ): this;
     /**
      * Gets current value of property {@link #getInteractiveDisplayArea interactiveDisplayArea}.
@@ -4307,15 +4489,41 @@ declare module "sap/ui/webc/fiori/MediaGallery" {
     /**
      * Fired when selection is changed by user interaction.
      */
-    selectionChange?: (oEvent: Event) => void;
+    selectionChange?: (oEvent: MediaGallery$SelectionChangeEvent) => void;
   }
+
+  export interface MediaGallery$DisplayAreaClickEventParameters {}
+
+  export type MediaGallery$DisplayAreaClickEvent = Event<
+    MediaGallery$DisplayAreaClickEventParameters,
+    MediaGallery
+  >;
+
+  export interface MediaGallery$OverflowClickEventParameters {}
+
+  export type MediaGallery$OverflowClickEvent = Event<
+    MediaGallery$OverflowClickEventParameters,
+    MediaGallery
+  >;
+
+  export interface MediaGallery$SelectionChangeEventParameters {
+    /**
+     * the selected item.
+     */
+    item?: HTMLElement;
+  }
+
+  export type MediaGallery$SelectionChangeEvent = Event<
+    MediaGallery$SelectionChangeEventParameters,
+    MediaGallery
+  >;
 }
 
 declare module "sap/ui/webc/fiori/MediaGalleryItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import {
     IMediaGalleryItem,
@@ -4324,13 +4532,13 @@ declare module "sap/ui/webc/fiori/MediaGalleryItem" {
 
   import Control from "sap/ui/core/Control";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.99.0
-   * @EXPERIMENTAL (since 1.99.0) - This control is experimental and its API might change significantly.
+   * @since 1.99.0
+   * @experimental (since 1.99.0) - This control is experimental and its API might change significantly.
    *
    * Overview: The `sap.ui.webc.fiori.MediaGalleryItem` web component represents the items displayed in the
    * `sap.ui.webc.fiori.MediaGallery` web component.
@@ -4386,7 +4594,7 @@ declare module "sap/ui/webc/fiori/MediaGalleryItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.MediaGalleryItem with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -4590,19 +4798,21 @@ declare module "sap/ui/webc/fiori/NotificationAction" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { INotificationAction } from "sap/ui/webc/fiori/library";
 
   import { ButtonDesign } from "sap/ui/webc/main/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * The `sap.ui.webc.fiori.NotificationAction` represents an abstract action, used in the `sap.ui.webc.fiori.NotificationListItem`
    * and the `sap.ui.webc.fiori.NotificationListGroupItem` items.
@@ -4646,7 +4856,7 @@ declare module "sap/ui/webc/fiori/NotificationAction" {
      * Creates a new subclass of class sap.ui.webc.fiori.NotificationAction with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -4672,18 +4882,86 @@ declare module "sap/ui/webc/fiori/NotificationAction" {
      */
     static getMetadata(): WebComponentMetadata;
     /**
+     * Attaches event handler `fnFunction` to the {@link #event:click click} event of this `sap.ui.webc.fiori.NotificationAction`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.NotificationAction` itself.
+     *
+     * Fired, when the action is pressed.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachClick(
+      /**
+       * An application-specific payload object that will be passed to the event handler along with the event
+       * object when firing the event
+       */
+      oData: object,
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: NotificationAction$ClickEvent) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.NotificationAction`
+       * itself
+       */
+      oListener?: object
+    ): this;
+    /**
+     * Attaches event handler `fnFunction` to the {@link #event:click click} event of this `sap.ui.webc.fiori.NotificationAction`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.NotificationAction` itself.
+     *
+     * Fired, when the action is pressed.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachClick(
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: NotificationAction$ClickEvent) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.NotificationAction`
+       * itself
+       */
+      oListener?: object
+    ): this;
+    /**
+     * Detaches event handler `fnFunction` from the {@link #event:click click} event of this `sap.ui.webc.fiori.NotificationAction`.
+     *
+     * The passed function and listener object must match the ones used for event registration.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    detachClick(
+      /**
+       * The function to be called, when the event occurs
+       */
+      fnFunction: (p1: NotificationAction$ClickEvent) => void,
+      /**
+       * Context object on which the given function had to be called
+       */
+      oListener?: object
+    ): this;
+    /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
+     * Fires event {@link #event:click click} to attached listeners.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    fireClick(
+      /**
+       * Parameters to pass along with the event
+       */
+      mParameters?: NotificationAction$ClickEventParameters
+    ): this;
+    /**
      * Gets current value of property {@link #getDesign design}.
      *
      * Defines the action design.
-     *
-     *
-     *
-     *  **Note:**
-     * 	 - `Default`
-     * 	 - `Emphasized`
-     * 	 - `Positive`
-     * 	 - `Negative`
-     * 	 - `Transparent`
      *
      * Default value is `Transparent`.
      *
@@ -4728,15 +5006,6 @@ declare module "sap/ui/webc/fiori/NotificationAction" {
      * Sets a new value for property {@link #getDesign design}.
      *
      * Defines the action design.
-     *
-     *
-     *
-     *  **Note:**
-     * 	 - `Default`
-     * 	 - `Emphasized`
-     * 	 - `Positive`
-     * 	 - `Negative`
-     * 	 - `Transparent`
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -4810,15 +5079,6 @@ declare module "sap/ui/webc/fiori/NotificationAction" {
   export interface $NotificationActionSettings extends $WebComponentSettings {
     /**
      * Defines the action design.
-     *
-     *
-     *
-     *  **Note:**
-     * 	 - `Default`
-     * 	 - `Emphasized`
-     * 	 - `Positive`
-     * 	 - `Negative`
-     * 	 - `Transparent`
      */
     design?:
       | (ButtonDesign | keyof typeof ButtonDesign)
@@ -4843,14 +5103,31 @@ declare module "sap/ui/webc/fiori/NotificationAction" {
      * Defines the text of the `sap.ui.webc.fiori.NotificationAction`.
      */
     text?: string | PropertyBindingInfo;
+
+    /**
+     * Fired, when the action is pressed.
+     */
+    click?: (oEvent: NotificationAction$ClickEvent) => void;
   }
+
+  export interface NotificationAction$ClickEventParameters {
+    /**
+     * DOM ref of the clicked element
+     */
+    targetRef?: HTMLElement;
+  }
+
+  export type NotificationAction$ClickEvent = Event<
+    NotificationAction$ClickEventParameters,
+    NotificationAction
+  >;
 }
 
 declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IListItem, Priority } from "sap/ui/webc/main/library";
 
@@ -4861,7 +5138,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
 
   import Event from "sap/ui/base/Event";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -4869,8 +5146,8 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview: The `sap.ui.webc.fiori.NotificationListGroupItem` is a special type of list item, that unlike
    * others can group items within self, usually `sap.ui.webc.fiori.NotificationListItem` items.
@@ -4931,7 +5208,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.NotificationListGroupItem with name `sClassName` and
      * enriches it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -4997,7 +5274,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: NotificationListGroupItem$CloseEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.NotificationListGroupItem`
        * itself
@@ -5018,7 +5295,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: NotificationListGroupItem$CloseEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.NotificationListGroupItem`
        * itself
@@ -5095,7 +5372,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: NotificationListGroupItem$CloseEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -5119,6 +5396,8 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:close close} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -5127,9 +5406,11 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: object
+      mParameters?: NotificationListGroupItem$CloseEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:toggle toggle} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -5188,11 +5469,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
     /**
      * Gets current value of property {@link #getPriority priority}.
      *
-     * Defines the `priority` of the item. Available options are:
-     * 	 - `None`
-     * 	 - `Low`
-     * 	 - `Medium`
-     * 	 - `High`
+     * Defines the `priority` of the item.
      *
      * Default value is `None`.
      *
@@ -5211,6 +5488,16 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
      * @returns Value of property `read`
      */
     getRead(): boolean;
+    /**
+     * Gets current value of property {@link #getSelected selected}.
+     *
+     * Defines the selected state of the `ListItem`.
+     *
+     * Default value is `false`.
+     *
+     * @returns Value of property `selected`
+     */
+    getSelected(): boolean;
     /**
      * Gets current value of property {@link #getShowClose showClose}.
      *
@@ -5242,8 +5529,8 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
      */
     getTitleText(): string;
     /**
-     * Checks for the provided `sap.ui.webc.fiori.INotificationAction` in the aggregation {@link #getActions
-     * actions}. and returns its index if found or -1 otherwise.
+     * Checks for the provided `sap.ui.webc.fiori.INotificationAction` in the aggregation {@link #getActions actions}.
+     * and returns its index if found or -1 otherwise.
      *
      * @returns The index of the provided control in the aggregation if found, or -1 otherwise
      */
@@ -5254,8 +5541,8 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
       oAction: INotificationAction
     ): int;
     /**
-     * Checks for the provided `sap.ui.webc.fiori.INotificationListItem` in the aggregation {@link #getItems
-     * items}. and returns its index if found or -1 otherwise.
+     * Checks for the provided `sap.ui.webc.fiori.INotificationListItem` in the aggregation {@link #getItems items}.
+     * and returns its index if found or -1 otherwise.
      *
      * @returns The index of the provided control in the aggregation if found, or -1 otherwise
      */
@@ -5391,11 +5678,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
     /**
      * Sets a new value for property {@link #getPriority priority}.
      *
-     * Defines the `priority` of the item. Available options are:
-     * 	 - `None`
-     * 	 - `Low`
-     * 	 - `Medium`
-     * 	 - `High`
+     * Defines the `priority` of the item.
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -5427,6 +5710,23 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
        * New value for property `read`
        */
       bRead?: boolean
+    ): this;
+    /**
+     * Sets a new value for property {@link #getSelected selected}.
+     *
+     * Defines the selected state of the `ListItem`.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `false`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setSelected(
+      /**
+       * New value for property `selected`
+       */
+      bSelected?: boolean
     ): this;
     /**
      * Sets a new value for property {@link #getShowClose showClose}.
@@ -5499,11 +5799,7 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
     collapsed?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
-     * Defines the `priority` of the item. Available options are:
-     * 	 - `None`
-     * 	 - `Low`
-     * 	 - `Medium`
-     * 	 - `High`
+     * Defines the `priority` of the item.
      */
     priority?:
       | (Priority | keyof typeof Priority)
@@ -5516,6 +5812,11 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
      *  **Note:** if set to `false` the `titleText` has bold font, if set to true - it has a normal font.
      */
     read?: boolean | PropertyBindingInfo | `{${string}}`;
+
+    /**
+     * Defines the selected state of the `ListItem`.
+     */
+    selected?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
      * Defines if the `close` button would be displayed.
@@ -5556,20 +5857,39 @@ declare module "sap/ui/webc/fiori/NotificationListGroupItem" {
     /**
      * Fired when the `Close` button is pressed.
      */
-    close?: (oEvent: Event) => void;
+    close?: (oEvent: NotificationListGroupItem$CloseEvent) => void;
 
     /**
      * Fired when the `sap.ui.webc.fiori.NotificationListGroupItem` is expanded/collapsed by user interaction.
      */
     toggle?: (oEvent: Event) => void;
   }
+
+  export interface NotificationListGroupItem$CloseEventParameters {
+    /**
+     * the closed item.
+     */
+    item?: HTMLElement;
+  }
+
+  export type NotificationListGroupItem$CloseEvent = Event<
+    NotificationListGroupItem$CloseEventParameters,
+    NotificationListGroupItem
+  >;
+
+  export interface NotificationListGroupItem$ToggleEventParameters {}
+
+  export type NotificationListGroupItem$ToggleEvent = Event<
+    NotificationListGroupItem$ToggleEventParameters,
+    NotificationListGroupItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/NotificationListItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import {
     INotificationListItem,
@@ -5585,18 +5905,18 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
 
   import Control from "sap/ui/core/Control";
 
-  import Event from "sap/ui/base/Event";
-
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
     AggregationBindingInfo,
   } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview: The `sap.ui.webc.fiori.NotificationListItem` is a type of list item, meant to display notifications.
    *
@@ -5609,7 +5929,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
    * The user can:
    * 	 - display a `Close` button
    * 	 - can control whether the `titleText` and `description` should wrap or truncate and display a `ShowMore`
-   * 			button to switch between less and more information
+   *     button to switch between less and more information
    * 	 - add custom actions by using the `sap.ui.webc.fiori.NotificationAction` component
    *
    * Usage: The component can be used in a standard `sap.ui.webc.main.List`.
@@ -5661,7 +5981,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.NotificationListItem with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -5727,7 +6047,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: NotificationListItem$CloseEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.NotificationListItem`
        * itself
@@ -5748,7 +6068,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: NotificationListItem$CloseEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.NotificationListItem`
        * itself
@@ -5784,13 +6104,15 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: NotificationListItem$CloseEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:close close} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -5799,7 +6121,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: object
+      mParameters?: NotificationListItem$CloseEventParameters
     ): this;
     /**
      * Gets content of aggregation {@link #getActions actions}.
@@ -5861,11 +6183,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
     /**
      * Gets current value of property {@link #getPriority priority}.
      *
-     * Defines the `priority` of the item. Available options are:
-     * 	 - `None`
-     * 	 - `Low`
-     * 	 - `Medium`
-     * 	 - `High`
+     * Defines the `priority` of the item.
      *
      * Default value is `None`.
      *
@@ -5884,6 +6202,16 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
      * @returns Value of property `read`
      */
     getRead(): boolean;
+    /**
+     * Gets current value of property {@link #getSelected selected}.
+     *
+     * Defines the selected state of the `ListItem`.
+     *
+     * Default value is `false`.
+     *
+     * @returns Value of property `selected`
+     */
+    getSelected(): boolean;
     /**
      * Gets current value of property {@link #getShowClose showClose}.
      *
@@ -5911,7 +6239,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
      *
      *
      *
-     *  **Note:** by default the `titleText` and `decription`, and a `ShowMore/Less` button would be displayed.
+     *  **Note:** by default the `titleText` and `description`, and a `ShowMore/Less` button would be displayed.
      *
      * Default value is `None`.
      *
@@ -5919,8 +6247,8 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
      */
     getWrappingType(): WrappingType | keyof typeof WrappingType;
     /**
-     * Checks for the provided `sap.ui.webc.fiori.INotificationAction` in the aggregation {@link #getActions
-     * actions}. and returns its index if found or -1 otherwise.
+     * Checks for the provided `sap.ui.webc.fiori.INotificationAction` in the aggregation {@link #getActions actions}.
+     * and returns its index if found or -1 otherwise.
      *
      * @returns The index of the provided control in the aggregation if found, or -1 otherwise
      */
@@ -6079,11 +6407,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
     /**
      * Sets a new value for property {@link #getPriority priority}.
      *
-     * Defines the `priority` of the item. Available options are:
-     * 	 - `None`
-     * 	 - `Low`
-     * 	 - `Medium`
-     * 	 - `High`
+     * Defines the `priority` of the item.
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -6115,6 +6439,23 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
        * New value for property `read`
        */
       bRead?: boolean
+    ): this;
+    /**
+     * Sets a new value for property {@link #getSelected selected}.
+     *
+     * Defines the selected state of the `ListItem`.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `false`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setSelected(
+      /**
+       * New value for property `selected`
+       */
+      bSelected?: boolean
     ): this;
     /**
      * Sets a new value for property {@link #getShowClose showClose}.
@@ -6157,7 +6498,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
      *
      *
      *
-     *  **Note:** by default the `titleText` and `decription`, and a `ShowMore/Less` button would be displayed.
+     *  **Note:** by default the `titleText` and `description`, and a `ShowMore/Less` button would be displayed.
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -6190,11 +6531,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
     description?: string | PropertyBindingInfo;
 
     /**
-     * Defines the `priority` of the item. Available options are:
-     * 	 - `None`
-     * 	 - `Low`
-     * 	 - `Medium`
-     * 	 - `High`
+     * Defines the `priority` of the item.
      */
     priority?:
       | (Priority | keyof typeof Priority)
@@ -6207,6 +6544,11 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
      *  **Note:** if set to `false` the `titleText` has bold font, if set to true - it has a normal font.
      */
     read?: boolean | PropertyBindingInfo | `{${string}}`;
+
+    /**
+     * Defines the selected state of the `ListItem`.
+     */
+    selected?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
      * Defines if the `close` button would be displayed.
@@ -6223,7 +6565,7 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
      *
      *
      *
-     *  **Note:** by default the `titleText` and `decription`, and a `ShowMore/Less` button would be displayed.
+     *  **Note:** by default the `titleText` and `description`, and a `ShowMore/Less` button would be displayed.
      */
     wrappingType?:
       | (WrappingType | keyof typeof WrappingType)
@@ -6261,15 +6603,27 @@ declare module "sap/ui/webc/fiori/NotificationListItem" {
     /**
      * Fired when the `Close` button is pressed.
      */
-    close?: (oEvent: Event) => void;
+    close?: (oEvent: NotificationListItem$CloseEvent) => void;
   }
+
+  export interface NotificationListItem$CloseEventParameters {
+    /**
+     * the closed item.
+     */
+    item?: HTMLElement;
+  }
+
+  export type NotificationListItem$CloseEvent = Event<
+    NotificationListItem$CloseEventParameters,
+    NotificationListItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/Page" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import Control from "sap/ui/core/Control";
 
@@ -6277,7 +6631,7 @@ declare module "sap/ui/webc/fiori/Page" {
 
   import { CSSSize } from "sap/ui/core/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -6285,8 +6639,8 @@ declare module "sap/ui/webc/fiori/Page" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -6300,7 +6654,15 @@ declare module "sap/ui/webc/fiori/Page" {
    *
    * **Note:** `sap.ui.webc.fiori.Page` occipues the whole available space of its parent. In order to achieve
    * the intended design you have to make sure that there is enough space for the `sap.ui.webc.fiori.Page`
-   * to be rendered.
+   * to be rendered. **Note:** In order for the `sap.ui.webc.fiori.Page` to be displayed, the parent element
+   * should have fixed height.
+   *
+   * CSS Shadow Parts:
+   *
+   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/::part CSS Shadow Parts} allow developers to
+   * style elements inside the Shadow DOM.
+   *  The `sap.ui.webc.fiori.Page` exposes the following CSS Shadow Parts:
+   * 	 - content - Used to style the content section of the component
    */
   export default class Page extends WebComponent {
     /**
@@ -6338,7 +6700,7 @@ declare module "sap/ui/webc/fiori/Page" {
      * Creates a new subclass of class sap.ui.webc.fiori.Page with name `sClassName` and enriches it with the
      * information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -6400,10 +6762,7 @@ declare module "sap/ui/webc/fiori/Page" {
      *  **Note:** When a ui5-list is placed inside the page, we recommend using “List” to ensure better color
      * contrast.
      *
-     *  Available options are:
-     * 	 - `Solid` (default)
-     * 	 - `Transparent`
-     * 	 - `List`
+     *
      *
      * Default value is `Solid`.
      *
@@ -6535,10 +6894,7 @@ declare module "sap/ui/webc/fiori/Page" {
      *  **Note:** When a ui5-list is placed inside the page, we recommend using “List” to ensure better color
      * contrast.
      *
-     *  Available options are:
-     * 	 - `Solid` (default)
-     * 	 - `Transparent`
-     * 	 - `List`
+     *
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -6668,11 +7024,6 @@ declare module "sap/ui/webc/fiori/Page" {
      *
      *  **Note:** When a ui5-list is placed inside the page, we recommend using “List” to ensure better color
      * contrast.
-     *
-     *  Available options are:
-     * 	 - `Solid` (default)
-     * 	 - `Transparent`
-     * 	 - `List`
      */
     backgroundDesign?:
       | (PageBackgroundDesign | keyof typeof PageBackgroundDesign)
@@ -6728,17 +7079,17 @@ declare module "sap/ui/webc/fiori/ProductSwitch" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IProductSwitchItem } from "sap/ui/webc/fiori/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { AggregationBindingInfo } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -6792,7 +7143,7 @@ declare module "sap/ui/webc/fiori/ProductSwitch" {
      * Creates a new subclass of class sap.ui.webc.fiori.ProductSwitch with name `sClassName` and enriches it
      * with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -6906,19 +7257,19 @@ declare module "sap/ui/webc/fiori/ProductSwitchItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IProductSwitchItem } from "sap/ui/webc/fiori/library";
 
   import Event from "sap/ui/base/Event";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview: The `sap.ui.webc.fiori.ProductSwitchItem` web component represents the items displayed in the
    * `sap.ui.webc.fiori.ProductSwitch` web component.
@@ -6974,7 +7325,7 @@ declare module "sap/ui/webc/fiori/ProductSwitchItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.ProductSwitchItem with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -7066,6 +7417,8 @@ declare module "sap/ui/webc/fiori/ProductSwitchItem" {
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:click click} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -7115,8 +7468,6 @@ declare module "sap/ui/webc/fiori/ProductSwitchItem" {
      * 	 - `_blank`
      * 	 - `_parent`
      * 	 - `_search`
-     *
-     * Default value is `"_self"`.
      *
      * @returns Value of property `target`
      */
@@ -7197,15 +7548,13 @@ declare module "sap/ui/webc/fiori/ProductSwitchItem" {
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
-     * Default value is `"_self"`.
-     *
      * @returns Reference to `this` in order to allow method chaining
      */
     setTarget(
       /**
        * New value for property `target`
        */
-      sTarget?: string
+      sTarget: string
     ): this;
     /**
      * Sets a new value for property {@link #getTargetSrc targetSrc}.
@@ -7290,13 +7639,20 @@ declare module "sap/ui/webc/fiori/ProductSwitchItem" {
      */
     click?: (oEvent: Event) => void;
   }
+
+  export interface ProductSwitchItem$ClickEventParameters {}
+
+  export type ProductSwitchItem$ClickEvent = Event<
+    ProductSwitchItem$ClickEventParameters,
+    ProductSwitchItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/ShellBar" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IShellBarItem } from "sap/ui/webc/fiori/library";
 
@@ -7307,18 +7663,18 @@ declare module "sap/ui/webc/fiori/ShellBar" {
     IButton,
   } from "sap/ui/webc/main/library";
 
-  import Event from "sap/ui/base/Event";
-
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
     AggregationBindingInfo,
   } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -7382,7 +7738,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
      * Creates a new subclass of class sap.ui.webc.fiori.ShellBar with name `sClassName` and enriches it with
      * the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -7448,7 +7804,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$CoPilotClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7468,7 +7824,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$CoPilotClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7493,7 +7849,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$LogoClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7513,7 +7869,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$LogoClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7539,7 +7895,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$MenuItemClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7560,7 +7916,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$MenuItemClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7586,7 +7942,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$NotificationsClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7607,7 +7963,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$NotificationsClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7634,7 +7990,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$ProductSwitchClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7656,7 +8012,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$ProductSwitchClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7681,7 +8037,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$ProfileClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7701,7 +8057,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$ProfileClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBar` itself
        */
@@ -7759,7 +8115,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$CoPilotClickEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -7776,7 +8132,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$LogoClickEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -7794,7 +8150,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$MenuItemClickEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -7812,7 +8168,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$NotificationsClickEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -7830,7 +8186,7 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$ProductSwitchClickEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -7847,13 +8203,15 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBar$ProfileClickEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:coPilotClick coPilotClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -7862,14 +8220,11 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * dom ref of the activated element
-         */
-        targetRef?: HTMLElement;
-      }
+      mParameters?: ShellBar$CoPilotClickEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:logoClick logoClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -7878,14 +8233,11 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * dom ref of the activated element
-         */
-        targetRef?: HTMLElement;
-      }
+      mParameters?: ShellBar$LogoClickEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:menuItemClick menuItemClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -7894,14 +8246,11 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * DOM ref of the activated list item
-         */
-        item?: HTMLElement;
-      }
+      mParameters?: ShellBar$MenuItemClickEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:notificationsClick notificationsClick} to attached listeners.
      *
      * Listeners may prevent the default action of this event by calling the `preventDefault` method on the
@@ -7913,14 +8262,11 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * dom ref of the activated element
-         */
-        targetRef?: HTMLElement;
-      }
+      mParameters?: ShellBar$NotificationsClickEventParameters
     ): boolean;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:productSwitchClick productSwitchClick} to attached listeners.
      *
      * Listeners may prevent the default action of this event by calling the `preventDefault` method on the
@@ -7932,14 +8278,11 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * dom ref of the activated element
-         */
-        targetRef?: HTMLElement;
-      }
+      mParameters?: ShellBar$ProductSwitchClickEventParameters
     ): boolean;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:profileClick profileClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -7948,13 +8291,46 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * dom ref of the activated element
-         */
-        targetRef?: HTMLElement;
-      }
+      mParameters?: ShellBar$ProfileClickEventParameters
     ): this;
+    /**
+     * Gets current value of property {@link #getAccessibilityAttributes accessibilityAttributes}.
+     *
+     * An object of strings that defines several additional accessibility attribute values for customization
+     * depending on the use case.
+     *
+     * It supports the following fields:
+     *
+     *
+     * 	 - `expanded`: Indicates whether the anchor element, or another grouping element it controls, is currently
+     *     expanded or collapsed. Accepts the following string values:
+     * 	`true`
+     * 	 - `false`
+     * 	 - `hasPopup`: Indicates the availability and type of interactive popup element, such as menu or dialog,
+     *     that can be triggered by the anchor element. Accepts the following string values:
+     * 	`Dialog`
+     * 	 - `Grid`
+     * 	 - `ListBox`
+     * 	 - `Menu`
+     * 	 - `Tree`
+     *
+     * Default value is `{}`.
+     *
+     * @returns Value of property `accessibilityAttributes`
+     */
+    getAccessibilityAttributes(): object;
+    /**
+     * Gets current value of property {@link #getAccessibilityRoles accessibilityRoles}.
+     *
+     * An object of strings that defines additional accessibility roles for further customization.
+     *
+     * It supports the following fields: - `logoRole`: the accessibility role for the `logo`
+     *
+     * Default value is `{}`.
+     *
+     * @returns Value of property `accessibilityRoles`
+     */
+    getAccessibilityRoles(): object;
     /**
      * Gets current value of property {@link #getAccessibilityTexts accessibilityTexts}.
      *
@@ -8098,6 +8474,17 @@ declare module "sap/ui/webc/fiori/ShellBar" {
      */
     getShowProductSwitch(): boolean;
     /**
+     * Gets current value of property {@link #getShowSearchField showSearchField}.
+     *
+     * Defines, if the Search Field would be displayed when there is a valid `searchField` slot.
+     *  **Note:** By default the Search Field is not displayed.
+     *
+     * Default value is `false`.
+     *
+     * @returns Value of property `showSearchField`
+     */
+    getShowSearchField(): boolean;
+    /**
      * Gets content of aggregation {@link #getStartButton startButton}.
      *
      * Defines a `sap.ui.webc.main.Button` in the bar that will be placed in the beginning. We encourage this
@@ -8200,6 +8587,58 @@ declare module "sap/ui/webc/fiori/ShellBar" {
        */
       vMenuItem: int | string | IListItem
     ): IListItem | null;
+    /**
+     * Sets a new value for property {@link #getAccessibilityAttributes accessibilityAttributes}.
+     *
+     * An object of strings that defines several additional accessibility attribute values for customization
+     * depending on the use case.
+     *
+     * It supports the following fields:
+     *
+     *
+     * 	 - `expanded`: Indicates whether the anchor element, or another grouping element it controls, is currently
+     *     expanded or collapsed. Accepts the following string values:
+     * 	`true`
+     * 	 - `false`
+     * 	 - `hasPopup`: Indicates the availability and type of interactive popup element, such as menu or dialog,
+     *     that can be triggered by the anchor element. Accepts the following string values:
+     * 	`Dialog`
+     * 	 - `Grid`
+     * 	 - `ListBox`
+     * 	 - `Menu`
+     * 	 - `Tree`
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `{}`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setAccessibilityAttributes(
+      /**
+       * New value for property `accessibilityAttributes`
+       */
+      oAccessibilityAttributes?: object
+    ): this;
+    /**
+     * Sets a new value for property {@link #getAccessibilityRoles accessibilityRoles}.
+     *
+     * An object of strings that defines additional accessibility roles for further customization.
+     *
+     * It supports the following fields: - `logoRole`: the accessibility role for the `logo`
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `{}`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setAccessibilityRoles(
+      /**
+       * New value for property `accessibilityRoles`
+       */
+      oAccessibilityRoles?: object
+    ): this;
     /**
      * Sets a new value for property {@link #getAccessibilityTexts accessibilityTexts}.
      *
@@ -8362,6 +8801,24 @@ declare module "sap/ui/webc/fiori/ShellBar" {
       bShowProductSwitch?: boolean
     ): this;
     /**
+     * Sets a new value for property {@link #getShowSearchField showSearchField}.
+     *
+     * Defines, if the Search Field would be displayed when there is a valid `searchField` slot.
+     *  **Note:** By default the Search Field is not displayed.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `false`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setShowSearchField(
+      /**
+       * New value for property `showSearchField`
+       */
+      bShowSearchField?: boolean
+    ): this;
+    /**
      * Sets the aggregated {@link #getStartButton startButton}.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -8375,6 +8832,34 @@ declare module "sap/ui/webc/fiori/ShellBar" {
   }
 
   export interface $ShellBarSettings extends $WebComponentSettings {
+    /**
+     * An object of strings that defines several additional accessibility attribute values for customization
+     * depending on the use case.
+     *
+     * It supports the following fields:
+     *
+     *
+     * 	 - `expanded`: Indicates whether the anchor element, or another grouping element it controls, is currently
+     *     expanded or collapsed. Accepts the following string values:
+     * 	`true`
+     * 	 - `false`
+     * 	 - `hasPopup`: Indicates the availability and type of interactive popup element, such as menu or dialog,
+     *     that can be triggered by the anchor element. Accepts the following string values:
+     * 	`Dialog`
+     * 	 - `Grid`
+     * 	 - `ListBox`
+     * 	 - `Menu`
+     * 	 - `Tree`
+     */
+    accessibilityAttributes?: object | PropertyBindingInfo | `{${string}}`;
+
+    /**
+     * An object of strings that defines additional accessibility roles for further customization.
+     *
+     * It supports the following fields: - `logoRole`: the accessibility role for the `logo`
+     */
+    accessibilityRoles?: object | PropertyBindingInfo | `{${string}}`;
+
     /**
      * An object of strings that defines several additional accessibility texts for even further customization.
      *
@@ -8418,6 +8903,12 @@ declare module "sap/ui/webc/fiori/ShellBar" {
      * Defines, if the product switch icon would be displayed.
      */
     showProductSwitch?: boolean | PropertyBindingInfo | `{${string}}`;
+
+    /**
+     * Defines, if the Search Field would be displayed when there is a valid `searchField` slot.
+     *  **Note:** By default the Search Field is not displayed.
+     */
+    showSearchField?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
      * Defines the `sap.ui.webc.fiori.ShellBar` aditional items.
@@ -8470,54 +8961,126 @@ declare module "sap/ui/webc/fiori/ShellBar" {
     /**
      * Fired, when the co pilot is activated.
      */
-    coPilotClick?: (oEvent: Event) => void;
+    coPilotClick?: (oEvent: ShellBar$CoPilotClickEvent) => void;
 
     /**
      * Fired, when the logo is activated.
      */
-    logoClick?: (oEvent: Event) => void;
+    logoClick?: (oEvent: ShellBar$LogoClickEvent) => void;
 
     /**
      * Fired, when a menu item is activated **Note:** You can prevent closing of overflow popover by calling
      * `event.preventDefault()`.
      */
-    menuItemClick?: (oEvent: Event) => void;
+    menuItemClick?: (oEvent: ShellBar$MenuItemClickEvent) => void;
 
     /**
      * Fired, when the notification icon is activated.
      */
-    notificationsClick?: (oEvent: Event) => void;
+    notificationsClick?: (oEvent: ShellBar$NotificationsClickEvent) => void;
 
     /**
      * Fired, when the product switch icon is activated. **Note:** You can prevent closing of overflow popover
      * by calling `event.preventDefault()`.
      */
-    productSwitchClick?: (oEvent: Event) => void;
+    productSwitchClick?: (oEvent: ShellBar$ProductSwitchClickEvent) => void;
 
     /**
      * Fired, when the profile slot is present.
      */
-    profileClick?: (oEvent: Event) => void;
+    profileClick?: (oEvent: ShellBar$ProfileClickEvent) => void;
   }
+
+  export interface ShellBar$CoPilotClickEventParameters {
+    /**
+     * dom ref of the activated element
+     */
+    targetRef?: HTMLElement;
+  }
+
+  export type ShellBar$CoPilotClickEvent = Event<
+    ShellBar$CoPilotClickEventParameters,
+    ShellBar
+  >;
+
+  export interface ShellBar$LogoClickEventParameters {
+    /**
+     * dom ref of the activated element
+     */
+    targetRef?: HTMLElement;
+  }
+
+  export type ShellBar$LogoClickEvent = Event<
+    ShellBar$LogoClickEventParameters,
+    ShellBar
+  >;
+
+  export interface ShellBar$MenuItemClickEventParameters {
+    /**
+     * DOM ref of the activated list item
+     */
+    item?: HTMLElement;
+  }
+
+  export type ShellBar$MenuItemClickEvent = Event<
+    ShellBar$MenuItemClickEventParameters,
+    ShellBar
+  >;
+
+  export interface ShellBar$NotificationsClickEventParameters {
+    /**
+     * dom ref of the activated element
+     */
+    targetRef?: HTMLElement;
+  }
+
+  export type ShellBar$NotificationsClickEvent = Event<
+    ShellBar$NotificationsClickEventParameters,
+    ShellBar
+  >;
+
+  export interface ShellBar$ProductSwitchClickEventParameters {
+    /**
+     * dom ref of the activated element
+     */
+    targetRef?: HTMLElement;
+  }
+
+  export type ShellBar$ProductSwitchClickEvent = Event<
+    ShellBar$ProductSwitchClickEventParameters,
+    ShellBar
+  >;
+
+  export interface ShellBar$ProfileClickEventParameters {
+    /**
+     * dom ref of the activated element
+     */
+    targetRef?: HTMLElement;
+  }
+
+  export type ShellBar$ProfileClickEvent = Event<
+    ShellBar$ProfileClickEventParameters,
+    ShellBar
+  >;
 }
 
 declare module "sap/ui/webc/fiori/ShellBarItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IShellBarItem } from "sap/ui/webc/fiori/library";
 
-  import Event from "sap/ui/base/Event";
-
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    */
   export default class ShellBarItem
     extends WebComponent
@@ -8558,7 +9121,7 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.ShellBarItem with name `sClassName` and enriches it
      * with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -8602,7 +9165,7 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBarItem$ClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBarItem` itself
        */
@@ -8622,7 +9185,7 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBarItem$ClickEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ShellBarItem` itself
        */
@@ -8639,13 +9202,15 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ShellBarItem$ClickEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:click click} to attached listeners.
      *
      * Listeners may prevent the default action of this event by calling the `preventDefault` method on the
@@ -8657,12 +9222,7 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * DOM ref of the clicked element
-         */
-        targetRef?: HTMLElement;
-      }
+      mParameters?: ShellBarItem$ClickEventParameters
     ): boolean;
     /**
      * Gets current value of property {@link #getCount count}.
@@ -8688,6 +9248,8 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
      * Gets current value of property {@link #getText text}.
      *
      * Defines the item text.
+     *
+     *  **Note:** The text is only displayed inside the overflow popover list view.
      *
      * Default value is `empty string`.
      *
@@ -8733,6 +9295,8 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
      *
      * Defines the item text.
      *
+     *  **Note:** The text is only displayed inside the overflow popover list view.
+     *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
      * Default value is `empty string`.
@@ -8760,38 +9324,55 @@ declare module "sap/ui/webc/fiori/ShellBarItem" {
 
     /**
      * Defines the item text.
+     *
+     *  **Note:** The text is only displayed inside the overflow popover list view.
      */
     text?: string | PropertyBindingInfo;
 
     /**
      * Fired, when the item is pressed.
      */
-    click?: (oEvent: Event) => void;
+    click?: (oEvent: ShellBarItem$ClickEvent) => void;
   }
+
+  export interface ShellBarItem$ClickEventParameters {
+    /**
+     * DOM ref of the clicked element
+     */
+    targetRef?: HTMLElement;
+  }
+
+  export type ShellBarItem$ClickEvent = Event<
+    ShellBarItem$ClickEventParameters,
+    ShellBarItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/SideNavigation" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
-  import { ISideNavigationItem } from "sap/ui/webc/fiori/library";
+  import {
+    ISideNavigationItem,
+    ISideNavigationSubItem,
+  } from "sap/ui/webc/fiori/library";
 
   import Control from "sap/ui/core/Control";
 
-  import Event from "sap/ui/base/Event";
-
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
     AggregationBindingInfo,
   } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -8801,7 +9382,7 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
    * 	 - The header is meant for displaying user related information - profile data, avatar, etc.
    * 	 - The main navigation section is related to the user’s current work context
    * 	 - The secondary section is mostly used to link additional information that may be of interest (legal
-   * 			information, developer communities, external help, contact information and so on).
+   *     information, developer communities, external help, contact information and so on).
    *
    * Usage:
    *
@@ -8848,7 +9429,7 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
      * Creates a new subclass of class sap.ui.webc.fiori.SideNavigation with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -8926,7 +9507,7 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: SideNavigation$SelectionChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.SideNavigation` itself
        */
@@ -8947,7 +9528,7 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: SideNavigation$SelectionChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.SideNavigation` itself
        */
@@ -8983,13 +9564,15 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: SideNavigation$SelectionChangeEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:selectionChange selectionChange} to attached listeners.
      *
      * Listeners may prevent the default action of this event by calling the `preventDefault` method on the
@@ -9001,12 +9584,7 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * the clicked item.
-         */
-        item?: HTMLElement;
-      }
+      mParameters?: SideNavigation$SelectionChangeEventParameters
     ): boolean;
     /**
      * Gets current value of property {@link #getCollapsed collapsed}.
@@ -9048,8 +9626,8 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
      */
     getItems(): ISideNavigationItem[];
     /**
-     * Checks for the provided `sap.ui.webc.fiori.ISideNavigationItem` in the aggregation {@link #getFixedItems
-     * fixedItems}. and returns its index if found or -1 otherwise.
+     * Checks for the provided `sap.ui.webc.fiori.ISideNavigationItem` in the aggregation {@link #getFixedItems fixedItems}.
+     * and returns its index if found or -1 otherwise.
      *
      * @returns The index of the provided control in the aggregation if found, or -1 otherwise
      */
@@ -9253,22 +9831,36 @@ declare module "sap/ui/webc/fiori/SideNavigation" {
     /**
      * Fired when the selection has changed via user interaction
      */
-    selectionChange?: (oEvent: Event) => void;
+    selectionChange?: (oEvent: SideNavigation$SelectionChangeEvent) => void;
   }
+
+  export interface SideNavigation$SelectionChangeEventParameters {
+    /**
+     * the clicked item.
+     */
+    item?: ISideNavigationItem | ISideNavigationSubItem;
+  }
+
+  export type SideNavigation$SelectionChangeEvent = Event<
+    SideNavigation$SelectionChangeEventParameters,
+    SideNavigation
+  >;
 }
 
 declare module "sap/ui/webc/fiori/SideNavigationItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import {
     ISideNavigationItem,
     ISideNavigationSubItem,
   } from "sap/ui/webc/fiori/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import Event from "sap/ui/base/Event";
+
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -9276,8 +9868,8 @@ declare module "sap/ui/webc/fiori/SideNavigationItem" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -9323,7 +9915,7 @@ declare module "sap/ui/webc/fiori/SideNavigationItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.SideNavigationItem with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -9360,11 +9952,88 @@ declare module "sap/ui/webc/fiori/SideNavigationItem" {
       oItem: ISideNavigationSubItem
     ): this;
     /**
+     * Attaches event handler `fnFunction` to the {@link #event:click click} event of this `sap.ui.webc.fiori.SideNavigationItem`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.SideNavigationItem` itself.
+     *
+     * Fired when the component is activated either with a click/tap or by using the Enter or Space key.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachClick(
+      /**
+       * An application-specific payload object that will be passed to the event handler along with the event
+       * object when firing the event
+       */
+      oData: object,
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.SideNavigationItem`
+       * itself
+       */
+      oListener?: object
+    ): this;
+    /**
+     * Attaches event handler `fnFunction` to the {@link #event:click click} event of this `sap.ui.webc.fiori.SideNavigationItem`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.SideNavigationItem` itself.
+     *
+     * Fired when the component is activated either with a click/tap or by using the Enter or Space key.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachClick(
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.SideNavigationItem`
+       * itself
+       */
+      oListener?: object
+    ): this;
+    /**
      * Destroys all the items in the aggregation {@link #getItems items}.
      *
      * @returns Reference to `this` in order to allow method chaining
      */
     destroyItems(): this;
+    /**
+     * Detaches event handler `fnFunction` from the {@link #event:click click} event of this `sap.ui.webc.fiori.SideNavigationItem`.
+     *
+     * The passed function and listener object must match the ones used for event registration.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    detachClick(
+      /**
+       * The function to be called, when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object on which the given function had to be called
+       */
+      oListener?: object
+    ): this;
+    /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
+     * Fires event {@link #event:click click} to attached listeners.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    fireClick(
+      /**
+       * Parameters to pass along with the event
+       */
+      mParameters?: object
+    ): this;
     /**
      * Gets current value of property {@link #getExpanded expanded}.
      *
@@ -9393,7 +10062,7 @@ declare module "sap/ui/webc/fiori/SideNavigationItem" {
     /**
      * Gets content of aggregation {@link #getItems items}.
      *
-     * If you wish to nest menus, you can pass inner menu items to the default slot.
+     * Defines nested items by passing `sap.ui.webc.fiori.SideNavigationSubItem` to the default slot.
      */
     getItems(): ISideNavigationSubItem[];
     /**
@@ -9430,8 +10099,8 @@ declare module "sap/ui/webc/fiori/SideNavigationItem" {
      */
     getWholeItemToggleable(): boolean;
     /**
-     * Checks for the provided `sap.ui.webc.fiori.ISideNavigationSubItem` in the aggregation {@link #getItems
-     * items}. and returns its index if found or -1 otherwise.
+     * Checks for the provided `sap.ui.webc.fiori.ISideNavigationSubItem` in the aggregation {@link #getItems items}.
+     * and returns its index if found or -1 otherwise.
      *
      * @returns The index of the provided control in the aggregation if found, or -1 otherwise
      */
@@ -9607,31 +10276,45 @@ declare module "sap/ui/webc/fiori/SideNavigationItem" {
     wholeItemToggleable?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
-     * If you wish to nest menus, you can pass inner menu items to the default slot.
+     * Defines nested items by passing `sap.ui.webc.fiori.SideNavigationSubItem` to the default slot.
      */
     items?:
       | ISideNavigationSubItem[]
       | ISideNavigationSubItem
       | AggregationBindingInfo
       | `{${string}}`;
+
+    /**
+     * Fired when the component is activated either with a click/tap or by using the Enter or Space key.
+     */
+    click?: (oEvent: Event) => void;
   }
+
+  export interface SideNavigationItem$ClickEventParameters {}
+
+  export type SideNavigationItem$ClickEvent = Event<
+    SideNavigationItem$ClickEventParameters,
+    SideNavigationItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/SideNavigationSubItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { ISideNavigationSubItem } from "sap/ui/webc/fiori/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import Event from "sap/ui/base/Event";
+
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -9677,7 +10360,7 @@ declare module "sap/ui/webc/fiori/SideNavigationSubItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.SideNavigationSubItem with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -9702,6 +10385,83 @@ declare module "sap/ui/webc/fiori/SideNavigationSubItem" {
      * @returns Metadata object describing this class
      */
     static getMetadata(): WebComponentMetadata;
+    /**
+     * Attaches event handler `fnFunction` to the {@link #event:click click} event of this `sap.ui.webc.fiori.SideNavigationSubItem`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.SideNavigationSubItem` itself.
+     *
+     * Fired when the component is activated either with a click/tap or by using the Enter or Space key.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachClick(
+      /**
+       * An application-specific payload object that will be passed to the event handler along with the event
+       * object when firing the event
+       */
+      oData: object,
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.SideNavigationSubItem`
+       * itself
+       */
+      oListener?: object
+    ): this;
+    /**
+     * Attaches event handler `fnFunction` to the {@link #event:click click} event of this `sap.ui.webc.fiori.SideNavigationSubItem`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.SideNavigationSubItem` itself.
+     *
+     * Fired when the component is activated either with a click/tap or by using the Enter or Space key.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachClick(
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.SideNavigationSubItem`
+       * itself
+       */
+      oListener?: object
+    ): this;
+    /**
+     * Detaches event handler `fnFunction` from the {@link #event:click click} event of this `sap.ui.webc.fiori.SideNavigationSubItem`.
+     *
+     * The passed function and listener object must match the ones used for event registration.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    detachClick(
+      /**
+       * The function to be called, when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object on which the given function had to be called
+       */
+      oListener?: object
+    ): this;
+    /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
+     * Fires event {@link #event:click click} to attached listeners.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    fireClick(
+      /**
+       * Parameters to pass along with the event
+       */
+      mParameters?: object
+    ): this;
     /**
      * Gets current value of property {@link #getIcon icon}.
      *
@@ -9816,24 +10576,36 @@ declare module "sap/ui/webc/fiori/SideNavigationSubItem" {
      * Defines the text of the item.
      */
     text?: string | PropertyBindingInfo;
+
+    /**
+     * Fired when the component is activated either with a click/tap or by using the Enter or Space key.
+     */
+    click?: (oEvent: Event) => void;
   }
+
+  export interface SideNavigationSubItem$ClickEventParameters {}
+
+  export type SideNavigationSubItem$ClickEvent = Event<
+    SideNavigationSubItem$ClickEventParameters,
+    SideNavigationSubItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/SortItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { ISortItem } from "sap/ui/webc/fiori/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { PropertyBindingInfo } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.97.0
-   * @EXPERIMENTAL (since 1.97.0) - This control is experimental and its API might change significantly.
+   * @since 1.97.0
+   * @experimental (since 1.97.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -9876,7 +10648,7 @@ declare module "sap/ui/webc/fiori/SortItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.SortItem with name `sClassName` and enriches it with
      * the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -9974,13 +10746,13 @@ declare module "sap/ui/webc/fiori/Timeline" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { ITimelineItem, TimelineLayout } from "sap/ui/webc/fiori/library";
 
   import { CSSSize } from "sap/ui/core/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -9988,8 +10760,8 @@ declare module "sap/ui/webc/fiori/Timeline" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -10036,7 +10808,7 @@ declare module "sap/ui/webc/fiori/Timeline" {
      * Creates a new subclass of class sap.ui.webc.fiori.Timeline with name `sClassName` and enriches it with
      * the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -10081,7 +10853,7 @@ declare module "sap/ui/webc/fiori/Timeline" {
     /**
      * Gets current value of property {@link #getAccessibleName accessibleName}.
      *
-     * Defines the accessible aria name of the component.
+     * Defines the accessible ARIA name of the component.
      *
      * @returns Value of property `accessibleName`
      */
@@ -10175,7 +10947,7 @@ declare module "sap/ui/webc/fiori/Timeline" {
     /**
      * Sets a new value for property {@link #getAccessibleName accessibleName}.
      *
-     * Defines the accessible aria name of the component.
+     * Defines the accessible ARIA name of the component.
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -10244,7 +11016,7 @@ declare module "sap/ui/webc/fiori/Timeline" {
 
   export interface $TimelineSettings extends $WebComponentSettings {
     /**
-     * Defines the accessible aria name of the component.
+     * Defines the accessible ARIA name of the component.
      */
     accessibleName?: string | PropertyBindingInfo;
 
@@ -10287,7 +11059,7 @@ declare module "sap/ui/webc/fiori/TimelineItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { ITimelineItem } from "sap/ui/webc/fiori/library";
 
@@ -10295,7 +11067,7 @@ declare module "sap/ui/webc/fiori/TimelineItem" {
 
   import Event from "sap/ui/base/Event";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -10303,8 +11075,8 @@ declare module "sap/ui/webc/fiori/TimelineItem" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -10349,7 +11121,7 @@ declare module "sap/ui/webc/fiori/TimelineItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.TimelineItem with name `sClassName` and enriches it
      * with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -10458,6 +11230,8 @@ declare module "sap/ui/webc/fiori/TimelineItem" {
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:nameClick nameClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -10712,23 +11486,28 @@ declare module "sap/ui/webc/fiori/TimelineItem" {
      */
     nameClick?: (oEvent: Event) => void;
   }
+
+  export interface TimelineItem$NameClickEventParameters {}
+
+  export type TimelineItem$NameClickEvent = Event<
+    TimelineItem$NameClickEventParameters,
+    TimelineItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/UploadCollection" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import Control from "sap/ui/core/Control";
 
   import { IUploadCollectionItem } from "sap/ui/webc/fiori/library";
 
-  import Event from "sap/ui/base/Event";
-
   import { CSSSize } from "sap/ui/core/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import { ListMode } from "sap/ui/webc/main/library";
 
@@ -10737,9 +11516,11 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
     AggregationBindingInfo,
   } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview: This component allows you to represent files before uploading them to a server, with the help
    * of `sap.ui.webc.fiori.UploadCollectionItem`. It also allows you to show already uploaded files.
@@ -10780,7 +11561,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
      * Creates a new subclass of class sap.ui.webc.fiori.UploadCollection with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -10849,7 +11630,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$DropEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollection`
        * itself
@@ -10873,7 +11654,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$DropEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollection`
        * itself
@@ -10886,10 +11667,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
      * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
      * otherwise it will be bound to this `sap.ui.webc.fiori.UploadCollection` itself.
      *
-     * Fired when the Delete button of any item is pressed.
-     *
-     *  **Note:** A Delete button is displayed on each item, when the `sap.ui.webc.fiori.UploadCollection` `mode`
-     * property is set to `Delete`.
+     * Fired when the delete button of any item is pressed.
      *
      * @returns Reference to `this` in order to allow method chaining
      */
@@ -10902,7 +11680,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$ItemDeleteEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollection`
        * itself
@@ -10915,10 +11693,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
      * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
      * otherwise it will be bound to this `sap.ui.webc.fiori.UploadCollection` itself.
      *
-     * Fired when the Delete button of any item is pressed.
-     *
-     *  **Note:** A Delete button is displayed on each item, when the `sap.ui.webc.fiori.UploadCollection` `mode`
-     * property is set to `Delete`.
+     * Fired when the delete button of any item is pressed.
      *
      * @returns Reference to `this` in order to allow method chaining
      */
@@ -10926,7 +11701,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$ItemDeleteEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollection`
        * itself
@@ -10953,7 +11728,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$SelectionChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollection`
        * itself
@@ -10975,7 +11750,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$SelectionChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollection`
        * itself
@@ -11005,7 +11780,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$DropEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -11022,7 +11797,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$ItemDeleteEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -11040,13 +11815,15 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: UploadCollection$SelectionChangeEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:drop drop} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -11055,14 +11832,11 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * The `drop` event operation data.
-         */
-        dataTransfer?: DataTransfer;
-      }
+      mParameters?: UploadCollection$DropEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:itemDelete itemDelete} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -11071,14 +11845,11 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * The `sap.ui.webc.fiori.UploadCollectionItem` which was renamed.
-         */
-        item?: HTMLElement;
-      }
+      mParameters?: UploadCollection$ItemDeleteEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:selectionChange selectionChange} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -11087,17 +11858,12 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * An array of the selected items.
-         */
-        selectedItems?: any[];
-      }
+      mParameters?: UploadCollection$SelectionChangeEventParameters
     ): this;
     /**
      * Gets current value of property {@link #getAccessibleName accessibleName}.
      *
-     * Defines the accessible aria name of the component.
+     * Defines the accessible ARIA name of the component.
      *
      * Default value is `empty string`.
      *
@@ -11148,12 +11914,8 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
      * Defines the mode of the `sap.ui.webc.fiori.UploadCollection`.
      *
      *
-     *
-     *  **Note:**
-     * 	 - `None`
-     * 	 - `SingleSelect`
-     * 	 - `MultiSelect`
-     * 	 - `Delete`
+     *  **Note:** Mode "Delete" has no effect. The delete button is controlled by the `hideDeleteButton` property
+     * of UploadCollectionItem
      *
      * Default value is `None`.
      *
@@ -11201,8 +11963,8 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
       oHeader: Control
     ): int;
     /**
-     * Checks for the provided `sap.ui.webc.fiori.IUploadCollectionItem` in the aggregation {@link #getItems
-     * items}. and returns its index if found or -1 otherwise.
+     * Checks for the provided `sap.ui.webc.fiori.IUploadCollectionItem` in the aggregation {@link #getItems items}.
+     * and returns its index if found or -1 otherwise.
      *
      * @returns The index of the provided control in the aggregation if found, or -1 otherwise
      */
@@ -11287,7 +12049,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
     /**
      * Sets a new value for property {@link #getAccessibleName accessibleName}.
      *
-     * Defines the accessible aria name of the component.
+     * Defines the accessible ARIA name of the component.
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -11343,12 +12105,8 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
      * Defines the mode of the `sap.ui.webc.fiori.UploadCollection`.
      *
      *
-     *
-     *  **Note:**
-     * 	 - `None`
-     * 	 - `SingleSelect`
-     * 	 - `MultiSelect`
-     * 	 - `Delete`
+     *  **Note:** Mode "Delete" has no effect. The delete button is controlled by the `hideDeleteButton` property
+     * of UploadCollectionItem
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -11415,7 +12173,7 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
 
   export interface $UploadCollectionSettings extends $WebComponentSettings {
     /**
-     * Defines the accessible aria name of the component.
+     * Defines the accessible ARIA name of the component.
      */
     accessibleName?: string | PropertyBindingInfo;
 
@@ -11437,12 +12195,8 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
      * Defines the mode of the `sap.ui.webc.fiori.UploadCollection`.
      *
      *
-     *
-     *  **Note:**
-     * 	 - `None`
-     * 	 - `SingleSelect`
-     * 	 - `MultiSelect`
-     * 	 - `Delete`
+     *  **Note:** Mode "Delete" has no effect. The delete button is controlled by the `hideDeleteButton` property
+     * of UploadCollectionItem
      */
     mode?:
       | (ListMode | keyof typeof ListMode)
@@ -11488,28 +12242,61 @@ declare module "sap/ui/webc/fiori/UploadCollection" {
      *  **Note:** The `drop` event is fired only when elements are dropped within the drag and drop overlay
      * and ignored for the other parts of the `sap.ui.webc.fiori.UploadCollection`.
      */
-    drop?: (oEvent: Event) => void;
+    drop?: (oEvent: UploadCollection$DropEvent) => void;
 
     /**
-     * Fired when the Delete button of any item is pressed.
-     *
-     *  **Note:** A Delete button is displayed on each item, when the `sap.ui.webc.fiori.UploadCollection` `mode`
-     * property is set to `Delete`.
+     * Fired when the delete button of any item is pressed.
      */
-    itemDelete?: (oEvent: Event) => void;
+    itemDelete?: (oEvent: UploadCollection$ItemDeleteEvent) => void;
 
     /**
      * Fired when selection is changed by user interaction in `SingleSelect` and `MultiSelect` modes.
      */
-    selectionChange?: (oEvent: Event) => void;
+    selectionChange?: (oEvent: UploadCollection$SelectionChangeEvent) => void;
   }
+
+  export interface UploadCollection$DropEventParameters {
+    /**
+     * The `drop` event operation data.
+     */
+    dataTransfer?: DataTransfer;
+  }
+
+  export type UploadCollection$DropEvent = Event<
+    UploadCollection$DropEventParameters,
+    UploadCollection
+  >;
+
+  export interface UploadCollection$ItemDeleteEventParameters {
+    /**
+     * The `sap.ui.webc.fiori.UploadCollectionItem` which was deleted.
+     */
+    item?: HTMLElement;
+  }
+
+  export type UploadCollection$ItemDeleteEvent = Event<
+    UploadCollection$ItemDeleteEventParameters,
+    UploadCollection
+  >;
+
+  export interface UploadCollection$SelectionChangeEventParameters {
+    /**
+     * An array of the selected items.
+     */
+    selectedItems?: any[];
+  }
+
+  export type UploadCollection$SelectionChangeEvent = Event<
+    UploadCollection$SelectionChangeEventParameters,
+    UploadCollection
+  >;
 }
 
 declare module "sap/ui/webc/fiori/UploadCollectionItem" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import {
     IUploadCollectionItem,
@@ -11520,7 +12307,9 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
 
   import Event from "sap/ui/base/Event";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import { IButton, ListItemType } from "sap/ui/webc/main/library";
+
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -11528,8 +12317,8 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview: A component to be used within the `sap.ui.webc.fiori.UploadCollection`.
    */
@@ -11572,7 +12361,7 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
      * Creates a new subclass of class sap.ui.webc.fiori.UploadCollectionItem with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -11607,6 +12396,53 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
        * The content to add; if empty, nothing is inserted
        */
       oContent: Control
+    ): this;
+    /**
+     * Attaches event handler `fnFunction` to the {@link #event:detailClick detailClick} event of this `sap.ui.webc.fiori.UploadCollectionItem`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.UploadCollectionItem` itself.
+     *
+     * Fired when the user clicks on the detail button when type is `Detail`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachDetailClick(
+      /**
+       * An application-specific payload object that will be passed to the event handler along with the event
+       * object when firing the event
+       */
+      oData: object,
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollectionItem`
+       * itself
+       */
+      oListener?: object
+    ): this;
+    /**
+     * Attaches event handler `fnFunction` to the {@link #event:detailClick detailClick} event of this `sap.ui.webc.fiori.UploadCollectionItem`.
+     *
+     * When called, the context of the event handler (its `this`) will be bound to `oListener` if specified,
+     * otherwise it will be bound to this `sap.ui.webc.fiori.UploadCollectionItem` itself.
+     *
+     * Fired when the user clicks on the detail button when type is `Detail`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    attachDetailClick(
+      /**
+       * The function to be called when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.UploadCollectionItem`
+       * itself
+       */
+      oListener?: object
     ): this;
     /**
      * Attaches event handler `fnFunction` to the {@link #event:fileNameClick fileNameClick} event of this `sap.ui.webc.fiori.UploadCollectionItem`.
@@ -11821,11 +12657,34 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
      */
     destroyContent(): this;
     /**
+     * Destroys the deleteButton in the aggregation {@link #getDeleteButton deleteButton}.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    destroyDeleteButton(): this;
+    /**
      * Destroys the thumbnail in the aggregation {@link #getThumbnail thumbnail}.
      *
      * @returns Reference to `this` in order to allow method chaining
      */
     destroyThumbnail(): this;
+    /**
+     * Detaches event handler `fnFunction` from the {@link #event:detailClick detailClick} event of this `sap.ui.webc.fiori.UploadCollectionItem`.
+     *
+     * The passed function and listener object must match the ones used for event registration.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    detachDetailClick(
+      /**
+       * The function to be called, when the event occurs
+       */
+      fnFunction: (p1: Event) => void,
+      /**
+       * Context object on which the given function had to be called
+       */
+      oListener?: object
+    ): this;
     /**
      * Detaches event handler `fnFunction` from the {@link #event:fileNameClick fileNameClick} event of this
      * `sap.ui.webc.fiori.UploadCollectionItem`.
@@ -11896,6 +12755,21 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
+     * Fires event {@link #event:detailClick detailClick} to attached listeners.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    fireDetailClick(
+      /**
+       * Parameters to pass along with the event
+       */
+      mParameters?: object
+    ): this;
+    /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:fileNameClick fileNameClick} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -11907,6 +12781,8 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       mParameters?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:rename rename} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -11918,6 +12794,8 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       mParameters?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:retry retry} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -11929,6 +12807,8 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       mParameters?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:terminate terminate} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -11940,11 +12820,41 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       mParameters?: object
     ): this;
     /**
+     * Gets current value of property {@link #getAccessibilityAttributes accessibilityAttributes}.
+     *
+     * An object of strings that defines several additional accessibility attribute values for customization
+     * depending on the use case.
+     *
+     * It supports the following fields:
+     *
+     *
+     * 	 - `ariaSetsize`: Defines the number of items in the current set of listitems or treeitems when not
+     *     all items in the set are present in the DOM. The value of each `aria-setsize` is an integer reflecting
+     *     number of items in the complete set. **Note: ** If the size of the entire set is unknown, set `aria-setsize="-1"`.
+     *
+     * 	 - `ariaPosinset`: Defines an element's number or position in the current set of listitems or treeitems
+     *     when not all items are present in the DOM. The value of each `aria-posinset` is an integer greater than
+     *     or equal to 1, and less than or equal to the size of the set when that size is known.
+     *
+     * Default value is `{}`.
+     *
+     * @returns Value of property `accessibilityAttributes`
+     */
+    getAccessibilityAttributes(): object;
+    /**
      * Gets content of aggregation {@link #getContent content}.
      *
      * Hold the description of the `sap.ui.webc.fiori.UploadCollectionItem`. Will be shown below the file name.
      */
     getContent(): Control[];
+    /**
+     * Gets content of aggregation {@link #getDeleteButton deleteButton}.
+     *
+     * Defines the delete button, displayed in "Delete" mode. **Note:** While the slot allows custom buttons,
+     * to match design guidelines, please use the `sap.ui.webc.main.Button` component. **Note:** When the slot
+     * is not present, a built-in delete button will be displayed.
+     */
+    getDeleteButton(): IButton;
     /**
      * Gets current value of property {@link #getDisableDeleteButton disableDeleteButton}.
      *
@@ -11984,6 +12894,17 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
      */
     getFileNameClickable(): boolean;
     /**
+     * Gets current value of property {@link #getHideDeleteButton hideDeleteButton}.
+     *
+     * By default, the delete button will always be shown, regardless of the `sap.ui.webc.fiori.UploadCollection`'s
+     * property `mode`. Setting this property to `true` will hide the delete button.
+     *
+     * Default value is `false`.
+     *
+     * @returns Value of property `hideDeleteButton`
+     */
+    getHideDeleteButton(): boolean;
+    /**
      * Gets current value of property {@link #getHideRetryButton hideRetryButton}.
      *
      * Hides the retry button when `uploadState` property is `Error`.
@@ -12004,6 +12925,15 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
      */
     getHideTerminateButton(): boolean;
     /**
+     * Gets current value of property {@link #getNavigated navigated}.
+     *
+     * The navigated state of the list item. If set to `true`, a navigation indicator is displayed at the end
+     * of the list item.
+     *
+     * @returns Value of property `navigated`
+     */
+    getNavigated(): boolean;
+    /**
      * Gets current value of property {@link #getProgress progress}.
      *
      * The upload progress in percentage.
@@ -12016,6 +12946,16 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
      */
     getProgress(): int;
     /**
+     * Gets current value of property {@link #getSelected selected}.
+     *
+     * Defines the selected state of the `ListItem`.
+     *
+     * Default value is `false`.
+     *
+     * @returns Value of property `selected`
+     */
+    getSelected(): boolean;
+    /**
      * Gets content of aggregation {@link #getThumbnail thumbnail}.
      *
      * A thumbnail, which will be shown in the beginning of the `sap.ui.webc.fiori.UploadCollectionItem`.
@@ -12023,6 +12963,20 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
      *  **Note:** Use `sap.ui.webc.main.Icon` or `img` for the intended design.
      */
     getThumbnail(): Control;
+    /**
+     * Gets current value of property {@link #getType type}.
+     *
+     * Defines the visual indication and behavior of the list items. Available options are `Active` (by default),
+     * `Inactive`, `Detail` and `Navigation`.
+     *
+     *  **Note:** When set to `Active` or `Navigation`, the item will provide visual response upon press and
+     * hover, while with type `Inactive` and `Detail` - will not.
+     *
+     * Default value is `Active`.
+     *
+     * @returns Value of property `type`
+     */
+    getType(): ListItemType | keyof typeof ListItemType;
     /**
      * Gets current value of property {@link #getUploadState uploadState}.
      *
@@ -12083,6 +13037,46 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
        */
       vContent: int | string | Control
     ): Control | null;
+    /**
+     * Sets a new value for property {@link #getAccessibilityAttributes accessibilityAttributes}.
+     *
+     * An object of strings that defines several additional accessibility attribute values for customization
+     * depending on the use case.
+     *
+     * It supports the following fields:
+     *
+     *
+     * 	 - `ariaSetsize`: Defines the number of items in the current set of listitems or treeitems when not
+     *     all items in the set are present in the DOM. The value of each `aria-setsize` is an integer reflecting
+     *     number of items in the complete set. **Note: ** If the size of the entire set is unknown, set `aria-setsize="-1"`.
+     *
+     * 	 - `ariaPosinset`: Defines an element's number or position in the current set of listitems or treeitems
+     *     when not all items are present in the DOM. The value of each `aria-posinset` is an integer greater than
+     *     or equal to 1, and less than or equal to the size of the set when that size is known.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `{}`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setAccessibilityAttributes(
+      /**
+       * New value for property `accessibilityAttributes`
+       */
+      oAccessibilityAttributes?: object
+    ): this;
+    /**
+     * Sets the aggregated {@link #getDeleteButton deleteButton}.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setDeleteButton(
+      /**
+       * The deleteButton to set
+       */
+      oDeleteButton: IButton
+    ): this;
     /**
      * Sets a new value for property {@link #getDisableDeleteButton disableDeleteButton}.
      *
@@ -12150,6 +13144,24 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       bFileNameClickable?: boolean
     ): this;
     /**
+     * Sets a new value for property {@link #getHideDeleteButton hideDeleteButton}.
+     *
+     * By default, the delete button will always be shown, regardless of the `sap.ui.webc.fiori.UploadCollection`'s
+     * property `mode`. Setting this property to `true` will hide the delete button.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `false`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setHideDeleteButton(
+      /**
+       * New value for property `hideDeleteButton`
+       */
+      bHideDeleteButton?: boolean
+    ): this;
+    /**
      * Sets a new value for property {@link #getHideRetryButton hideRetryButton}.
      *
      * Hides the retry button when `uploadState` property is `Error`.
@@ -12184,6 +13196,22 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       bHideTerminateButton?: boolean
     ): this;
     /**
+     * Sets a new value for property {@link #getNavigated navigated}.
+     *
+     * The navigated state of the list item. If set to `true`, a navigation indicator is displayed at the end
+     * of the list item.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setNavigated(
+      /**
+       * New value for property `navigated`
+       */
+      bNavigated: boolean
+    ): this;
+    /**
      * Sets a new value for property {@link #getProgress progress}.
      *
      * The upload progress in percentage.
@@ -12203,6 +13231,23 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
       iProgress?: int
     ): this;
     /**
+     * Sets a new value for property {@link #getSelected selected}.
+     *
+     * Defines the selected state of the `ListItem`.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `false`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setSelected(
+      /**
+       * New value for property `selected`
+       */
+      bSelected?: boolean
+    ): this;
+    /**
      * Sets the aggregated {@link #getThumbnail thumbnail}.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -12212,6 +13257,27 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
        * The thumbnail to set
        */
       oThumbnail: Control
+    ): this;
+    /**
+     * Sets a new value for property {@link #getType type}.
+     *
+     * Defines the visual indication and behavior of the list items. Available options are `Active` (by default),
+     * `Inactive`, `Detail` and `Navigation`.
+     *
+     *  **Note:** When set to `Active` or `Navigation`, the item will provide visual response upon press and
+     * hover, while with type `Inactive` and `Detail` - will not.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `Active`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setType(
+      /**
+       * New value for property `type`
+       */
+      sType?: ListItemType | keyof typeof ListItemType
     ): this;
     /**
      * Sets a new value for property {@link #getUploadState uploadState}.
@@ -12236,6 +13302,23 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
 
   export interface $UploadCollectionItemSettings extends $WebComponentSettings {
     /**
+     * An object of strings that defines several additional accessibility attribute values for customization
+     * depending on the use case.
+     *
+     * It supports the following fields:
+     *
+     *
+     * 	 - `ariaSetsize`: Defines the number of items in the current set of listitems or treeitems when not
+     *     all items in the set are present in the DOM. The value of each `aria-setsize` is an integer reflecting
+     *     number of items in the complete set. **Note: ** If the size of the entire set is unknown, set `aria-setsize="-1"`.
+     *
+     * 	 - `ariaPosinset`: Defines an element's number or position in the current set of listitems or treeitems
+     *     when not all items are present in the DOM. The value of each `aria-posinset` is an integer greater than
+     *     or equal to 1, and less than or equal to the size of the set when that size is known.
+     */
+    accessibilityAttributes?: object | PropertyBindingInfo | `{${string}}`;
+
+    /**
      * Disables the delete button.
      */
     disableDeleteButton?: boolean | PropertyBindingInfo | `{${string}}`;
@@ -12256,6 +13339,12 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
     fileNameClickable?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
+     * By default, the delete button will always be shown, regardless of the `sap.ui.webc.fiori.UploadCollection`'s
+     * property `mode`. Setting this property to `true` will hide the delete button.
+     */
+    hideDeleteButton?: boolean | PropertyBindingInfo | `{${string}}`;
+
+    /**
      * Hides the retry button when `uploadState` property is `Error`.
      */
     hideRetryButton?: boolean | PropertyBindingInfo | `{${string}}`;
@@ -12266,11 +13355,34 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
     hideTerminateButton?: boolean | PropertyBindingInfo | `{${string}}`;
 
     /**
+     * The navigated state of the list item. If set to `true`, a navigation indicator is displayed at the end
+     * of the list item.
+     */
+    navigated?: boolean | PropertyBindingInfo | `{${string}}`;
+
+    /**
      * The upload progress in percentage.
      *
      *  **Note:** Expected values are in the interval [0, 100].
      */
     progress?: int | PropertyBindingInfo | `{${string}}`;
+
+    /**
+     * Defines the selected state of the `ListItem`.
+     */
+    selected?: boolean | PropertyBindingInfo | `{${string}}`;
+
+    /**
+     * Defines the visual indication and behavior of the list items. Available options are `Active` (by default),
+     * `Inactive`, `Detail` and `Navigation`.
+     *
+     *  **Note:** When set to `Active` or `Navigation`, the item will provide visual response upon press and
+     * hover, while with type `Inactive` and `Detail` - will not.
+     */
+    type?:
+      | (ListItemType | keyof typeof ListItemType)
+      | PropertyBindingInfo
+      | `{${string}}`;
 
     /**
      * If set to `Uploading` or `Error`, a progress indicator showing the `progress` is displayed. Also if set
@@ -12288,11 +13400,23 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
     content?: Control[] | Control | AggregationBindingInfo | `{${string}}`;
 
     /**
+     * Defines the delete button, displayed in "Delete" mode. **Note:** While the slot allows custom buttons,
+     * to match design guidelines, please use the `sap.ui.webc.main.Button` component. **Note:** When the slot
+     * is not present, a built-in delete button will be displayed.
+     */
+    deleteButton?: IButton;
+
+    /**
      * A thumbnail, which will be shown in the beginning of the `sap.ui.webc.fiori.UploadCollectionItem`.
      *
      *  **Note:** Use `sap.ui.webc.main.Icon` or `img` for the intended design.
      */
     thumbnail?: Control;
+
+    /**
+     * Fired when the user clicks on the detail button when type is `Detail`.
+     */
+    detailClick?: (oEvent: Event) => void;
 
     /**
      * Fired when the file name is clicked.
@@ -12323,19 +13447,54 @@ declare module "sap/ui/webc/fiori/UploadCollectionItem" {
      */
     terminate?: (oEvent: Event) => void;
   }
+
+  export interface UploadCollectionItem$DetailClickEventParameters {}
+
+  export type UploadCollectionItem$DetailClickEvent = Event<
+    UploadCollectionItem$DetailClickEventParameters,
+    UploadCollectionItem
+  >;
+
+  export interface UploadCollectionItem$FileNameClickEventParameters {}
+
+  export type UploadCollectionItem$FileNameClickEvent = Event<
+    UploadCollectionItem$FileNameClickEventParameters,
+    UploadCollectionItem
+  >;
+
+  export interface UploadCollectionItem$RenameEventParameters {}
+
+  export type UploadCollectionItem$RenameEvent = Event<
+    UploadCollectionItem$RenameEventParameters,
+    UploadCollectionItem
+  >;
+
+  export interface UploadCollectionItem$RetryEventParameters {}
+
+  export type UploadCollectionItem$RetryEvent = Event<
+    UploadCollectionItem$RetryEventParameters,
+    UploadCollectionItem
+  >;
+
+  export interface UploadCollectionItem$TerminateEventParameters {}
+
+  export type UploadCollectionItem$TerminateEvent = Event<
+    UploadCollectionItem$TerminateEventParameters,
+    UploadCollectionItem
+  >;
 }
 
 declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IFilterItem, ISortItem } from "sap/ui/webc/fiori/library";
 
   import Event from "sap/ui/base/Event";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -12343,8 +13502,8 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.95.0
-   * @EXPERIMENTAL (since 1.95.0) - This control is experimental and its API might change significantly.
+   * @since 1.95.0
+   * @experimental (since 1.95.0) - This control is experimental and its API might change significantly.
    *
    * Overview: The `sap.ui.webc.fiori.ViewSettingsDialog` component helps the user to sort data within a list
    * or a table. It consists of several lists like `Sort order` which is built-in and `Sort By` and `Filter
@@ -12396,7 +13555,7 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
      * Creates a new subclass of class sap.ui.webc.fiori.ViewSettingsDialog with name `sClassName` and enriches
      * it with the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -12509,7 +13668,7 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ViewSettingsDialog$CancelEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ViewSettingsDialog`
        * itself
@@ -12530,7 +13689,7 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ViewSettingsDialog$CancelEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ViewSettingsDialog`
        * itself
@@ -12556,7 +13715,7 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ViewSettingsDialog$ConfirmEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ViewSettingsDialog`
        * itself
@@ -12577,7 +13736,7 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ViewSettingsDialog$ConfirmEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.ViewSettingsDialog`
        * itself
@@ -12624,7 +13783,7 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ViewSettingsDialog$CancelEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
@@ -12641,13 +13800,15 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: ViewSettingsDialog$ConfirmEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:beforeOpen beforeOpen} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -12659,6 +13820,8 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       mParameters?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:cancel cancel} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -12667,30 +13830,11 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * The current sort order selected.
-         */
-        sortOrder?: string;
-        /**
-         * The currently selected `sap.ui.webc.fiori.SortItem` text attribute.
-         */
-        sortBy?: string;
-        /**
-         * The currently selected `sap.ui.webc.fiori.SortItem`.
-         */
-        sortByItem?: HTMLElement;
-        /**
-         * The selected sort order (true = descending, false = ascending).
-         */
-        sortDescending?: boolean;
-        /**
-         * The selected filters items.
-         */
-        filterItems?: any[];
-      }
+      mParameters?: ViewSettingsDialog$CancelEventParameters
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:confirm confirm} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -12699,28 +13843,7 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * The current sort order selected.
-         */
-        sortOrder?: string;
-        /**
-         * The currently selected `sap.ui.webc.fiori.SortItem` text attribute.
-         */
-        sortBy?: string;
-        /**
-         * The currently selected `sap.ui.webc.fiori.SortItem`.
-         */
-        sortByItem?: HTMLElement;
-        /**
-         * The selected sort order (true = descending, false = ascending).
-         */
-        sortDescending?: boolean;
-        /**
-         * The selected filters items.
-         */
-        filterItems?: any[];
-      }
+      mParameters?: ViewSettingsDialog$ConfirmEventParameters
     ): this;
     /**
      * Gets content of aggregation {@link #getFilterItems filterItems}.
@@ -12838,16 +13961,28 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
     ): ISortItem | null;
     /**
      * Sets a JavaScript object, as settings to the `sap.ui.webc.fiori.ViewSettingsDialog`. This method can
-     * be used after the dialog is initially open, as the dialog need to set its initial settings. The `sap.ui.webc.fiori.ViewSettingsDialog`
-     * throws an event called "before-open", this can be used as trigger point. The object should have the following
-     * format: `{ { "sortOrder" : "Ascending", "sortBy" : "Name", "filters" : [{"Filter 1": ["Some filter 1",
-     * "Some filter 2"]}, {"Filter 2": ["Some filter 4"]}]} }`
+     * be used after the dialog is initially open, as the dialog needs to set its initial settings.
+     *  The `sap.ui.webc.fiori.ViewSettingsDialog` throws an event called "before-open", which can be used as
+     * a trigger point.
+     *  The object should have the following format:
+     *
+     * ```javascript
+     *
+     * {
+     * 	sortOrder: "Ascending",
+     * 	sortBy: "Name",
+     * 	filters: [
+     * 		{"Filter 1": ["Some filter 1", "Some filter 2"]},
+     * 		{"Filter 2": ["Some filter 4"]},
+     * 	]
+     * }
+     * ```
      */
     setConfirmedSettings(
       /**
-       * A value to be set as predefined settings.
+       * predefined settings.
        */
-      settings: string
+      settings: object
     ): void;
     /**
      * Sets a new value for property {@link #getSortDescending sortDescending}.
@@ -12898,37 +14033,108 @@ declare module "sap/ui/webc/fiori/ViewSettingsDialog" {
     /**
      * Fired when cancel button is activated.
      */
-    cancel?: (oEvent: Event) => void;
+    cancel?: (oEvent: ViewSettingsDialog$CancelEvent) => void;
 
     /**
      * Fired when confirmation button is activated.
      */
-    confirm?: (oEvent: Event) => void;
+    confirm?: (oEvent: ViewSettingsDialog$ConfirmEvent) => void;
   }
+
+  export interface ViewSettingsDialog$BeforeOpenEventParameters {}
+
+  export type ViewSettingsDialog$BeforeOpenEvent = Event<
+    ViewSettingsDialog$BeforeOpenEventParameters,
+    ViewSettingsDialog
+  >;
+
+  export interface ViewSettingsDialog$CancelEventParameters {
+    /**
+     * The current sort order selected.
+     */
+    sortOrder?: string;
+
+    /**
+     * The currently selected `sap.ui.webc.fiori.SortItem` text attribute.
+     */
+    sortBy?: string;
+
+    /**
+     * The currently selected `sap.ui.webc.fiori.SortItem`.
+     */
+    sortByItem?: HTMLElement;
+
+    /**
+     * The selected sort order (true = descending, false = ascending).
+     */
+    sortDescending?: boolean;
+
+    /**
+     * The selected filters items.
+     */
+    filters?: any[];
+  }
+
+  export type ViewSettingsDialog$CancelEvent = Event<
+    ViewSettingsDialog$CancelEventParameters,
+    ViewSettingsDialog
+  >;
+
+  export interface ViewSettingsDialog$ConfirmEventParameters {
+    /**
+     * The current sort order selected.
+     */
+    sortOrder?: string;
+
+    /**
+     * The currently selected `sap.ui.webc.fiori.SortItem` text attribute.
+     */
+    sortBy?: string;
+
+    /**
+     * The currently selected `sap.ui.webc.fiori.SortItem`.
+     */
+    sortByItem?: HTMLElement;
+
+    /**
+     * The selected sort order (true = descending, false = ascending).
+     */
+    sortDescending?: boolean;
+
+    /**
+     * The selected filters items.
+     */
+    filters?: any[];
+  }
+
+  export type ViewSettingsDialog$ConfirmEvent = Event<
+    ViewSettingsDialog$ConfirmEventParameters,
+    ViewSettingsDialog
+  >;
 }
 
 declare module "sap/ui/webc/fiori/Wizard" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
-  import { IWizardStep } from "sap/ui/webc/fiori/library";
-
-  import Event from "sap/ui/base/Event";
+  import { IWizardStep, WizardContentLayout } from "sap/ui/webc/fiori/library";
 
   import { CSSSize } from "sap/ui/core/library";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
     AggregationBindingInfo,
   } from "sap/ui/base/ManagedObject";
 
+  import Event from "sap/ui/base/Event";
+
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -12939,13 +14145,21 @@ declare module "sap/ui/webc/fiori/Wizard" {
    * Structure: Navigation area: The top most area of the `sap.ui.webc.fiori.Wizard` is occupied by the navigation
    * area. It shows the sequence of steps, where the recommended number of steps is between 3 and 8 steps.
    *
-   * 	 -  Steps can have different visual representations - numbers or icons.  Steps might have labels
-   * 			for better readability - titleText and subTitleText.
+   * 	 -  Steps can have different visual representations - numbers or icons.
+   * 	 -  Steps might have labels for better readability - titleText and subTitleText.
    * 	 -  Steps are defined by using the `sap.ui.webc.fiori.WizardStep` as slotted element within the `sap.ui.webc.fiori.Wizard`.
    *
    *
    * **Note:** If no selected step is defined, the first step will be auto selected.
    *  **Note:** If multiple selected steps are defined, the last step will be selected.
+   *
+   * CSS Shadow Parts:
+   *
+   * {@link https://developer.mozilla.org/en-US/docs/Web/CSS/::part CSS Shadow Parts} allow developers to
+   * style elements inside the Shadow DOM.
+   *  The `sap.ui.webc.fiori.Wizard` exposes the following CSS Shadow Parts:
+   * 	 - navigator - Used to style the progress navigator of the `sap.ui.webc.fiori.Wizard`.
+   * 	 - step-content - Used to style a `sap.ui.webc.fiori.WizardStep` container.
    *
    * Keyboard Handling: The user can navigate using the following keyboard shortcuts:
    *
@@ -13032,7 +14246,7 @@ declare module "sap/ui/webc/fiori/Wizard" {
      * Creates a new subclass of class sap.ui.webc.fiori.Wizard with name `sClassName` and enriches it with
      * the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -13088,7 +14302,7 @@ declare module "sap/ui/webc/fiori/Wizard" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: Wizard$StepChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.Wizard` itself
        */
@@ -13109,7 +14323,7 @@ declare module "sap/ui/webc/fiori/Wizard" {
       /**
        * The function to be called when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: Wizard$StepChangeEvent) => void,
       /**
        * Context object to call the event handler with. Defaults to this `sap.ui.webc.fiori.Wizard` itself
        */
@@ -13132,13 +14346,15 @@ declare module "sap/ui/webc/fiori/Wizard" {
       /**
        * The function to be called, when the event occurs
        */
-      fnFunction: (p1: Event) => void,
+      fnFunction: (p1: Wizard$StepChangeEvent) => void,
       /**
        * Context object on which the given function had to be called
        */
       oListener?: object
     ): this;
     /**
+     * @ui5-protected Do not call from applications (only from related classes in the framework)
+     *
      * Fires event {@link #event:stepChange stepChange} to attached listeners.
      *
      * @returns Reference to `this` in order to allow method chaining
@@ -13147,21 +14363,18 @@ declare module "sap/ui/webc/fiori/Wizard" {
       /**
        * Parameters to pass along with the event
        */
-      mParameters?: {
-        /**
-         * The new step.
-         */
-        step?: HTMLElement;
-        /**
-         * The previous step.
-         */
-        previousStep?: HTMLElement;
-        /**
-         * The step change occurs due to user's click or 'Enter'/'Space' key press on step within the navigation.
-         */
-        changeWithClick?: boolean;
-      }
+      mParameters?: Wizard$StepChangeEventParameters
     ): this;
+    /**
+     * Gets current value of property {@link #getContentLayout contentLayout}.
+     *
+     * Defines how the content of the `sap.ui.webc.fiori.Wizard` would be visualized.
+     *
+     * Default value is `MultipleSteps`.
+     *
+     * @returns Value of property `contentLayout`
+     */
+    getContentLayout(): WizardContentLayout | keyof typeof WizardContentLayout;
     /**
      * Gets current value of property {@link #getHeight height}.
      *
@@ -13227,6 +14440,23 @@ declare module "sap/ui/webc/fiori/Wizard" {
       vStep: int | string | IWizardStep
     ): IWizardStep | null;
     /**
+     * Sets a new value for property {@link #getContentLayout contentLayout}.
+     *
+     * Defines how the content of the `sap.ui.webc.fiori.Wizard` would be visualized.
+     *
+     * When called with a value of `null` or `undefined`, the default value of the property will be restored.
+     *
+     * Default value is `MultipleSteps`.
+     *
+     * @returns Reference to `this` in order to allow method chaining
+     */
+    setContentLayout(
+      /**
+       * New value for property `contentLayout`
+       */
+      sContentLayout?: WizardContentLayout | keyof typeof WizardContentLayout
+    ): this;
+    /**
      * Sets a new value for property {@link #getHeight height}.
      *
      * Defines the height of the control
@@ -13244,6 +14474,14 @@ declare module "sap/ui/webc/fiori/Wizard" {
   }
 
   export interface $WizardSettings extends $WebComponentSettings {
+    /**
+     * Defines how the content of the `sap.ui.webc.fiori.Wizard` would be visualized.
+     */
+    contentLayout?:
+      | (WizardContentLayout | keyof typeof WizardContentLayout)
+      | PropertyBindingInfo
+      | `{${string}}`;
+
     /**
      * Defines the height of the control
      */
@@ -13264,21 +14502,43 @@ declare module "sap/ui/webc/fiori/Wizard" {
      * Fired when the step is changed by user interaction - either with scrolling, or by clicking on the steps
      * within the component header.
      */
-    stepChange?: (oEvent: Event) => void;
+    stepChange?: (oEvent: Wizard$StepChangeEvent) => void;
   }
+
+  export interface Wizard$StepChangeEventParameters {
+    /**
+     * The new step.
+     */
+    step?: IWizardStep;
+
+    /**
+     * The previous step.
+     */
+    previousStep?: IWizardStep;
+
+    /**
+     * The step change occurs due to user's click or 'Enter'/'Space' key press on step within the navigation.
+     */
+    changeWithClick?: boolean;
+  }
+
+  export type Wizard$StepChangeEvent = Event<
+    Wizard$StepChangeEventParameters,
+    Wizard
+  >;
 }
 
 declare module "sap/ui/webc/fiori/WizardStep" {
   import {
     default as WebComponent,
     $WebComponentSettings,
-  } from "sap/ui/webc/common/WebComponent";
+  } from "sap/ui/core/webc/WebComponent";
 
   import { IWizardStep } from "sap/ui/webc/fiori/library";
 
   import Control from "sap/ui/core/Control";
 
-  import WebComponentMetadata from "sap/ui/webc/common/WebComponentMetadata";
+  import WebComponentMetadata from "sap/ui/core/webc/WebComponentMetadata";
 
   import {
     PropertyBindingInfo,
@@ -13286,8 +14546,8 @@ declare module "sap/ui/webc/fiori/WizardStep" {
   } from "sap/ui/base/ManagedObject";
 
   /**
-   * @SINCE 1.92.0
-   * @EXPERIMENTAL (since 1.92.0) - This control is experimental and its API might change significantly.
+   * @since 1.92.0
+   * @experimental (since 1.92.0) - This control is experimental and its API might change significantly.
    *
    * Overview:
    *
@@ -13340,7 +14600,7 @@ declare module "sap/ui/webc/fiori/WizardStep" {
      * Creates a new subclass of class sap.ui.webc.fiori.WizardStep with name `sClassName` and enriches it with
      * the information contained in `oClassInfo`.
      *
-     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.webc.common.WebComponent.extend}.
+     * `oClassInfo` might contain the same kind of information as described in {@link sap.ui.core.webc.WebComponent.extend}.
      *
      * @returns Created class / constructor function
      */
@@ -13426,8 +14686,7 @@ declare module "sap/ui/webc/fiori/WizardStep" {
      *
      *
      *
-     * The SAP-icons font provides numerous options. See all the available icons in the {@link demo:sap/m/demokit/iconExplorer/webapp/index.html
-     * Icon Explorer}.
+     * The SAP-icons font provides numerous options. See all the available icons in the {@link demo:sap/m/demokit/iconExplorer/webapp/index.html Icon Explorer}.
      *
      * Default value is `empty string`.
      *
@@ -13577,8 +14836,7 @@ declare module "sap/ui/webc/fiori/WizardStep" {
      *
      *
      *
-     * The SAP-icons font provides numerous options. See all the available icons in the {@link demo:sap/m/demokit/iconExplorer/webapp/index.html
-     * Icon Explorer}.
+     * The SAP-icons font provides numerous options. See all the available icons in the {@link demo:sap/m/demokit/iconExplorer/webapp/index.html Icon Explorer}.
      *
      * When called with a value of `null` or `undefined`, the default value of the property will be restored.
      *
@@ -13685,8 +14943,7 @@ declare module "sap/ui/webc/fiori/WizardStep" {
      *
      *
      *
-     * The SAP-icons font provides numerous options. See all the available icons in the {@link demo:sap/m/demokit/iconExplorer/webapp/index.html
-     * Icon Explorer}.
+     * The SAP-icons font provides numerous options. See all the available icons in the {@link demo:sap/m/demokit/iconExplorer/webapp/index.html Icon Explorer}.
      */
     icon?: string | PropertyBindingInfo;
 

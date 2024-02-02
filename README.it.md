@@ -33,7 +33,7 @@ Ad esempio:
 npm install --save-dev @types/node
 ```
 
-I tipi dovrebbero poi essere inclusi automaticamente dal complilatore.
+I tipi dovrebbero poi essere inclusi automaticamente dal compilatore.
 Potresti dover aggiungere una `types` reference se non stai usando i moduli:
 
 ```ts
@@ -49,16 +49,15 @@ Se ancora non riesci a trovarlo, vuol dire che sono [inclusi](https://www.typesc
 Di solito vengono specificati nel campo `"types"` o `"typings"` nel `package.json`;
 oppure prova a cercare per dei file ".d.ts" nel package ed includerli manualmente con `/// <reference path="" />`.
 
-#### Vecchie vesioni di TypeScript (4.0 e precedenti)
+### Support window
 
 "Definitely Typed" testa packages solo su versioni di TypeScript che hanno meno di due anni.
-Attualmente vengono testate le versioni 4.1 e successive.
-Se stai usando una versiond di TypeScript tra 2.0 e la 4.0, puoi ancora provare ad installare i package `@types`, in quanto la maggior parte di questi non usano le funzionalità più all'avanguardia di Typescript.
-Non c'è comunque nessuna garanzia che funzioneranno.
-Di seguito la finestra di supporto per ogni versione di TypeScript:
 
 <img src="docs/support-window.svg#gh-light-mode-only" style="width:100%">
 <img src="docs/support-window.svg#gh-dark-mode-only" style="width:100%">
+
+<details>
+<summary>Versioni precedenti di TypeScript</summary>
 
 I package `@types` hanno dei tag per indicare le specifiche versioni di TypeScript che supportano, quindi di solito puoi installare versioni precedenti di package seppur precedenti alla finestra dei due anni.
 Ad esempio se esegui `npm dist-tags @types/react`, vedrai che TypeScript 2.5 potrà usare i tipi per react@16.0, mentre TypeScript 2.6 e 2.7 potranno usare i tipi per react@16.4:
@@ -81,6 +80,8 @@ Ad esempio se esegui `npm dist-tags @types/react`, vedrai che TypeScript 2.5 pot
 
 Potresti dover aggiungere manualmente le [reference](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html).
 
+</details>
+
 ## Come posso contribuire?
 
 "Definitely Typed" deve il suo successo e la sua funzionalità solo grazie a contributori come te!
@@ -88,7 +89,6 @@ Potresti dover aggiungere manualmente le [reference](https://www.typescriptlang.
 ### Testing
 
 Prima di condividere il tuo miglioramento col mondo intero, utilizza i tipi tu stesso attraverso la creazione del file `typename.d.ts` nel tuo progetto per poi riempire il suo export:
-
 
 ```ts
 declare module "libname" {
@@ -99,7 +99,7 @@ declare module "libname" {
 
 #### Test per la modifica di un package già esistente
 
-Puoi modificare i tipi direttamente in `node_modules/@types/foo/index.d.ts` per verificare i tuoi cambiamenti, successivamente puoi portare questi cambiamenti a questa repository attraverso gli step descritto qui sotto.
+Puoi modificare i tipi direttamente in `node_modules/@types/foo/index.d.ts` per verificare i tuoi cambiamenti, successivamente puoi portare questi cambiamenti a questa repository attraverso gli step descritti qui sotto.
 
 In alternativa puoi usare [module augmentation](https://www.typescriptlang.org/docs/handbook/declaration-merging.html#module-augmentation) per estendere i tipi esistenti del modulo DT oppure usare la tecnica `declare module` qui sopra che andrà a sovrascrivere la versione presente nei `node_modules`.
 
@@ -169,7 +169,6 @@ Il tuo package dovrebbe avere questa struttura:
 | `index.d.ts`  | Contiene le dichiarazioni dei tipi del package. |
 | [`<nome-package>-tests.ts`](#mio-package-teststs)  | Contiene codice di esempio con test delle dichiarazioni dei tipi. Se il codice *non* funziona anche se viene traspilato da tsc senza errori.
 | [`tsconfig.json`](#tsconfigjson) | Ti permette di eseguire `tsc` all'interno del package. |
-| [`tslint.json`](#linter-tslintjson)   | Abilita il linting. |
 
 Generali eseguento `npx dts-gen --dt --name <mio-package> --template module` se hai npm ≥ 5.2.0, altrimenti `npm install -g dts-gen` and `dts-gen --dt --name <my-package> --template module`.
 Leggi tutte le opzioni su [dts-gen](https://github.com/Microsoft/dts-gen).
@@ -184,13 +183,13 @@ Per l'esempio di un buon package, guarda [base64-js](https://github.com/Definite
 
 Quando un package [include](https://www.typescriptlang.org/docs/handbook/declaration-files/publishing.html) i suoi dichiarazioni, esse dovrebbero venire rimosse da Definitely Typed per evitare di far confusione.
 
-Puoi rimuoverli eseguendo `npm run not-needed -- <nome-package> <versione> [<nome-libreria>]`.
+Puoi rimuoverli eseguendo `pnpm run not-needed -- <nome-package> <versione> [<nome-libreria>]`.
 * `<nome-package>`: È il nome della cartella da rimuovere.
 * `<versione>`: Verrà pubblicato uno stab su `@types/<nome-package>` con questa versione. Dev'essere più alto della versione attualmente pubblicata e deve essere una versione di `<ome-libreria>` su npm.
 * `<nome-libreria>`: Nome del package npm che sostituisce il package DT. Solitamente è identioc a `<nome-package>` e puoi ometterlo.
 
 Qualunque altro package di Definitely Typed che si riferisce ad un altro package DT eliminato dovrebbe venir aggiornato facendolo riferire ai tipi inclusi nel package stesso.
-Puoi farlo controllando gli errori che escono eseguendo `npm run test-all`.
+Puoi farlo controllando gli errori che escono eseguendo `pnpm run test-all`.
 Per correggere gli errori, [aggiungi un `package.json`](#packagejson) con `"dependencies": { "<nome-libreria>": "x.y.z" }`.
 Ad esempio:
 
@@ -266,17 +265,9 @@ f("one");
 
 Per maggiori dettagli, leggi il readme di [dtslint](https://github.com/microsoft/DefinitelyTyped-tools/tree/master/packages/dtslint#write-tests).
 
-#### Linter: `tslint.json`
-
-Il file di configurazione del linter, `tslint.json`, dovrebbe contenere `{ "extends": "@definitelytyped/dtslint/dt.json" }` e nessun'altra regola.
-
-Se per qualche ragione qualche regola necessita di essere disabilitata, [disabilitala solo per la riga di codice in cui dovrebbe esserlo](https://palantir.github.io/tslint/usage/rule-flags/#comment-flags-in-source-code:~:text=%2F%2F%20tslint%3Adisable%2Dnext%2Dline%3Arule1%20rule2%20rule3...%20%2D%20Disables%20the%20listed%20rules%20for%20the%20next%20line) usando `// tslint:disable-next-line:[ruleName]` e non disabilitandola per tutto il package, in modo tale che tu possa verificarne l'effetto. (CI sono alcune configurazioni lint legacy che hanno del contenuto aggiuntivo tuttavia non dovrebbe più accadere nei lavori futuri).
-
 ##### Linter: `.eslintrc.json`
 
-"Definitely Typed" sta migrando ad eslint per il linting.
-Al contrario di tslint qui non è necessario un file di configurazione per il linting.
-Proprio come tslint dovresti disabilitare le regole solo per determinate linee:
+Dovresti disabilitare le regole solo per determinate linee:
 
 ```ts
 // eslint-disable-next-line no-const-enum
@@ -309,7 +300,7 @@ Riassunto: `esModuleInterop` e `allowSyntheticDefaultImports` *non sono permessi
 > import Component from "./component";
 > ```
 >
-> Siccome la valdità durante la compilazione dell'import in `index.d.ts` dipende da specifiche impostazioni di compilazione, che gli utenti che utilizzeranno i tuoi tipi non avranno, un utilizzo di questa modalità in DefinitelyTyped obbligherebbe gli utenti a modificare le loro impostazioni di compilazione, che potrebbero essere incorrette per il loro runtime. Invece, devi scrivere un import CJS per un export CJS per garantire una compatibilità diffondibile e indipendente da configurazioni specifiche:
+> Siccome la validità durante la compilazione dell'import in `index.d.ts` dipende da specifiche impostazioni di compilazione, che gli utenti che utilizzeranno i tuoi tipi non avranno, un utilizzo di questa modalità in DefinitelyTyped obbligherebbe gli utenti a modificare le loro impostazioni di compilazione, che potrebbero essere incorrette per il loro runtime. Invece, devi scrivere un import CJS per un export CJS per garantire una compatibilità diffondibile e indipendente da configurazioni specifiche:
 >
 > ```ts
 > // index.d.ts
@@ -322,10 +313,10 @@ Riassunto: `esModuleInterop` e `allowSyntheticDefaultImports` *non sono permessi
 Solitamente non ne avrai bisogno.
 Un `package.json` potrebbe essere incluso per specificare le dipendenze che non sono altri `@types` package.
 [Pikaday ne è un buon esempio](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/pikaday/package.json).
-Anche se stai scrivendo un tuo `package.json`, upoi solo specificare dipendenze; altri campi come `"description"` non sono consentiti.
-Puotresti anche aver bisogno di aggiungere una dipendenza alla [lista dei package consentiti](https://github.com/microsoft/DefinitelyTyped-tools/blob/master/packages/definitions-parser/allowedPackageJsonDependencies.txt).
+Anche se stai scrivendo un tuo `package.json`, puoi solo specificare dipendenze; altri campi come `"description"` non sono consentiti.
+Potresti anche aver bisogno di aggiungere una dipendenza alla [lista dei package consentiti](https://github.com/microsoft/DefinitelyTyped-tools/blob/master/packages/definitions-parser/allowedPackageJsonDependencies.txt).
 Questa lista è aggiornata da persone, che ci danno l'opportunità di assicurarci che i package `@types` non dipendono da package rischiosi.
-Nel raro caso in cui un package `@types` viene eliminato a favore dei tipi inclusi nel package npm analogo E avessi bisogno di dipendere dal vecchio package `@types`, puoi aggiungere una dipendenza ad un package `@types`.
+Nel raro caso in cui un package `@types` viene eliminato a favore dei tipi inclusi nel package npm analogo e avessi bisogno di dipendere dal vecchio package `@types`, puoi aggiungere una dipendenza ad un package `@types`.
 Assicurati di spiegare tutto ciò quando lo aggiungi alla lista dei package consentiti cosicchè gli altri possano capire cosa stai facendo.
 
 #### `OTHER_FILES.txt`
@@ -335,7 +326,7 @@ Se un file non è nè testato nè riferito nell'`index.d.ts`, aggiungilo in un f
 #### Errori comuni
 
 * Inanzitutto segui i consigli nel [manuale](https://www.typescriptlang.org/docs/handbook/declaration-files/do-s-and-don-ts.html).
-* Formattazione: Usa 4 spazi. Prettier è abilitato su questa repo, quindi puoi eseguire `npm run prettier -- --write path/to/package/**/*.ts`. [Quando usi le assertion](https://github.com/SamVerschueren/tsd#assertions), aggiungi `// prettier-ignore` per marcare le linee di codice da escludere quando si fa la formattazione:
+* Formattazione: Usa 4 spazi. Prettier è abilitato su questa repo, quindi puoi eseguire `pnpm run prettier -- --write 'path/to/package/**/*.ts'`. [Quando usi le assertion](https://github.com/SamVerschueren/tsd#assertions), aggiungi `// prettier-ignore` per marcare le linee di codice da escludere quando si fa la formattazione:
 
   ```tsx
     // prettier-ignore
@@ -420,7 +411,7 @@ Questo significa che non vanno bene e noi non ce ne siamo ancora accorti. Puoi c
 
 #### Posso cambiare/imporre una specifica formattazione per alcuni moduli?
 
-No. Abbiamo già provato ad avere una formattazione consistente dei package ma siamo arrivati ad un vicolo cieco data la mole di attività sulla repo. Noi alleghiamo delle impostazioni di formattazione attraverso i file [`.editorconfig`](.editorconfig) e [`.prettierrc.json`](.prettierrc.json). Questi sono esclusivamente per il tuo editor, le loro impostazioni non vanno in conflitto e non abbiamo in piano di modificarle. Né tantomeno abbiamo in piano di imporre uno stile specifico nella repository. Vogliamo tenere le barriere per le contribuzioni basse.
+No. Abbiamo già provato ad avere una formattazione consistente dei package ma siamo arrivati ad un vicolo cieco data la mole di attività sulla repo. Noi alleghiamo delle impostazioni di formattazione attraverso i file [`.editorconfig`](.editorconfig). Questi sono esclusivamente per il tuo editor, le loro impostazioni non vanno in conflitto e non abbiamo in piano di modificarle. Né tantomeno abbiamo in piano di imporre uno stile specifico nella repository. Vogliamo tenere le barriere per le contribuzioni basse.
 
 ####  Posso chiedere che venga implementata una definizione per un modulo che non le ha ancora?
 
@@ -462,7 +453,7 @@ Per un package npm, `export =` è apposita se `node -p 'require("foo")'` funzion
 
 #### Voglio usare le funzionalità delle versioni più nuove di Typescript
 
-Allora devi aggiungere un commento all'ultima riga del tuo header di definizione (dopo `// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`): `// Minimum TypeScript Version: X.Y`. Ciò specifichera la versione minima supportata.
+Allora devi aggiungere un commento all'ultima riga del tuo header di definizione (dopo `// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped`): `// Minimum TypeScript Version: X.Y`. Ciò specificherà la versione minima supportata.
 
 In ogni caso, se il tuo progetto avesse bisogno di mantenere tipi compatibili con, ad esempio, versioni 3.7 e successive ed **allo stesso tempo** vesioni 3.6 o precedenti, dovrai usare la funzionalità `typesVersions`.
 Puoi trovare una spiegazione nel dettaglio di questa funzionalità nella [documentazione ufficiale di Typescript](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-1.html#version-selection-with-typesversions).
@@ -482,7 +473,7 @@ Ecco qui un breve esempio per iniziare:
    ```
 
 2. Crea la sottocartella menzionata dal campo `typesVersions` dentro la tua cartella dei tipi (che nel nostro esempio è `ts3.6/`).
-   `ts3.6/` suppporterà le versioni uguali od inferiori alla 3.6, quindi copia i tipi esistenti con i test lì.
+   `ts3.6/` suppporterà le versioni uguali o inferiori alla 3.6, quindi copia i tipi esistenti con i test lì.
 
    Dovrai eliminare l'header delle definizioni da `ts3.6/index.d.ts` dal momento che solo la root `index.d.ts` può averlo.
 
@@ -551,11 +542,11 @@ Ad esempio, se ad una libreria viene rimossa una funzione che esporta e la sua u
 Inoltre, quando questa nuova versione `4.0.0` viene pubblicata, la versione del suo pacchetto di dichiarazione dei tipi dev'essere anch'esso aggiornato alla `4.0.0`, modificandone ovviamente le dichiarazioni in modo che riflettano le modifiche sostanziali della nuova versione.
 
 Molte librerie hanno un vasto numero di utenti che le utilizzano (compresi mantenitori di altri pacchetti che usano la libreria come dipendenza) e che probabilimente non passeranno subito alla nuova versione major. Questo perchè potrebbero volerci mesi prima che il mantenitore trovi il tempo per adattare il codice alle nuove modifiche della libreria.
-Nel frattempo, utenti che usano la vecchia versione della libreria potrebbero richiedere aggiornamenti per la vecchia versione delle dichiarazioni dei tipi, ad esempio nel caso in cui un utente che usa la vecchia versione della libreria trova un erroore nelle definizioni dei tipi.
+Nel frattempo, utenti che usano la vecchia versione della libreria potrebbero richiedere aggiornamenti per la vecchia versione delle dichiarazioni dei tipi, ad esempio nel caso in cui un utente che usa la vecchia versione della libreria trova un errore nelle definizioni dei tipi.
 
 Se hai intenzione di continuare a mantenere ed aggiornare le dichiarazioni dei tipi per le vecchie versioni di una libreria, puoi creare una sottocartella (es. `/v2/`) chiamata come la versione che presto diventerà vecchia e copiarci dentro tutte le dichiarazioni attuali.
 
-Siccome la cartella principale deve sempre contenere le dichiarazioni dei tipi per la versione più nuova, avrai anche bisogno di fare alcune modifiche alle dichiarazioni della vecchia versione che ora sta nella sottocartella, per essere sicuro che gli eventuali indirizzi relativi siano riferiti alla sottocartella  e non più alla cartella principale.
+Siccome la cartella principale deve sempre contenere le dichiarazioni dei tipi per la versione più nuova, avrai anche bisogno di fare alcune modifiche alle dichiarazioni della vecchia versione che ora sta nella sottocartella, per essere sicuro che gli eventuali indirizzi relativi siano riferiti alla sottocartella e non più alla cartella principale.
 
 1. Aggiorna gli indirizzi relativi nel `tsconfig.json` ed in un eventuale `tslint.json`.
 2. Aggiungi delle regole per mappare gli indirizzi cosicchè i test vengano eseguiti per la versione voluta.
@@ -582,8 +573,8 @@ Nel momento in cui questo README è stato scritto, il [`tsconfig.json` della his
 
 Se ci sono pacchetti su Definitely Typed che sono incompatibili con la vesione più nuova di una libreria, dovrai mappare gli indirizzi alla vecchia versione, continuando ricorsivamente per gli altri pacchetti che dipendono da essa.
 
-Per esempio, `react-router` dipende da `history@2`, quindi il [`tsconfig.json` di react-router](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/react-router/v2/tsconfig.json) ha mappato gli indirizzi alla versione vecchia (`"history": [ "history/v2" ]`) fino a che non è passato alla nuova versione di `react-router`.
-A sua volta, la libreria `react-router-bootstrap` (che dipende da `react-router`) ha dovuto aggiungere lo stesso mapping nel suo `tsconfig.json`, fino a che la sua dipendenza `react-router` non è stata aggiornata all'ultima versione.
+Per esempio, `browser-sync` dipende da `micromatch@2`, quindi il [`tsconfig.json` di browser-sync](https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/browser-sync/tsconfig.json) ha mappato gli indirizzi alla versione vecchia (`"micromatch": [ "micromatch/v2" ]`) fino a che non è passato alla nuova versione di `browser-sync`.
+A sua volta, la libreria `browser-sync-webpack-plugin` (che dipende da `browser-sync`) ha dovuto aggiungere lo stesso mapping nel suo `tsconfig.json`, fino a che la sua dipendenza `browser-sync` non è stata aggiornata all'ultima versione.
 
 Nota che `/// <reference types=".." />` non funziona con il mapping degli indirizzi, quindi le dipendenze devono usare `import`.
 
@@ -591,7 +582,7 @@ Nota che `/// <reference types=".." />` non funziona con il mapping degli indiri
 
 La guida di Typescript spiega benissimo [come scrivere le definizioni dei tipi](https://www.typescriptlang.org/docs/handbook/declaration-files/introduction.html) ed ha anche [un file di esempio](https://www.typescriptlang.org/docs/handbook/declaration-files/templates/global-modifying-module-d-ts.html) che è esattamente una libreria che può essere usata sia come modulo su nodejs che come libreria globale in una pagina web.
 
-Per accertarti che le tue definizioni possono essere usate sia globalmente che che modulo importato, crea una cartella `test` e creaci dentro due file di test.
+Per accertarti che le tue definizioni possono essere usate sia globalmente che come modulo importato, crea una cartella `test` e creaci dentro due file di test.
 Chiamane uno `NomeLibreria-global.test.ts` e l'altro `NomeLibreria-module.test.ts`.
 Il file di test *global* dovrebbe controllare che le definizioni funzionano bene quando la libreria è usata globalmente in una pagina web (in questo caso non devi specificare un `import`).
 Il file di test *module*, invece, controlla se le definzioni funzionano quando la libreria viene importata come un modulo.

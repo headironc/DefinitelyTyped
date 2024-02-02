@@ -1,4 +1,4 @@
-import RouteInfo, { RouteInfoWithAttributes } from './route-info';
+import RouteInfo, { RouteInfoWithAttributes } from "./route-info";
 
 /**
  * A Transition is a thennable (a promise-like object) that represents an
@@ -36,6 +36,10 @@ export default interface Transition<T = unknown> extends Partial<Promise<T>> {
      * It's important to note that a `RouteInfo` is a linked list and this property is simply the leafmost route.
      */
     readonly to: RouteInfo | RouteInfoWithAttributes;
+    /**
+     * The targetName is the route name of the destination route.
+     */
+    readonly targetName: string | null | undefined;
     /**
      * Aborts the Transition. Note you can also implicitly abort a transition
      * by initiating another transition while a previous one is underway.

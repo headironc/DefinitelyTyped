@@ -1,9 +1,3 @@
-// Type definitions for OOUI 0.46
-// Project: https://www.mediawiki.org/wiki/OOUI
-// Definitions by: diskdance <https://github.com/diskdance>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// Minimum TypeScript Version: 4.2
-
 /// <reference types="jquery" />
 /// <reference types="oojs" />
 /// <reference path="utils.d.ts" />

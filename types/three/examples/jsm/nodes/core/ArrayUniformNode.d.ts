@@ -1,7 +1,7 @@
-import UniformNode from './UniformNode';
-import Node from './Node';
+import Node from "./Node.js";
+import UniformNode from "./UniformNode.js";
 
-export default class ArrayUniformNode extends UniformNode {
+export default class ArrayUniformNode extends UniformNode<undefined> {
     isArrayUniformNode: true;
     nodes: Node[];
     constructor(nodes?: Node[]);

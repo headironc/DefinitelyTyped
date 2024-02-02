@@ -1,14 +1,6 @@
-// Type definitions for tabulator-tables 5.4
-// Project: http://tabulator.info
-// Definitions by: Josh Harris <https://github.com/jojoshua>, Mike Lischke <https://github.com/mike-lischke>
-// Definitions: https://github.com/DefinitelyTyped/DefinitelyTyped
-// TypeScript Version: 3.2
-// tslint:disable:max-line-length
-// tslint:disable:no-unnecessary-class
-// tslint:disable:no-empty-interface
-
 export interface Options
-    extends OptionsGeneral,
+    extends
+        OptionsGeneral,
         OptionsMenu,
         OptionsHistory,
         OptionsLocale,
@@ -23,10 +15,9 @@ export interface Options
         OptionsPersistentConfiguration,
         OptionsClipboard,
         OptionsDataTree,
-        OptionsCell,
-        OptionsCells,
         OptionsDebug,
-        OptionsHTML {}
+        OptionsHTML
+{}
 
 export interface OptionsDebug {
     invalidOptionWarning?: boolean;
@@ -40,17 +31,10 @@ export interface OptionsDebug {
     debugEventsInternal?: boolean;
 
     /** Disable component function warnings */
-    debugInvalidComponentFunc?: boolean;
+    debugInvalidComponentFuncs?: boolean;
 
     /** Disable deprecation warnings */
     debugDeprecation?: boolean;
-}
-
-export interface OptionsCells extends CellCallbacks {
-    /** The validationFailed event is triggered when the value entered into a cell during an edit fails to pass validation. */
-    validationFailed?:
-        | ((cell: CellComponent, value: any, validators: Validator[] | StandardValidatorType[]) => void)
-        | undefined;
 }
 
 export interface OptionsDataTree {
@@ -89,6 +73,11 @@ export interface OptionsDataTree {
     dataTreeSelectPropagate?: boolean | undefined;
     dataTreeFilter?: boolean | undefined;
     dataTreeSort?: boolean | undefined;
+    /**
+     * When you are using the dataTree option with your table, the column calculations will by default only use the data for the top level rows and will ignore any children.
+     * To include child rows in the column calculations set the dataTreeChildColumnCalcs option to true in the table constructor.
+     */
+    dataTreeChildColumnCalcs?: boolean | undefined;
 }
 
 export interface OptionsClipboard {
@@ -99,13 +88,13 @@ export interface OptionsClipboard {
      *     "paste" - enable only paste functionality
      *     false - disable all clipboard functionality (default)
      */
-    clipboard?: boolean | 'copy' | 'paste' | undefined;
+    clipboard?: boolean | "copy" | "paste" | undefined;
 
     /** The clipboardCopyRowRange option takes a Row Range Lookup value and allows you to choose which rows are included in the clipboard output: */
     clipboardCopyRowRange?: RowRangeLookup | undefined;
 
     /** You can alter the finished output to the clipboard using the clipboardCopyFormatter callback. The callback function receives two arguments, the first is a string representing the type of content to be formatted (either "plain" or "html" depending on the type of data entering the clipboard). The second argument is the string that is about to be inserted into the clipboard. The function and should return a string that will be inserted into the clipboard. */
-    clipboardCopyFormatter?: 'table' | ((type: 'plain' | 'html', output: string) => string) | undefined;
+    clipboardCopyFormatter?: "table" | ((type: "plain" | "html", output: string) => string) | undefined;
 
     /** By default Tabulator will include the column header titles in any clipboard data, this can be turned off by passing a value of false to the clipboardCopyHeader property: */
     clipboardCopyHeader?: boolean | undefined;
@@ -127,7 +116,7 @@ export interface OptionsClipboard {
      * update - Updates data in the table using the updateOrAddData function
      * replace - replaces all data in the table using the setData function
      */
-    clipboardPasteAction?: 'insert' | 'update' | 'replace' | undefined;
+    clipboardPasteAction?: "insert" | "update" | "replace" | undefined;
 
     /**
      * By default Tabulator will copy some of the tables styling along with the data to give a better visual appearance when pasted into other documents.
@@ -142,15 +131,6 @@ export interface OptionsClipboard {
      * You can choose to remove column headers groups, row groups or column calculations from the output data by setting the values in the clipboardCopyConfig option in the table definition:
      */
     clipboardCopyConfig?: AdditionalExportOptions | boolean | undefined;
-
-    /** The clipboardCopied event is triggered whenever data is copied to the clipboard. */
-    clipboardCopied?: (() => void) | undefined;
-
-    /** The clipboardPasted event is triggered whenever data is successfully pasted into the table. */
-    clipboardPasted?: (() => void) | undefined;
-
-    /** The clipboardPasteError event is triggered whenever an attempt to paste data into the table has failed because it was rejected by the paste parser. */
-    clipboardPasteError?: (() => void) | undefined;
 
     /** When copying to clipboard you may want to apply a different group header from the one usually used in the table. You can now do this using the groupHeaderClipboard table option, which takes the same inputs as the standard groupHeader property. */
     groupHeaderClipboard?:
@@ -176,7 +156,7 @@ export interface OptionsPersistentConfiguration {
      *  cookie - (string) Store the persistence information in a cookie
      *  true - (boolean) check if localStorage is available and store persistence information, otherwise store in cookie (Default option)
      */
-    persistenceMode?: 'local' | 'cookie' | true | undefined;
+    persistenceMode?: "local" | "cookie" | true | undefined;
 
     /** Enable persistent storage of column layout information. */
     persistentLayout?: boolean | undefined;
@@ -203,6 +183,7 @@ export interface PersistenceOptions {
     group?: boolean | PersistenceGroupOptions | undefined;
     page?: boolean | PersistencePageOptions | undefined;
     columns?: boolean | string[] | undefined;
+    headerFilter?: boolean | undefined;
 }
 
 export interface PersistenceGroupOptions {
@@ -266,7 +247,7 @@ export interface OptionsPagination {
      * page - add rows relative to current page (default)
      * table - add rows relative to the table
      */
-    paginationAddRow?: 'table' | 'page' | undefined;
+    paginationAddRow?: "table" | "page" | undefined;
 
     /**
      * You can choose to display a pagination counter in the bottom left of the footer that shows a summary of the current number of rows shown out of the total.
@@ -282,15 +263,15 @@ export interface OptionsPagination {
      * The function must return the contents of the counter, either the text value of the counter, valid HTML or a DOM node
      */
     paginationCounter?:
-        | 'rows'
-        | 'pages'
+        | "rows"
+        | "pages"
         | ((
-              pageSize: number,
-              currentRow: number,
-              currentPage: number,
-              totalRows: number,
-              totalPages: number,
-          ) => string | HTMLElement);
+            pageSize: number,
+            currentRow: number,
+            currentPage: number,
+            totalRows: number,
+            totalPages: number,
+        ) => string | HTMLElement);
 
     /**
      * By default the counter will be displayed in the left of the table footer. If you would like it displayed in another element pass a DOM node or a CSS selector for that element.
@@ -304,7 +285,11 @@ export interface OptionsPagination {
     paginationInitialPage?: number | undefined;
 }
 
-export type GroupArg = string | string[] | ((data: any) => any);
+export type GroupArg =
+    | string
+    | string[]
+    | ((data: any) => any)
+    | Array<string | ((data: any) => any)>;
 
 export interface OptionsRowGrouping {
     /** String/function to select field to group rows by */
@@ -338,7 +323,12 @@ export interface OptionsRowGrouping {
      * Group Open Function
      * If you want to decide on a group by group basis which should start open or closed then you can pass a function to the groupStartOpen property. This should return true if the group should start open or false if the group should start closed.
      */
-    groupStartOpen?: boolean | ((value: any, count: number, data: any, group: GroupComponent) => boolean) | undefined;
+    groupStartOpen?:
+        | boolean
+        | boolean[]
+        | ((value: any, count: number, data: any, group: GroupComponent) => boolean)
+        | Array<boolean | ((value: any, count: number, data: any, group: GroupComponent) => boolean)>
+        | undefined;
 
     /**
      * By default Tabulator allows users to toggle a group open or closed by clicking on the arrow icon in the left of the group header. If you would prefer a different behavior you can use the groupToggleElement option to choose a different option:* * The option can take one of three values:
@@ -346,41 +336,11 @@ export interface OptionsRowGrouping {
      * header - toggle group on click anywhere on the group header element
      * false - prevent clicking anywhere in the group toggling the group
      */
-    groupToggleElement?: 'arrow' | 'header' | false | undefined;
+    groupToggleElement?: "arrow" | "header" | false | undefined;
 
     /** show/hide column calculations when group is closed. */
     groupClosedShowCalcs?: boolean | undefined;
 
-    /** The dataGrouping callback is triggered whenever a data grouping event occurs, before grouping happens. */
-    dataGrouping?: (() => void) | undefined;
-
-    /** The dataGrouping callback is triggered whenever a data grouping event occurs, after grouping happens. */
-    dataGrouped?: (() => void) | undefined;
-
-    /** The groupVisibilityChanged callback is triggered whenever a group changes between hidden and visible states. */
-    groupVisibilityChanged?: ((group: GroupComponent, visible: boolean) => void) | undefined;
-
-    /** The groupClick callback is triggered when a user clicks on a group header. */
-    groupClick?: GroupEventCallback | undefined;
-
-    /** The groupDblClick callback is triggered when a user double clicks on a group header. */
-    groupDblClick?: GroupEventCallback | undefined;
-
-    /**
-     * The groupContext callback is triggered when a user right clicks on a group header.
-     *
-     * If you want to prevent the browsers context menu being triggered in this event you will need to include the preventDefault() function in your callback.
-     */
-    groupContext?: GroupEventCallback | undefined;
-
-    /** The groupTap callback is triggered when a user taps on a group header on a touch display. */
-    groupTap?: GroupEventCallback | undefined;
-
-    /** The groupDblTap callback is triggered when a user taps on a group header on a touch display twice in under 300ms. */
-    groupDblTap?: GroupEventCallback | undefined;
-
-    /** The groupTapHold callback is triggered when a user taps on a group header on a touch display and holds their finger down for over 1 second. */
-    groupTapHold?: GroupEventCallback | undefined;
     groupUpdateOnCellEdit?: boolean | undefined;
 }
 
@@ -400,13 +360,7 @@ export interface OptionsFiltering {
     initialFilter?: Filter[] | undefined;
 
     /** array of initial values for header filters. */
-    initialHeaderFilter?: Array<Pick<Filter, 'field' | 'value'>> | undefined;
-
-    /** The dataFiltering callback is triggered whenever a filter event occurs, before the filter happens. */
-    dataFiltering?: ((filters: Filter[]) => void) | undefined;
-
-    /** The dataFiltered callback is triggered after the table dataset is filtered. */
-    dataFiltered?: ((filters: Filter[], rows: RowComponent[]) => void) | undefined;
+    initialHeaderFilter?: Array<Pick<Filter, "field" | "value">> | undefined;
 
     /** When using real time header filtering, Tabulator will wait 300 milliseconds after a keystroke before triggering the filter. You can customize this delay by using the headerFilterLiveFilterDelay table setup option. */
     headerFilterLiveFilterDelay?: number | undefined;
@@ -418,7 +372,7 @@ export interface OptionsSorting {
 
     /** reverse the order that multiple sorters are applied to the table. */
     sortOrderReverse?: boolean | undefined;
-    headerSortClickElement?: 'header' | 'icon';
+    headerSortClickElement?: "header" | "icon";
 }
 
 export interface Sorter {
@@ -443,7 +397,9 @@ export interface OptionsData {
 
     /** Array to hold data that should be loaded on table creation. */
     data?: any[] | undefined;
-    importFormat?: 'array';
+    importFormat?: "array" | "csv" | "json" | ((fileContents: string) => unknown[]);
+    /** By default Tabulator will read in the file as plain text, which is the format used by all the built in importers. If you need to read the file data in a different format then you can use the importReader option to instruct the file reader to read in the file in a different format. */
+    importReader?: "binary" | "buffer" | "text" | "url" | undefined;
     autoTables?: boolean;
 
     /** If you wish to retrieve your data from a remote source you can set the URL for the request in the ajaxURL option. */
@@ -461,7 +417,7 @@ export interface OptionsData {
      * "json" - send parameters as JSON encoded string
      * If you want to use a custom content type then you can pass a content type formatter object into the ajaxContentType option. this object must have two properties, the headers property should contain all headers that should be sent with the request and the body property should contain a function that returns the body content of the request
      */
-    ajaxContentType?: 'form' | 'json' | AjaxContentType | undefined;
+    ajaxContentType?: "form" | "json" | AjaxContentType | undefined;
 
     /**
      * If you need more control over the url of the request that you can get from the ajaxURL and ajaxParams properties, the you can use the ajaxURLGenerator property to pass in a callback that will generate the URL for you.
@@ -488,7 +444,7 @@ export interface OptionsData {
      *
      * There are two different progressive loading modes, to give you a choice of how data is loaded into the table.
      */
-    progressiveLoad?: 'load' | 'scroll' | undefined;
+    progressiveLoad?: "load" | "scroll" | undefined;
 
     /** By default tabulator will make the requests to fill the table as quickly as possible. On some servers these repeats requests from the same client may trigger rate limiting or security systems. In this case you can use the ajaxProgressiveLoadDelay option to add a delay in milliseconds between each page request. */
     progressiveLoadDelay?: number | undefined;
@@ -511,8 +467,6 @@ export interface OptionsData {
     /** The ajaxResponse callback is triggered when a successful ajax request has been made. This callback can also be used to modify the received data before it is parsed by the table. If you use this callback it must return the data to be parsed by Tabulator, otherwise no data will be rendered. */
     ajaxResponse?: ((url: string, params: any, response: any) => any) | undefined;
 
-    /** The ajaxError callback is triggered there is an error response to an ajax request. */
-    ajaxError?: ((xhr: any, textStatus: any, errorThrown: any) => void) | undefined;
     dataLoader?: boolean;
     dataLoaderLoading?: string | HTMLElement;
     dataLoaderError?: string;
@@ -521,14 +475,14 @@ export interface OptionsData {
     filterMode?: SortMode;
 }
 
-export type SortMode = 'remote' | 'local';
+export type SortMode = "remote" | "local";
 
 export interface AjaxContentType {
     headers: JSONRecord;
     body: (url: string, config: any, params: any) => any;
 }
 
-export type HttpMethod = 'GET' | 'POST';
+export type HttpMethod = "GET" | "POST";
 
 export interface AjaxConfig {
     method?: HttpMethod | undefined;
@@ -554,7 +508,7 @@ export interface OptionsRows {
     rowFormatterClipboard?: false | ((row: RowComponent) => any) | undefined;
 
     /** The position in the table for new rows to be added, "bottom" or "top". */
-    addRowPos?: 'bottom' | 'top' | undefined;
+    addRowPos?: "bottom" | "top" | undefined;
 
     /**
      * The selectable option can take one of a several values:
@@ -563,14 +517,14 @@ export interface OptionsRows {
      * integer - any integer value, this sets the maximum number of rows that can be selected (when the maximum number of selected rows is exceeded, the first selected row will be deselected to allow the next row to be selected).
      * "highlight" (default) - rows have the same hover stylings as selectable rows but do not change state when clicked. This is great for when you want to show that a row is clickable but don't want it to be selectable.
      */
-    selectable?: boolean | number | 'highlight' | undefined;
+    selectable?: boolean | number | "highlight" | undefined;
 
     /**
      * By default you can select a range of rows by holding down the shift key and click dragging over a number of rows to toggle the selected state state of all rows the cursor passes over.
      *
      * If you would prefer to select a range of row by clicking on the first row then holding down shift and clicking on the end row then you can achieve this by setting the selectableRangeMode to click
      */
-    selectableRangeMode?: 'click' | undefined;
+    selectableRangeMode?: "click" | undefined;
 
     /** By default, row selection works on a rolling basis, if you set the selectable option to a numeric value then when you select past this number of rows, the first row to be selected will be deselected. If you want to disable this behavior and instead prevent selection of new rows once the limit is reached you can set the selectableRollingSelection option to false. */
     selectableRollingSelection?: boolean | undefined;
@@ -597,7 +551,7 @@ export interface OptionsRows {
      */
     movableRowsSender?:
         | false
-        | 'delete'
+        | "delete"
         | ((fromRow: RowComponent, toRow: RowComponent, toTable: Tabulator) => any)
         | undefined;
 
@@ -611,16 +565,13 @@ export interface OptionsRows {
      * - replace - replaces the row it is dropped on with the sent row
      */
     movableRowsReceiver?:
-        | 'insert'
-        | 'add'
-        | 'update'
-        | 'replace'
+        | "insert"
+        | "add"
+        | "update"
+        | "replace"
         | ((fromRow: RowComponent, toRow: RowComponent, fromTable: Tabulator) => any)
         | undefined;
     movableRowsConnectedElements?: string | HTMLElement | undefined;
-
-    /** When a row is dropped on element from from the movableRowsConnectedElements option the movableRowsElementDrop callback will be triggered. You can use this callback to trigger any changes as a result of the drop */
-    movableRowsElementDrop?: ((e: MouseEvent, element: HTMLElement, row: RowComponent) => any) | undefined;
 
     /** You can allow the user to manually resize rows by dragging the top or bottom border of a row. To enable this functionality, set the resizableRows property to true. */
     resizableRows?: boolean | undefined;
@@ -642,98 +593,6 @@ export interface OptionsRows {
      * false - scroll to row, unless it is currently visible, then don't move
      */
     scrollToRowIfVisible?: boolean | undefined;
-
-    /** The dataTreeRowExpanded callback is triggered when a row with child rows is expanded to reveal the children. */
-    dataTreeRowExpanded?: ((row: RowComponent, level: number) => void) | undefined;
-
-    /** The dataTreeRowCollapsed callback is triggered when a row with child rows is collapsed to hide its children. */
-    dataTreeRowCollapsed?: ((row: RowComponent, level: number) => void) | undefined;
-
-    /** The movableRowsSendingStart callback is triggered on the sending table when a row is picked up from a sending table. */
-    movableRowsSendingStart?: ((toTables: any[]) => void) | undefined;
-
-    /** The movableRowsSent callback is triggered on the sending table when a row has been successfully received by a receiving table. */
-    movableRowsSent?: ((fromRow: RowComponent, toRow: RowComponent, toTable: Tabulator) => void) | undefined;
-
-    /** The movableRowsSentFailed callback is triggered on the sending table when a row has failed to be received by the receiving table. */
-    movableRowsSentFailed?: ((fromRow: RowComponent, toRow: RowComponent, toTable: Tabulator) => void) | undefined;
-
-    /** The movableRowsSendingStop callback is triggered on the sending table after a row has been dropped and any senders and receivers have been handled. */
-    movableRowsSendingStop?: ((toTables: any[]) => void) | undefined;
-
-    /** The movableRowsReceivingStart callback is triggered on a receiving table when a connection is established with a sending table. */
-    movableRowsReceivingStart?: ((fromRow: RowComponent, toTable: Tabulator) => void) | undefined;
-
-    /** The movableRowsReceived callback is triggered on a receiving table when a row has been successfully received. */
-    movableRowsReceived?: ((fromRow: RowComponent, toRow: RowComponent, fromTable: Tabulator) => void) | undefined;
-
-    /** The movableRowsReceivedFailed callback is triggered on a receiving table when a row receiver has returned false. */
-    movableRowsReceivedFailed?:
-        | ((fromRow: RowComponent, toRow: RowComponent, fromTable: Tabulator) => void)
-        | undefined;
-
-    /** The movableRowsReceivingStop callback is triggered on a receiving table after a row has been dropped and any senders and receivers have been handled. */
-    movableRowsReceivingStop?: ((fromTable: Tabulator) => void) | undefined;
-
-    /** The rowClick callback is triggered when a user clicks on a row. */
-    rowClick?: RowEventCallback | undefined;
-
-    /** The rowDblClick callback is triggered when a user double clicks on a row. */
-    rowDblClick?: RowEventCallback | undefined;
-
-    /**
-     * The rowContext callback is triggered when a user right clicks on a row.
-     * If you want to prevent the browsers context menu being triggered in this event you will need to include the preventDefault() function in your callback.
-     */
-    rowContext?: RowEventCallback | undefined;
-
-    /** The rowTap callback is triggered when a user taps on a row on a touch display. */
-    rowTap?: RowEventCallback | undefined;
-
-    /** The rowDblTap callback is triggered when a user taps on a row on a touch display twice in under 300ms. */
-    rowDblTap?: RowEventCallback | undefined;
-
-    /** The rowTapHold callback is triggered when a user taps on a row on a touch display and holds their finger down for over 1 second. */
-    rowTapHold?: RowEventCallback | undefined;
-
-    /** The rowMouseEnter callback is triggered when the mouse pointer enters a row. */
-    rowMouseEnter?: RowEventCallback | undefined;
-
-    /** The rowMouseLeave callback is triggered when the mouse pointer leaves a row. */
-    rowMouseLeave?: RowEventCallback | undefined;
-
-    /** The rowMouseOver callback is triggered when the mouse pointer enters a row or any of its child elements. */
-    rowMouseOver?: RowEventCallback | undefined;
-
-    /** The rowMouseOut callback is triggered when the mouse pointer leaves a row or any of its child elements. */
-    rowMouseOut?: RowEventCallback | undefined;
-
-    /** The rowMouseMove callback is triggered when the mouse pointer moves over a row. */
-    rowMouseMove?: RowEventCallback | undefined;
-
-    /** The rowAdded callback is triggered when a row is added to the table by the addRow and updateOrAddRow functions. */
-    rowAdded?: RowChangedCallback | undefined;
-
-    /** The rowUpdated callback is triggered when a row is updated by the updateRow, updateOrAddRow, updateData or updateOrAddData, functions. */
-    rowUpdated?: RowChangedCallback | undefined;
-
-    /** The rowDeleted callback is triggered when a row is deleted from the table by the deleteRow function. */
-    rowDeleted?: RowChangedCallback | undefined;
-
-    /** The rowMoved callback will be triggered when a row has been successfully moved. */
-    rowMoved?: RowChangedCallback | undefined;
-
-    /** The rowResized callback will be triggered when a row has been resized by the user. */
-    rowResized?: RowChangedCallback | undefined;
-
-    /** Whenever the number of selected rows changes, through selection or deselection, the rowSelectionChanged event is triggered. This passes an array of the data objects for each row in the order they were selected as the first argument, and an array of row components for each of the rows in order of selection as the second argument. */
-    rowSelectionChanged?: ((data: any[], rows: RowComponent[]) => void) | undefined;
-
-    /** The rowSelected event is triggered when a row is selected, either by the user or programmatically. */
-    rowSelected?: RowChangedCallback | undefined;
-
-    /** The rowDeselected event is triggered when a row is deselected, either by the user or programmatically. */
-    rowDeselected?: RowChangedCallback | undefined;
 
     /** Allows you to specify the behavior when the user tabs from the last editable cell on the last row of the table. */
     tabEndNewRow?: boolean | JSONRecord | ((row: RowComponent) => any) | undefined;
@@ -757,7 +616,7 @@ export interface OptionsColumns {
         | undefined;
 
     /** By default Tabulator will use the fitData layout mode, which will resize the tables columns to fit the data held in each column, unless you specify a width or minWidth in the column constructor. If the width of all columns exceeds the width of the containing element, a scroll bar will appear. */
-    layout?: 'fitData' | 'fitColumns' | 'fitDataFill' | 'fitDataStretch' | 'fitDataTable' | undefined;
+    layout?: "fitData" | "fitColumns" | "fitDataFill" | "fitDataStretch" | "fitDataTable" | undefined;
 
     /**
      * To keep the layout of the columns consistent, once the column widths have been set on the first data load (either from the data property in the constructor or the setData function) they will not be changed when new data is loaded.
@@ -779,7 +638,7 @@ export interface OptionsColumns {
      *
      * When responsive layout is enabled, all columns are given a default responsive value of 1. The higher you set this value the sooner that column will be hidden as the table width decreases. If two columns have the same responsive value then they are hidden from right to left (as defined in the column definition array, ignoring user moving of the columns). If you set the value to 0 then the column will never be hidden regardless of how narrow the table gets.
      */
-    responsiveLayout?: boolean | 'hide' | 'collapse' | undefined;
+    responsiveLayout?: boolean | "hide" | "collapse" | undefined;
 
     /** Collapsed lists are displayed to the user by default, if you would prefer they start closed so the user can open them you can use the responsiveLayoutCollapseStartOpen option. */
     responsiveLayoutCollapseStartOpen?: boolean | undefined;
@@ -835,7 +694,7 @@ export interface OptionsColumns {
      * table - show calcs at top and bottom of the table only
      * group - show calcs in groups only
      */
-    columnCalcs?: boolean | 'both' | 'table' | 'group' | undefined;
+    columnCalcs?: boolean | "both" | "table" | "group" | undefined;
 
     /**
      * If you need to use the . character as part of your field name, you can change the separator to any other character using the nestedFieldSeparator option
@@ -846,41 +705,15 @@ export interface OptionsColumns {
     /** multiple or single column sorting */
     columnHeaderSortMulti?: boolean | undefined;
 
-    /** The columnMoved callback will be triggered when a column has been successfully moved. */
-    columnMoved?: ((column: ColumnComponent, columns: any[]) => void) | undefined;
-    columnResized?: ((column: ColumnComponent) => void) | undefined;
-
-    /** The columnVisibilityChanged callback is triggered whenever a column changes between hidden and visible states. */
-    columnVisibilityChanged?: ((column: ColumnComponent, visible: boolean) => void) | undefined;
-
-    /** The columnTitleChanged callback is triggered whenever a user edits a column title when the editableTitle parameter has been enabled in the column definition array. */
-    columnTitleChanged?: ((column: ColumnComponent) => void) | undefined;
-
     /** By setting the headerVisible option to false you can hide the column headers and present the table as a simple list if needed. */
     headerVisible?: boolean | undefined;
 
     /** The headerSort option can now be set in the table options to affect all columns as well as in column definitions. */
     headerSort?: boolean | undefined;
-    headerSortElement?: string | undefined | ((column: ColumnComponent, dir: 'asc' | 'desc' | 'none') => any);
-    columnDefaults?: ColumnDefinition;
-}
-
-export interface OptionsCell {
-    /** The cellClick callback is triggered when a user left clicks on a cell, it can be set on a per column basis using the option in the columns definition object. */
-    cellClick?: CellEventCallback | undefined;
-    cellDblClick?: CellEventCallback | undefined;
-    cellContext?: CellEventCallback | undefined;
-    cellTap?: CellEventCallback | undefined;
-    cellDblTap?: CellEventCallback | undefined;
-    cellTapHold?: CellEventCallback | undefined;
-    cellMouseEnter?: CellEventCallback | undefined;
-    cellMouseLeave?: CellEventCallback | undefined;
-    cellMouseOver?: CellEventCallback | undefined;
-    cellMouseOut?: CellEventCallback | undefined;
-    cellMouseMove?: CellEventCallback | undefined;
-    cellEditing?: CellEditEventCallback | undefined;
-    cellEdited?: CellEditEventCallback | undefined;
-    cellEditCancelled?: CellEditEventCallback | undefined;
+    headerSortElement?: string | undefined | ((column: ColumnComponent, dir: "asc" | "desc" | "none") => any);
+    columnDefaults?: Partial<ColumnDefinition>;
+    /** If the resizableColumnFit table definition option is set to true, then when you resize a column its neighbouring column has the opposite resize applied to keep to total width of columns the same. */
+    resizableColumnFit?: boolean | undefined;
 }
 
 export interface OptionsGeneral {
@@ -900,7 +733,8 @@ export interface OptionsGeneral {
     renderVerticalBuffer?: boolean | number | undefined;
 
     /** placeholder element to display on empty table. */
-    placeholder?: string | HTMLElement | undefined;
+    placeholder?: string | HTMLElement | ((this: Tabulator | TabulatorFull) => string) | undefined;
+    placeholderHeaderFilter?: string | HTMLElement | ((this: Tabulator | TabulatorFull) => string) | undefined;
 
     /** Footer  element to display for the table. */
     footerElement?: string | HTMLElement | undefined;
@@ -923,53 +757,8 @@ export interface OptionsGeneral {
     /** Tabulator will automatically attempt to redraw the data contained in the table if the containing element for the table is resized. To disable this functionality, set the autoResize property to false. */
     autoResize?: boolean | undefined;
 
-    /** When a the tabulator constructor is called, the tableBuilding callback will triggered. */
-    tableBuilding?: (() => void) | undefined;
-
-    /** When a the tabulator constructor is called and the table has finished being rendered, the tableBuilt callback will triggered: */
-    tableBuilt?: (() => void) | undefined;
-
-    /**
-     * The renderStarted callback is triggered whenever all the rows in the table are about to be rendered. This can include:
-     * - Data is loaded into the table when setData is called
-     * - A page is loaded through any form of pagination
-     * - Rows are added to the table during progressive rendering
-     * - Columns are changed by setColumns
-     * - The data is filtered
-     * - The data is sorted
-     * - The redraw function is called
-     */
-    renderStarted?: (() => void) | undefined;
-
-    /** The renderComplete callback is triggered after the table has been rendered. */
-    renderComplete?: (() => void) | undefined;
-
-    /** The htmlImporting callback is triggered when Tabulator starts importing data from an HTML table. */
-    htmlImporting?: EmptyCallback | undefined;
-
-    /** The htmlImported callback is triggered when Tabulator finishes importing data from an HTML table. */
-    htmlImported?: EmptyCallback | undefined;
-
-    /** The dataChanged callback is triggered whenever the table data is changed by the user. Triggers for this include editing any cell in the table, adding a row and deleting a row. */
-    dataChanged?: ((data: any) => void) | undefined;
-
-    /** Whenever a page has been loaded, the pageLoaded callback is called, passing the current page number as an argument. */
-    pageLoaded?: ((pageno: number) => void) | undefined;
-
-    /** The dataSorting callback is triggered whenever a sort event occurs, before sorting happens. */
-    dataSorting?: ((sorters: SorterFromTable[]) => void) | undefined;
-
-    /** The dataSorted callback is triggered after the table dataset is sorted. */
-    dataSorted?: ((sorters: SorterFromTable[], rows: RowComponent[]) => void) | undefined;
-
     /** Setting the invalidOptionWarnings option to false will disable console warning messages for invalid properties in the table constructor and column definition object. */
     invalidOptionWarnings?: boolean | undefined;
-
-    /** Callback is triggered when the table is vertically scrolled. */
-    scrollVertical?: ((top: any) => void) | undefined;
-
-    /** Callback is triggered when the table is horizontally scrolled. */
-    scrollHorizontal?: ((left: any) => void) | undefined;
 
     /**
      * There are now three different validation modes available to customize the validation experience:
@@ -980,11 +769,11 @@ export interface OptionsGeneral {
      *
      * manual - no validation is automatically performed on edit, but it can be triggered by calling the validate function on the table or any Component Object
      */
-    validationMode?: 'blocking' | 'highlight' | 'manual' | undefined;
+    validationMode?: "blocking" | "highlight" | "manual" | undefined;
     textDirection?: TextDirection | undefined;
 }
 
-export type RenderMode = 'virtual' | 'basic' | Renderer;
+export type RenderMode = "virtual" | "basic" | Renderer;
 
 export interface OptionsMenu {
     rowContextMenu?: RowContextMenuSignature | undefined;
@@ -994,8 +783,13 @@ export interface OptionsMenu {
     groupDblClickMenu?: GroupContextMenuSignature | undefined;
     groupContextMenu?: Array<MenuObject<GroupComponent>> | undefined;
     popupContainer?: boolean | string | HTMLElement;
-    rowDblClickPopup?: string;
+    groupClickPopup?: string;
+    groupContextPopup?: string;
+    groupDblPopup?: string;
     groupDblClickPopup?: string;
+    rowClickPopup?: string;
+    rowContextPopup?: string;
+    rowDblClickPopup?: string;
 }
 
 export type RowContextMenuSignature =
@@ -1017,7 +811,7 @@ export interface MenuSeparator {
     separator?: boolean | undefined;
 }
 
-export type DownloadType = 'csv' | 'json' | 'xlsx' | 'pdf' | 'html';
+export type DownloadType = "csv" | "json" | "xlsx" | "pdf" | "html";
 
 export interface DownloadOptions extends DownloadCSV, DownloadXLXS, DownloadPDF, DownloadHTML {}
 
@@ -1039,10 +833,12 @@ export interface DownloadXLXS {
     sheetName?: string | undefined;
     documentProcessing?: ((input: any) => any) | undefined;
     compress?: boolean;
+    writeOptions?: Record<string, unknown>;
+    test?: {};
 }
 
 export interface DownloadPDF {
-    orientation?: 'portrait' | 'landscape' | undefined;
+    orientation?: "portrait" | "landscape" | undefined;
     title?: string | undefined;
     rowGroupStyles?: any;
     rowCalcStyles?: any;
@@ -1062,9 +858,6 @@ export interface OptionsDownload {
      * If you would prefer to abort the download you can return false from this callback. This could be useful for example if you want to send the created file to a server via ajax rather than allowing the user to download the file.
      */
     downloadEncoder?: ((fileContents: any, mimeType: string) => Blob | false) | undefined;
-
-    /** The downloadComplete callback is triggered when the user has been prompted to download the file. */
-    downloadComplete?: (() => void) | undefined;
 
     /**
      * By default Tabulator includes column headers, row groups and column calculations in the download output.
@@ -1144,22 +937,13 @@ export interface OptionsLocale {
      * If you wish you can also localize column titles by adding a columns property to your language object. You should store a property of the field name of the column you wish to change, with a value of its title. Any fields that match this will use this title instead of the one provided by the column definition array.
      */
     langs?: any;
-
-    /** When a localization event has occurred , the localized callback will triggered, passing the current locale code and language object: */
-    localized?: ((locale: string, lang: any) => void) | undefined;
 }
 
-type HistoryAction = 'cellEdit' | 'rowAdd' | 'rowDelete' | 'rowMoved';
+type HistoryAction = "cellEdit" | "rowAdd" | "rowDelete" | "rowMoved";
 
 export interface OptionsHistory {
     /** Enable user interaction history functionality */
     history?: boolean | undefined;
-
-    /** The historyUndo event is triggered when the undo action is triggered. */
-    historyUndo?: ((action: HistoryAction, component: CellComponent | RowComponent, data: any) => void) | undefined;
-
-    /** The historyRedo event is triggered when the redo action is triggered. */
-    historyRedo?: ((action: HistoryAction, component: CellComponent | RowComponent, data: any) => void) | undefined;
 }
 
 export interface ColumnLayout {
@@ -1195,7 +979,7 @@ export interface ColumnDefinition extends ColumnLayout, CellCallbacks {
     widthShrink?: number | undefined;
 
     /** set whether column can be resized by user dragging its edges */
-    resizable?: true | false | 'header' | 'cell' | undefined;
+    resizable?: true | false | "header" | "cell" | undefined;
 
     /** You can freeze the position of columns on the left and right of the table using the frozen property in the column definition array. This will keep the column still when the table is scrolled horizontally. */
     frozen?: boolean | undefined;
@@ -1229,24 +1013,24 @@ export interface ColumnDefinition extends ColumnLayout, CellCallbacks {
      * You can pass an optional additional property with sorter, sorterParams that should contain an object with additional information for configuring the sorter
      */
     sorter?:
-        | 'string'
-        | 'number'
-        | 'alphanum'
-        | 'boolean'
-        | 'exists'
-        | 'date'
-        | 'time'
-        | 'datetime'
-        | 'array'
+        | "string"
+        | "number"
+        | "alphanum"
+        | "boolean"
+        | "exists"
+        | "date"
+        | "time"
+        | "datetime"
+        | "array"
         | ((
-              a: any,
-              b: any,
-              aRow: RowComponent,
-              bRow: RowComponent,
-              column: ColumnComponent,
-              dir: SortDirection,
-              sorterParams: {},
-          ) => number)
+            a: any,
+            b: any,
+            aRow: RowComponent,
+            bRow: RowComponent,
+            column: ColumnComponent,
+            dir: SortDirection,
+            sorterParams: {},
+        ) => number)
         | undefined;
 
     /** If you want to dynamically generate the sorterParams at the time the sort is called you can pass a function into the property that should return the params object. */
@@ -1402,7 +1186,7 @@ export interface ColumnDefinition extends ColumnLayout, CellCallbacks {
      * - true - vertical columns enabled
      * - "flip" - vertical columns enabled, with text direction flipped by 180 degrees*
      */
-    headerVertical?: boolean | 'flip' | undefined;
+    headerVertical?: boolean | "flip" | undefined;
 
     /** allows the user to edit the header titles */
     editableTitle?: boolean | undefined;
@@ -1564,30 +1348,30 @@ export interface CellCallbacks {
 export interface ColumnDefinitionSorterParams {
     format?: string | undefined;
     locale?: string | boolean | undefined;
-    alignEmptyValues?: 'top' | 'bottom' | undefined;
-    type?: 'length' | 'sum' | 'max' | 'min' | 'avg' | undefined;
+    alignEmptyValues?: "top" | "bottom" | undefined;
+    type?: "length" | "sum" | "max" | "min" | "avg" | undefined;
 }
 
 export type GroupValuesArg = any[][];
 
-export type TextDirection = 'auto' | 'ltr' | 'rtl';
+export type TextDirection = "auto" | "ltr" | "rtl";
 
 export type GlobalTooltipOption = boolean | ((event: MouseEvent, cell: CellComponent, onRender: () => void) => string);
 
 export type CustomMutator = (
     value: any,
     data: any,
-    type: 'data' | 'edit',
+    type: "data" | "edit",
     mutatorParams: any,
     cell?: CellComponent,
 ) => any;
 
-export type CustomMutatorParams = {} | ((value: any, data: any, type: 'data' | 'edit', cell?: CellComponent) => any);
+export type CustomMutatorParams = {} | ((value: any, data: any, type: "data" | "edit", cell?: CellComponent) => any);
 
 export type CustomAccessor = (
     value: any,
     data: any,
-    type: 'data' | 'download' | 'clipboard',
+    type: "data" | "download" | "clipboard",
     AccessorParams: any,
     column?: ColumnComponent,
     row?: RowComponent,
@@ -1596,45 +1380,46 @@ export type CustomAccessor = (
 export type CustomAccessorParams =
     | {}
     | ((
-          value: any,
-          data: any,
-          type: 'data' | 'download' | 'clipboard',
-          column?: ColumnComponent,
-          row?: RowComponent,
-      ) => any);
+        value: any,
+        data: any,
+        type: "data" | "download" | "clipboard",
+        column?: ColumnComponent,
+        row?: RowComponent,
+    ) => any);
 
 export type ColumnCalc =
-    | 'avg'
-    | 'max'
-    | 'min'
-    | 'sum'
-    | 'concat'
-    | 'count'
+    | "avg"
+    | "max"
+    | "min"
+    | "sum"
+    | "concat"
+    | "count"
+    | "unique"
     | ((values: any[], data: any[], calcParams: {}) => any);
 
 export type ColumnCalcParams = { precision: number } | ((values: any, data: any) => any);
 
 export type Formatter =
-    | 'plaintext'
-    | 'textarea'
-    | 'html'
-    | 'money'
-    | 'image'
-    | 'datetime'
-    | 'datetimediff'
-    | 'link'
-    | 'tickCross'
-    | 'color'
-    | 'star'
-    | 'traffic'
-    | 'progress'
-    | 'lookup'
-    | 'buttonTick'
-    | 'buttonCross'
-    | 'rownum'
-    | 'handle'
-    | 'rowSelection'
-    | 'responsiveCollapse'
+    | "plaintext"
+    | "textarea"
+    | "html"
+    | "money"
+    | "image"
+    | "datetime"
+    | "datetimediff"
+    | "link"
+    | "tickCross"
+    | "color"
+    | "star"
+    | "traffic"
+    | "progress"
+    | "lookup"
+    | "buttonTick"
+    | "buttonCross"
+    | "rownum"
+    | "handle"
+    | "rowSelection"
+    | "responsiveCollapse"
     | ((cell: CellComponent, formatterParams: {}, onRendered: EmptyCallback) => string | HTMLElement);
 
 export type FormatterParams =
@@ -1653,23 +1438,23 @@ export type FormatterParams =
 
 export type Editor =
     | true
-    | 'input'
-    | 'textarea'
-    | 'number'
-    | 'range'
-    | 'tickCross'
-    | 'star'
-    | 'list'
-    | 'date'
-    | 'time'
-    | 'datetime'
+    | "input"
+    | "textarea"
+    | "number"
+    | "range"
+    | "tickCross"
+    | "star"
+    | "list"
+    | "date"
+    | "time"
+    | "datetime"
     | ((
-          cell: CellComponent,
-          onRendered: EmptyCallback,
-          success: ValueBooleanCallback,
-          cancel: ValueVoidCallback,
-          editorParams: {},
-      ) => HTMLElement | false);
+        cell: CellComponent,
+        onRendered: EmptyCallback,
+        success: ValueBooleanCallback,
+        cancel: ValueVoidCallback,
+        editorParams: {},
+    ) => HTMLElement | false);
 
 export type EditorParams =
     | NumberParams
@@ -1682,14 +1467,14 @@ export type EditorParams =
     | DateTimeEditorParams
     | ((cell: CellComponent) => {});
 
-export type ScrollToRowPosition = 'top' | 'center' | 'bottom' | 'nearest';
-export type PopupPosition = ColumnDefinitionAlign | 'top' | 'bottom';
+export type ScrollToRowPosition = "top" | "center" | "bottom" | "nearest";
+export type PopupPosition = ColumnDefinitionAlign | "top" | "bottom";
 
-export type ScrollToColumnPosition = 'left' | 'center' | 'middle' | 'right';
+export type ScrollToColumnPosition = "left" | "center" | "middle" | "right";
 
-export type ColumnDefinitionAlign = 'left' | 'center' | 'right';
+export type ColumnDefinitionAlign = "left" | "center" | "right";
 
-export type VerticalAlign = 'top' | 'middle' | 'bottom';
+export type VerticalAlign = "top" | "middle" | "bottom";
 
 export interface MoneyParams {
     // Money
@@ -1698,6 +1483,7 @@ export interface MoneyParams {
     symbol?: string | undefined;
     symbolAfter?: boolean | undefined;
     precision?: boolean | number | undefined;
+    negativeSign?: string | true;
 }
 
 export interface ImageParams {
@@ -1731,7 +1517,7 @@ export interface DateTimeDifferenceParams extends DateTimeParams {
     // Date Time Difference
     date?: any;
     humanize?: boolean | undefined;
-    unit?: 'years' | 'months' | 'weeks' | 'days' | 'hours' | 'minutes' | 'seconds' | undefined;
+    unit?: "years" | "months" | "weeks" | "days" | "hours" | "minutes" | "seconds" | undefined;
     suffix?: boolean | undefined;
 }
 
@@ -1798,20 +1584,28 @@ export interface NumberParams extends SharedEditorParams {
     min?: number | undefined;
     max?: number | undefined;
     step?: number | undefined;
-    verticalNavigation?: 'editor' | 'table' | undefined;
+    verticalNavigation?: "editor" | "table" | undefined;
+    /** When the editor is loaded select its text content */
+    selectContents?: boolean | undefined;
 }
 
 export interface InputParams extends SharedEditorParams {
     /** Changes input type to 'search' and shows an 'X' clear button to clear the cell value easily. */
     search?: boolean | undefined;
+    /** When the editor is loaded select its text content */
+    selectContents?: boolean | undefined;
 }
 
 export interface TextAreaParams extends SharedEditorParams {
-    verticalNavigation?: 'editor' | 'table' | 'hybrid' | undefined;
+    verticalNavigation?: "editor" | "table" | "hybrid" | undefined;
 
     /** Allow submission of the value of the editor when the shift and enter keys are pressed together. */
     shiftEnterSubmit?: boolean;
+    /** When the editor is loaded select its text content */
+    selectContents?: boolean | undefined;
 }
+
+type VerticalNavigationOptions = "editor" | "table";
 
 export interface CheckboxParams extends SharedEditorParams {
     // tick
@@ -1821,21 +1615,24 @@ export interface CheckboxParams extends SharedEditorParams {
 
 export interface SharedSelectAutoCompleteEditorParams {
     defaultValue?: string | undefined;
-    sortValuesList?: 'asc' | 'desc' | undefined;
+    sortValuesList?: "asc" | "desc" | undefined;
 }
 
 export interface DateParams extends SharedEditorParams {
     min?: string;
     max?: string;
     format?: string;
+    verticalNavigation?: VerticalNavigationOptions;
 }
 
 export interface TimeParams extends SharedEditorParams {
     format?: string;
+    verticalNavigation?: VerticalNavigationOptions;
 }
 
 export interface DateTimeEditorParams extends SharedEditorParams {
     format?: string;
+    verticalNavigation?: VerticalNavigationOptions;
 }
 
 export interface LabelValue {
@@ -1864,7 +1661,7 @@ export interface ListEditorParams extends SharedEditorParams, SharedSelectAutoCo
     listOnEmpty?: boolean;
     freetext?: boolean | undefined;
     showListOnEmpty?: boolean | undefined;
-    verticalNavigation?: 'editor' | 'table' | 'hybrid' | undefined;
+    verticalNavigation?: "editor" | "table" | "hybrid" | undefined;
 }
 
 export type ValueStringCallback = (value: any) => string;
@@ -1887,17 +1684,17 @@ export type RowChangedCallback = (row: RowComponent) => void;
 
 export type GroupEventCallback = (e: UIEvent, group: GroupComponent) => void;
 
-export type SortDirection = 'asc' | 'desc';
+export type SortDirection = "asc" | "desc";
 
-export type FilterType = '=' | '!=' | 'like' | '<' | '>' | '<=' | '>=' | 'in' | 'regex' | 'starts' | 'ends';
+export type FilterType = "=" | "!=" | "like" | "<" | ">" | "<=" | ">=" | "in" | "regex" | "starts" | "ends";
 
 export type Color = string | any[] | ValueStringCallback;
 
-export type Align = 'center' | 'left' | 'right' | 'justify';
+export type Align = "center" | "left" | "right" | "justify";
 
 export type JSONRecord = Record<string, string | number | boolean>;
 
-export type StandardValidatorType = 'required' | 'unique' | 'integer' | 'float' | 'numeric' | 'string';
+export type StandardValidatorType = "required" | "unique" | "integer" | "float" | "numeric" | "string";
 
 export interface Validator {
     type: StandardValidatorType | ((cell: CellComponent, value: any, parameters?: any) => boolean);
@@ -1910,7 +1707,7 @@ export type ColumnLookup = ColumnComponent | ColumnDefinition | HTMLElement | st
 
 export type RowLookup = RowComponent | HTMLElement | string | number | number[] | string[];
 
-export type RowRangeLookup = 'visible' | 'active' | 'selected' | 'all';
+export type RowRangeLookup = "visible" | "active" | "selected" | "all";
 
 export interface KeyBinding {
     navPrev?: string | boolean | undefined;
@@ -1931,7 +1728,7 @@ export interface KeyBinding {
 // Components-------------------------------------------------------------------
 export interface CalculationComponent {
     /** The getData function returns the data object for the row. */
-    getData: () => any;
+    getData: () => { [key: string]: any };
 
     /** The getElement function returns the DOM node for the row. */
     getElement: () => HTMLElement;
@@ -1974,7 +1771,7 @@ export interface RowComponent extends CalculationComponent {
     delete: () => Promise<void>;
 
     /** The scrollTo function will scroll the table to the row if it passes the current filters. */
-    scrollTo: () => Promise<void>;
+    scrollTo: (position?: "top" | "center" | "bottom" | "nearest", scrollIfVisible?: boolean) => Promise<void>;
 
     /** The pageTo function will load the page for the row if it passes the current filters. */
     pageTo: () => Promise<void>;
@@ -2089,6 +1886,9 @@ export interface GroupComponent {
     /** The toggle function toggles the visibility of the group, switching between hidden and visible. */
     toggle: () => void;
     popup: (contents: string, position: PopupPosition) => void;
+
+    /** The scrollTo function will scroll the table to the group header if it passes the current filters. */
+    scrollTo: (position?: "top" | "center" | "bottom" | "nearest", scrollIfVisible?: boolean) => Promise<void>;
 }
 
 export interface ColumnComponent {
@@ -2132,7 +1932,7 @@ export interface ColumnComponent {
     delete: () => Promise<void>;
 
     /** The scrollTo function will scroll the table to the column if it is visible. */
-    scrollTo: () => Promise<void>;
+    scrollTo: (position?: "left" | "middle" | "right", scrollIfVisible?: boolean) => Promise<void>;
 
     /** The getSubColumns function returns an array of ColumnComponent objects, one for each sub column of this column. */
     getSubColumns: () => ColumnComponent[];
@@ -2197,10 +1997,13 @@ export interface CellComponent {
     getColumn: () => ColumnComponent;
 
     /** The getData function returns the data for the row that contains the cell. */
-    getData: () => {};
+    getData: (transformType?: "data" | "download" | "clipboard") => { [key: string]: any };
 
     /** The getField function returns the field name for the column that contains the cell. */
     getField: () => string;
+
+    /** The getType function can be used to determine if the cell is being used as a cell or a header element. */
+    getType: () => "cell" | "header";
 
     /** You can change the value of the cell using the setValue function. The first parameter should be the new value for the cell, the second optional parameter will apply the column mutators to the value when set to true (default = true). */
     setValue: (value: any, mutate?: boolean) => void;
@@ -2261,7 +2064,12 @@ export interface EventCallBackMethods {
     rowMoved: (row: RowComponent) => void;
     rowMoveCancelled: (row: RowComponent) => void;
     rowUpdated: (row: RowComponent) => void;
-    rowSelectionChanged: (selectedData: any[], selectedRows: RowComponent[]) => void;
+    rowSelectionChanged: (
+        data: any[],
+        rows: RowComponent[],
+        selectedRows: RowComponent[],
+        deselectedRows: RowComponent[],
+    ) => void;
     rowSelected: (row: RowComponent) => void;
     rowDeselected: (row: RowComponent) => void;
     rowResized: (row: RowComponent) => void;
@@ -2601,7 +2409,7 @@ declare class Tabulator {
     getColumnLayout: () => ColumnLayout[];
 
     /** If you have previously used the getColumnLayout function to retrieve a tables layout, you can use the setColumnLayout function to apply it to a table. */
-    setColumnLayout: (layout: ColumnLayout) => void;
+    setColumnLayout: (layout: ColumnLayout[]) => void;
 
     /** You can show a hidden column at any point using the showColumn function. */
     showColumn: (column?: ColumnLookup) => void;
@@ -2755,7 +2563,7 @@ declare class Tabulator {
      * - "last" - show the last page
      * The setPage method returns a promise, this can be used to run any other commands that have to be run after the data has been loaded into the table. By running them in the promise you ensure they are only run after the table has loaded the data.
      */
-    setPage: (page: number | 'first' | 'prev' | 'next' | 'last') => Promise<void>;
+    setPage: (page: number | "first" | "prev" | "next" | "last") => Promise<void>;
 
     /**
      * You can load the page for a specific row using the setPageToRow function and passing in any of the standard row component look up options for the row you want to scroll to.
@@ -2789,7 +2597,11 @@ declare class Tabulator {
      * Note: If you use the setGroupStartOpen or setGroupHeader before you have set any groups on the table, the table will not update until the setGroupBy function is called.
      */
     setGroupStartOpen: (
-        values: boolean | ((value: any, count: number, data: any, group: GroupComponent) => boolean),
+        values:
+            | boolean
+            | boolean[]
+            | ((value: any, count: number, data: any, group: GroupComponent) => boolean)
+            | Array<boolean | ((value: any, count: number, data: any, group: GroupComponent) => boolean)>,
     ) => void;
 
     /** You can use the setGroupHeader function to change the header generation function for each group. This function has one argument and takes the same values as passed to the groupHeader setup option. */
@@ -2877,7 +2689,7 @@ declare class Tabulator {
     setGroupValues: (data: GroupValuesArg) => void;
 
     /** You can now trigger a refresh of the current filters using the refreshFilter function. This function will cause the current filters to be run again and applied to the table data. */
-    refreshFilters: () => void;
+    refreshFilter: () => void;
 
     /** The clearHistory function can be used to clear out the current table interaction history. */
     clearHistory: () => void;
@@ -2885,6 +2697,7 @@ declare class Tabulator {
     off: <K extends keyof EventCallBackMethods>(event: K, callback?: EventCallBackMethods[K]) => void;
 }
 
+// tslint:disable-next-line:no-unnecessary-class
 declare class Module {
     static moduleName: string;
     constructor(table: Tabulator);
@@ -2928,7 +2741,6 @@ declare class TooltipModule {}
 declare class ValidateModule {}
 
 export {
-    Module,
     AccessorModule,
     AjaxModule,
     ClipboardModule,
@@ -2947,6 +2759,7 @@ export {
     InteractionModule,
     KeybindingsModule,
     MenuModule,
+    Module,
     MoveColumnsModule,
     MoveRowsModule,
     MutatorModule,

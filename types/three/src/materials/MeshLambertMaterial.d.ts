@@ -1,9 +1,8 @@
-import { Color } from './../math/Color';
-import { Texture } from './../textures/Texture';
-import { MaterialParameters, Material } from './Material';
-import { Combine, NormalMapTypes } from '../constants';
-import { ColorRepresentation } from '../utils';
-import { Vector2 } from '../Three';
+import { Combine, NormalMapTypes } from "../constants.js";
+import { Color, ColorRepresentation } from "../math/Color.js";
+import { Texture } from "../textures/Texture.js";
+import { Vector2 } from "../Three.js";
+import { Material, MaterialParameters } from "./Material.js";
 
 export interface MeshLambertMaterialParameters extends MaterialParameters {
     bumpMap?: Texture | undefined;
@@ -38,6 +37,13 @@ export interface MeshLambertMaterialParameters extends MaterialParameters {
 
 export class MeshLambertMaterial extends Material {
     constructor(parameters?: MeshLambertMaterialParameters);
+
+    /**
+     * Read-only flag to check if a given object is of type {@link MeshLambertMaterial}.
+     * @remarks This is a _constant_ value
+     * @defaultValue `true`
+     */
+    readonly isMeshLambertMaterial: true;
 
     /**
      * @default 'MeshLambertMaterial'
